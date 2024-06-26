@@ -8,21 +8,28 @@ import pytest
 
 
 # ----------------------------------------------------------------------
+_freeform_strings: list[str] = [
+    "project_name",
+    "project_description",
+    "author_name",
+    "author_email",
+    "github_username",
+    "github_repo_name",
+]
+
+
+# ----------------------------------------------------------------------
 @pytest.fixture
 def configuration() -> dict[str, Any]:
-    create_unique_string_func = lambda: str(uuid.uuid4()).lower().replace("-", "")
-
-    return {
-        "project_name": create_unique_string_func(),
-        "project_description": create_unique_string_func(),
-        "author_name": create_unique_string_func(),
-        "author_email": f"{create_unique_string_func()}@example.com",
-        "generate_docs": True,
-        "documentation_license": "MIT",
-        "hosting_platform": "GitHub",
-        "github_username": create_unique_string_func(),
-        "github_repo_name": create_unique_string_func(),
+    result: dict[str, Any] = {
+        k: str(uuid.uuid4()).lower().replace("-", "") for k in _freeform_strings
     }
+
+    result["generate_docs"] = True
+    result["documentation_license"] = "MIT"
+    result["hosting_platform"] = "GitHub"
+
+    return result
 
 
 # ----------------------------------------------------------------------
@@ -93,15 +100,10 @@ def ParseOutput(
 
                 content = fullpath.read_text(encoding="utf-8")
 
-                for attribute in [
-                    "project_name",
-                    "project_description",
-                    "author_name",
-                    "author_email",
-                    "github_username",
-                    "github_repo_name",
-                ]:
-                    content = content.replace(configuration[attribute], f"<<{attribute}>>")
+                for freeform_string in _freeform_strings:
+                    content = content.replace(
+                        configuration[freeform_string], f"<<{freeform_string}>>"
+                    )
 
                 results[(relative_path / filename).as_posix()] = content
 
