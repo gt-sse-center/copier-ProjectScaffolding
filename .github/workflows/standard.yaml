@@ -18,6 +18,8 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: false
+
       matrix:
         python_version:
           - "3.12"
@@ -36,3 +38,26 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Initialize
+        id: Initialize
+        uses: davidbrownell/dbrownell_DevTools/.github/actions/initialize@CI-v0.21.0
+        with:
+          operating_system: ubuntu-latest
+
+      - name: Bootstrap
+        shell: bash
+        run: |
+          ./Bootstrap.sh --python-version ${{ matrix.python_version }}
+
+      - name: Black
+        shell: bash
+        run: |
+          . ./Activate.sh
+          python Build.py black --verbose
+
+      - name: Pytest
+        shell: bash
+        run: |
+          . ./Activate.sh
+          python Build.py pytest --verbose
