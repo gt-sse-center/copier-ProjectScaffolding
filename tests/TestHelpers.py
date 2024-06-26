@@ -98,6 +98,8 @@ def ParseOutput(
                     "project_description",
                     "author_name",
                     "author_email",
+                    "github_username",
+                    "github_repo_name",
                 ]:
                     content = content.replace(configuration[attribute], f"<<{attribute}>>")
 

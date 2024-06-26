@@ -32,5 +32,3 @@ MoveFile(
 shutil.rmtree(licenses_dir)
 
 MoveFiles(documentation_dir, this_dir)
-
-# BugBug: Add rest of documentation
