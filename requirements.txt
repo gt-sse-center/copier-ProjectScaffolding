@@ -1,0 +1,4 @@
+copier~=9.2
+pytest~=8.2
+pytest-copie~=0.2
+syrupy~=4.6

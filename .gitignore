@@ -1,0 +1,10 @@
+Activate*.cmd
+Activate*.sh
+Deactivate*.cmd
+Deactivate*.sh
+
+**/__pycache__/**
+**/Generated/**
+**/.coverage
+**/lcov.info
+**/.vscode
