@@ -61,10 +61,10 @@ def test_License(license, copie, configuration, snapshot):
     [
         "CODE_OF_CONDUCT.md",
         "CONTRIBUTING.md",
-        # TODO: "DEVELOPMENT.md",
+        "DEVELOPMENT.md",
         "GOVERNANCE.md",
         "MAINTAINERS.md",
-        # TODO: "README.md",
+        "README.md",
         "SECURITY.md",
     ],
 )
