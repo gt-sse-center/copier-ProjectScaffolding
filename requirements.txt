@@ -1,4 +1,5 @@
 copier~=9.2
+copier-templates-extensions~=0.3
 dbrownell_DevTools
 pytest-copie~=0.2
 syrupy~=4.6

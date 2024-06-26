@@ -45,3 +45,30 @@ def test_License(license, copie, configuration, snapshot):
             license_content,
             re.MULTILINE,
         )
+
+
+# ----------------------------------------------------------------------
+@pytest.mark.filterwarnings("ignore:Dirty template changes included automatically")
+@pytest.mark.parametrize(
+    "filename",
+    [
+        "CODE_OF_CONDUCT.md",
+        "CONTRIBUTING.md",
+    ],
+)
+@pytest.mark.parametrize(
+    "hosting_platform",
+    [
+        "None",
+        "GitHub",
+    ],
+)
+def test_CODE_OF_CONDUCT(filename, hosting_platform, copie, configuration, snapshot):
+    configuration["hosting_platform"] = hosting_platform
+
+    RunTest(
+        copie,
+        configuration,
+        snapshot,
+        include_globs={filename},
+    )

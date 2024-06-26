@@ -25,6 +25,7 @@ github_username:
 github_repo_name:
   type: str
   help: Enter the name of your GitHub repository.
+  default: "{{ project_name | slugify }}"
   validator: |-
     {% if not github_repo_name %}
     Please enter a valid GitHub repository name.

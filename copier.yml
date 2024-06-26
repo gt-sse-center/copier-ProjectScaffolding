@@ -67,3 +67,8 @@ _tasks:
   - python __documentation/__postprocess.py
   - python __hosting_platform/__postprocess.py
   - python -c "import shutil; shutil.rmtree('__tools'); shutil.rmtree('__documentation'); shutil.rmtree('__hosting_platform')"
+
+_jinja_extensions:
+- copier_templates_extensions.TemplateExtensionLoader
+- extensions/exception.py:ExceptionExtension
+- extensions/slugify.py:SlugifyExtension
