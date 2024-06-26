@@ -8,6 +8,7 @@ from TestHelpers import *
 
 
 # ----------------------------------------------------------------------
+@pytest.mark.filterwarnings("ignore:Dirty template changes included automatically")
 @pytest.mark.parametrize(
     "license",
     [
@@ -26,7 +27,7 @@ def test_License(license, copie, configuration, snapshot):
         copie,
         configuration,
         snapshot,
-        include_files={"LICENSE.txt"},
+        include_globs={"LICENSE.txt"},
     )
 
     if license != "None":

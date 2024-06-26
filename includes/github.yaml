@@ -1,0 +1,37 @@
+# ----------------------------------------------------------------------
+# |
+# |  Questions
+# |
+# ----------------------------------------------------------------------
+github_host:
+  type: str
+  help: Enter the GitHub URL.
+  default: https://github.com
+  validator: |-
+    {% if not github_host %}
+    Please enter a valid URL.
+    {% endif %}
+  when: "{{ hosting_platform == 'GitHub' }}"
+
+github_username:
+  type: str
+  help: Enter your GitHub user/organization name.
+  validator: |-
+    {% if not github_username %}
+    Please enter a valid GitHub user/organization name
+    {% endif %}
+  when: "{{ hosting_platform == 'GitHub' }}"
+
+github_repo_name:
+  type: str
+  help: Enter the name of your GitHub repository.
+  validator: |-
+    {% if not github_repo_name %}
+    Please enter a valid GitHub repository name.
+    {% endif %}
+  when: "{{ hosting_platform == 'GitHub' }}"
+
+github_url:
+  type: str
+  default: "{{ github_host }}/{{ github_username }}/{{ github_repo_name }}"
+  when: False
