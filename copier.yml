@@ -1,0 +1,54 @@
+# ----------------------------------------------------------------------
+# |
+# |  Questions
+# |
+# ----------------------------------------------------------------------
+project_name:
+  type: str
+  help: Enter the name of the project.
+  validator: |-
+    {% if not project_name %}
+    Please enter a valid project name.
+    {% endif %}
+
+project_description:
+  type: str
+  help: Enter a short, single-sentence description of the project [OPTIONAL].
+
+author_name:
+  type: str
+  help: Enter the name of the author or organization.
+  validator: |-
+    {% if not author_name %}
+    Please enter a valid author or organization.
+    {% endif %}
+
+author_email:
+  type: str
+  help: Enter the email address of the author or organization.
+  validator: |-
+    {% if not author_email %}
+    Please enter a valid email address.
+    {% endif %}
+
+generate_docs:
+  type: bool
+  help: Would you like to generate documentation for the project?
+  default: True
+
+---
+!include includes/documentation.yaml
+---
+
+# ----------------------------------------------------------------------
+# |
+# |  Configuration
+# |
+# ----------------------------------------------------------------------
+_exclude: ["includes"]
+_subdirectory: template
+_templates_suffix: ""
+
+_tasks:
+  - python __documentation/__postprocess.py
+  - python -c "import shutil; shutil.rmtree('__tools'); shutil.rmtree('__documentation')"
