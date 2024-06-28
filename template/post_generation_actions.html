@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ project_name }} Post Generation Actions</title>
+  </head>
+  <style>
+    body {
+      font-family: "Open Sans", sans-serif;
+    }
+
+    details {
+      width: 100%;
+      overflow: hidden; /* Keep this line to prevent an odd blue outline around the element in Safari. */
+    }
+
+    details summary {
+      display: block;
+    }
+
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details summary span {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding-left: 1rem;
+      background: #444;
+      color: #fff;
+      height: 4rem;
+    }
+
+    details summary span:hover {
+      cursor: pointer;
+    }
+
+    details summary span::before {
+      content: "►";
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      margin-right: 0.5rem;
+      transition: rotate 200ms 400ms ease-out;
+    }
+
+    details[open] summary span::before {
+      rotate: 90deg;
+      transition: rotate 200ms ease-out;
+    }
+
+    details summary span input {
+      margin-right: 0.75rem;
+    }
+
+    div.details-content {
+      box-sizing: border-box;
+      width: 100%;
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 10px;
+      border: 2px solid transparent;
+      transition: max-height 400ms ease-out, border 0ms 400ms linear;
+      background-color: rgba(0, 0, 0, 0.05);
+      margin-bottom: 1rem;
+    }
+
+    details[open] + div.details-content {
+      max-height: 800px; /* Set a max-height value enough to show all the content */
+      border-color: #888;
+      transition: max-height 400ms ease-out, border 0ms linear;
+    }
+
+    code {
+      background-color: rgba(0, 0, 0, 0.10);
+    }
+
+  </style>
+  <body>
+    <h1>{{ project_name }} Post Generation Actions</h1>
+    <p>The following steps must be completed in the order listed now that your project has been generated.</p>
+
+    <!-- [BEGIN] Before Repository Tool Instruction -->
+    <!-- [END] Before Repository Tool Instruction -->
+
+    <!-- [BEGIN] Repository Tool Instruction -->
+    <!-- [END] Repository Tool Instruction -->
+
+    <!-- [BEGIN] After Repository Tool Instruction -->
+    <!-- [END] After Repository Tool Instruction -->
+
+    <details>
+        <summary>
+            <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
+        </summary>
+    </details>
+    <div role="definition" class="details-content">
+        <p>After you have completed all the steps, you can delete this file.</p>
+        <p>Now your project is ready to go!</p>
+    </div>
+
+    <script>
+      document.querySelectorAll("details summary span input[type=checkbox]").forEach(
+        function(checkbox) {
+          if(window.localStorage.getItem(checkbox.id) === "true")
+            checkbox.checked = true;
+
+          this.addEventListener(
+            "change",
+            function() {
+              window.localStorage.setItem(checkbox.id, checkbox.checked ? "true" : "false");
+            },
+          );
+        }
+      );
+    </script>
+
+    <!-- TODO: Decorate code elements with a "copy code" button that copies to the clipboard -->
+  </body>
+</html>
