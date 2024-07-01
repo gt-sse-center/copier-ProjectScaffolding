@@ -50,30 +50,34 @@ def test_License(license, copie, configuration, snapshot):
 # ----------------------------------------------------------------------
 @pytest.mark.filterwarnings("ignore:Dirty template changes included automatically")
 @pytest.mark.parametrize(
+    "project_type",
+    [
+        "None",
+        "PythonExecutionEnvironment",
+    ],
+)
+@pytest.mark.parametrize(
     "hosting_platform",
     [
         "None",
         "GitHub",
     ],
 )
-@pytest.mark.parametrize(
-    "filename",
-    [
-        "CODE_OF_CONDUCT.md",
-        "CONTRIBUTING.md",
-        "DEVELOPMENT.md",
-        "GOVERNANCE.md",
-        "MAINTAINERS.md",
-        "README.md",
-        "SECURITY.md",
-    ],
-)
-def test_Document(filename, hosting_platform, copie, configuration, snapshot):
+def test_Document(hosting_platform, project_type, copie, configuration, snapshot):
     configuration["hosting_platform"] = hosting_platform
+    configuration["project_type"] = project_type
 
     RunTest(
         copie,
         configuration,
         snapshot,
-        include_globs={filename},
+        include_globs={
+            "CODE_OF_CONDUCT.md",
+            "CONTRIBUTING.md",
+            "DEVELOPMENT.md",
+            "GOVERNANCE.md",
+            "MAINTAINERS.md",
+            "README.md",
+            "SECURITY.md",
+        },
     )

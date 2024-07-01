@@ -7,7 +7,7 @@
 <!-- [END] Badges -->
 <!-- END: Exclude Package -->
 
-Copier (https://copier.readthedocs.io/.) template to create scaffolding for different project types (python packages, etc.).
+Copier (https://copier.readthedocs.io/) template to create scaffolding for different project types (python packages, etc.).
 
 <!-- BEGIN: Exclude Package -->
 ## Contents

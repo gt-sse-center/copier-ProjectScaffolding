@@ -8,7 +8,7 @@ from CopierHelpers import *
 
 
 # ----------------------------------------------------------------------
-this_dir = Path.cwd()
+output_dir = Path.cwd()
 
 
 # ----------------------------------------------------------------------
@@ -16,7 +16,7 @@ this_dir = Path.cwd()
 
 # Start by reading the filenames found in __git_precommit_permissions.txt. These are the files whose
 # permissions need to be changed to allow execution.
-precommit_permissions_filename = EnsureFile(this_dir / "__git_precommit_permissions.txt")
+precommit_permissions_filename = EnsureFile(output_dir / "__git_precommit_permissions.txt")
 
 precommit_permissions = precommit_permissions_filename.read_text(encoding="utf-8").strip()
 
@@ -26,7 +26,7 @@ push_step_num = 3
 if precommit_permissions:
     precommit_permissions_lines = [line.strip() for line in precommit_permissions.splitlines() if line.strip()]
 
-    precommit_permissions = "{}<br/>\n".format("<br/>\n".join(f"{4 + index}. <code>git update-index --chmod=+x {line}</code>" for index, line in enumerate(precommit_permissions_lines)))
+    precommit_permissions = "{}<br/>\n".format("<br/>\n".join(f'{commit_step_num + index}. <code>git update-index --chmod=+x "{line}</code>"' for index, line in enumerate(precommit_permissions_lines)))
 
     commit_step_num += len(precommit_permissions_lines)
     push_step_num += len(precommit_permissions_lines)
@@ -50,7 +50,7 @@ actions_content = textwrap.dedent(
 )
 
 AugmentFile(
-    EnsureFile(this_dir / "post_generation_actions.html"),
+    EnsureFile(output_dir / "post_generation_actions.html"),
     CreateInstructionContent("Initialize the git repository", actions_content),
     "Repository Tool Instruction",
     AugmentFileStyle.Finalize,

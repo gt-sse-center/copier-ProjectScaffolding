@@ -42,6 +42,19 @@ generate_docs:
 ---
 
 # ----------------------------------------------------------------------
+repository_tool:
+  type: str
+  help: Which distributed version control system are you using?
+  choices:
+    - null
+    - git
+  default: "git"
+
+---
+!include includes/github.yaml
+---
+
+# ----------------------------------------------------------------------
 hosting_platform:
   type: str
   help: Which code hosting platform are you using?
@@ -50,18 +63,21 @@ hosting_platform:
     - GitHub
   default: GitHub
 
-# This will be defined by the hosting platform
-repository_tool:
-  type: str
-  help: Which distributed version control system are you using?
-  choices:
-    - null
-    - git
-  default: "git"
-  when: "{{ hosting_platform != 'GitHub' }}"
-
 ---
 !include includes/github.yaml
+---
+
+# ----------------------------------------------------------------------
+project_type:
+  type: str
+  help: Which type of project would you like to create?
+  choices:
+    null: None
+    Python Execution Environment - https://github.com/gt-sse-center/copier-ProjectScaffolding/blob/main/README.md#python-execution-environment: PythonExecutionEnvironment
+  default: PythonExecutionEnvironment # TODO: Change this to Python Package once it is available
+
+---
+!include includes/python_execution_environment.yaml
 ---
 
 # ----------------------------------------------------------------------
@@ -74,11 +90,13 @@ _subdirectory: template
 _templates_suffix: ""
 
 _tasks:
-  - python __repository_tool/__preprocess.py
+  - python __repository_tool/__preprocess.py # Note that this command must happen first, as others rely on it
   - python __documentation/__preprocess.py
   - python __hosting_platform/__preprocess.py
+  - python __project_type/__preprocess.py
   - python __repository_tool/__postprocess.py
-  - python -c "import shutil; shutil.rmtree('__repository_tool'); shutil.rmtree('__tools'); shutil.rmtree('__documentation'); shutil.rmtree('__hosting_platform')"
+  - python __tools/Cleanup.py
+  - python -c "import shutil; shutil.rmtree('__tools');"
 
 _jinja_extensions:
 - copier_templates_extensions.TemplateExtensionLoader

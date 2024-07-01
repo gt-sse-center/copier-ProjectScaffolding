@@ -25,6 +25,8 @@ def configuration() -> dict[str, Any]:
         k: str(uuid.uuid4()).lower().replace("-", "") for k in _freeform_strings
     }
 
+    result["repository_tool"] = "git"
+    result["_disable_git_directory_check"] = True
     result["generate_docs"] = True
     result["documentation_license"] = "MIT"
     result["hosting_platform"] = "GitHub"
@@ -39,8 +41,14 @@ def RunTest(
     snapshot: Any,
     include_globs: set[str] | None = None,
     exclude_globs: set[str] | None = None,
+    expect_failure: bool = False,
 ) -> dict[str, str | None]:
     result = copie.copy(extra_answers=configuration)
+
+    if expect_failure:
+        assert result.exit_code != 0, result.exit_code
+        assert result.exception is not None
+        return {}
 
     assert result.exit_code == 0, result
     assert result.exception is None
