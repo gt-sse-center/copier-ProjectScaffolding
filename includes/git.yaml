@@ -1,0 +1,4 @@
+_disable_git_directory_check:
+  type: bool
+  default: False
+  when: False

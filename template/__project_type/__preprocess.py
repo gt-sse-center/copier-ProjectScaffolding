@@ -1,9 +1,4 @@
 import sys
-
-{% if repository_tool == 'None' %}
-sys.exit()
-{% endif %}
-
 import subprocess
 
 from pathlib import Path
@@ -14,10 +9,10 @@ from CopierHelpers import *
 
 # ----------------------------------------------------------------------
 output_dir = Path.cwd()
-repository_tool_dir = EnsureDir(output_dir / "__repository_tool" / "__{{ repository_tool }}")
-preprocess_filename = repository_tool_dir / "__preprocess.py"
+project_type_dir = EnsureDir(output_dir / "__project_type" / "__{{ project_type }}")
+preprocess_filename = project_type_dir / "__preprocess.py"
 
-MoveFiles(repository_tool_dir, output_dir)
+MoveFiles(project_type_dir, output_dir)
 
 if preprocess_filename.is_file():
     subprocess.run(

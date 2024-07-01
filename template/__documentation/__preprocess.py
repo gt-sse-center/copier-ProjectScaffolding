@@ -13,9 +13,9 @@ from CopierHelpers import *
 
 
 # ----------------------------------------------------------------------
-this_dir = Path.cwd()
+output_dir = Path.cwd()
 
-documentation_dir = EnsureDir(this_dir / "__documentation")
+documentation_dir = EnsureDir(output_dir / "__documentation")
 
 
 # ----------------------------------------------------------------------
@@ -31,4 +31,4 @@ MoveFile(
 
 shutil.rmtree(licenses_dir)
 
-MoveFiles(documentation_dir, this_dir)
+MoveFiles(documentation_dir, output_dir)

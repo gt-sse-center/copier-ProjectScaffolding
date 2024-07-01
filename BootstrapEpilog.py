@@ -3,6 +3,8 @@
 import subprocess
 import sys
 
+from pathlib import Path
+
 
 # Parse the arguments
 no_cache = False
@@ -22,4 +24,5 @@ subprocess.run(
     ),
     check=True,
     shell=True,
+    cwd=Path(__file__).parent,
 )
