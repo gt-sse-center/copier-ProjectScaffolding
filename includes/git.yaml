@@ -1,4 +1,9 @@
-_disable_git_directory_check:
+_git_disable_directory_check:
+  type: bool
+  default: False
+  when: False
+
+_git_suppress_permission_instructions:
   type: bool
   default: False
   when: False

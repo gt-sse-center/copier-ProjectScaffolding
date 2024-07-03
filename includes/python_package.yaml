@@ -1,0 +1,14 @@
+# ----------------------------------------------------------------------
+# |
+# |  Questions
+# |
+# ----------------------------------------------------------------------
+python_package_pypi_name:
+  type: str
+  help: Enter the name of the Python package on PyPi (https://pypi.org).
+  default: "{{ project_name | pythonify }}"
+  validator: |-
+    {% if not python_package_pypi_name %}
+    Please enter a valid Python package name.
+    {% endif %}
+  when: "{{ project_type == 'PythonPackage' }}"

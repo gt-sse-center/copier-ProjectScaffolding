@@ -1,19 +1,23 @@
-# ----------------------------------------------------------------------
-# |
-# |  black
-# |
-# ----------------------------------------------------------------------
-[tool.black]
-line-length = 100
-force-exclude = '''__preprocess.py|__postprocess.py|template'''
+"""Unit tests for Math.py"""
+
+from {{ python_package_pypi_name }}.Math import *
+
 
 # ----------------------------------------------------------------------
-# |
-# |  pytest
-# |
+def test_Add():
+    assert Add(1, 20) == 21
+
+
 # ----------------------------------------------------------------------
-[tool.pytest.ini_options]
-python_files = [
-    "**/*Test.py",
-]
-norecursedirs = "template"
+def test_Sub():
+    assert Sub(1, 20) == -19
+
+
+# ----------------------------------------------------------------------
+def test_Mult():
+    assert Mult(2, 15) == 30
+
+
+# ----------------------------------------------------------------------
+def test_Div():
+    assert Div(6, 3) == 2

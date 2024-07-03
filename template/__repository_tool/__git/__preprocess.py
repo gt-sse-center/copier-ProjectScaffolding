@@ -1,4 +1,4 @@
-{% if not _disable_git_directory_check %}
+{% if not _git_disable_directory_check %}
 import sys
 
 from pathlib import Path

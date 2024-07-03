@@ -32,3 +32,39 @@ MoveFile(
 shutil.rmtree(licenses_dir)
 
 MoveFiles(documentation_dir, output_dir)
+
+
+# ----------------------------------------------------------------------
+# |
+# |  post_generation_actions.html
+# |
+# ----------------------------------------------------------------------
+post_generation_actions_filename = EnsureFile(output_dir / "post_generation_actions.html")
+
+AugmentFile(
+    post_generation_actions_filename,
+    CreateInstructionContent(
+        "Update README.md",
+        textwrap.dedent(
+            """\
+            <p>Please search for and replace all <code>TODO:</code> comments in <code>README.md</code>.</p>
+            """,
+        ),
+    ),
+    "After Repository Tool Instruction",
+)
+
+post_generation_actions_filename = EnsureFile(output_dir / "post_generation_actions.html")
+
+AugmentFile(
+    post_generation_actions_filename,
+    CreateInstructionContent(
+        "Update MAINTAINERS.md",
+        textwrap.dedent(
+            """\
+            <p>Please search for and replace all <code>TODO:</code> comments in <code>MAINTAINERS.md</code>.</p>
+            """,
+        ),
+    ),
+    "After Repository Tool Instruction",
+)

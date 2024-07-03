@@ -51,7 +51,7 @@ repository_tool:
   default: "git"
 
 ---
-!include includes/github.yaml
+!include includes/git.yaml
 ---
 
 # ----------------------------------------------------------------------
@@ -74,10 +74,13 @@ project_type:
   choices:
     null: None
     Python Execution Environment - https://github.com/gt-sse-center/copier-ProjectScaffolding/blob/main/README.md#python-execution-environment: PythonExecutionEnvironment
-  default: PythonExecutionEnvironment # TODO: Change this to Python Package once it is available
+    Python Package - https://github.com/gt-sse-center/copier-ProjectScaffolding/blob/main/README.md#python-package: PythonPackage
+  default: PythonPackage
 
 ---
 !include includes/python_execution_environment.yaml
+---
+!include includes/python_package.yaml
 ---
 
 # ----------------------------------------------------------------------
@@ -101,4 +104,5 @@ _tasks:
 _jinja_extensions:
 - copier_templates_extensions.TemplateExtensionLoader
 - extensions/exception.py:ExceptionExtension
+- extensions/slugify.py:PythonifyExtension
 - extensions/slugify.py:SlugifyExtension

@@ -1,5 +1,6 @@
 import sys
 import subprocess
+import textwrap
 
 from pathlib import Path
 
@@ -19,6 +20,12 @@ subprocess.run(
     shell=True,
 )
 
+
+# ----------------------------------------------------------------------
+# |
+# |  Documentation
+# |
+# ----------------------------------------------------------------------
 {% if generate_docs %}
 
 # ----------------------------------------------------------------------
@@ -55,6 +62,10 @@ AugmentFile(
 
 
 # ----------------------------------------------------------------------
+# |
+# |  post_generation_actions.html
+# |
+# ----------------------------------------------------------------------
 post_generation_actions_filename = EnsureFile(output_dir / "post_generation_actions.html")
 
 AugmentFile(
@@ -76,5 +87,17 @@ AugmentFile(
         ),
     ),
     "After Repository Tool Instruction",
-    AugmentFileStyle.Finalize,
+)
+
+AugmentFile(
+    post_generation_actions_filename,
+    CreateInstructionContent(
+        "Update DEVELOPMENT.md",
+        textwrap.dedent(
+            """\
+            <p>Please search for and replace all <code>TODO:</code> comments in <code>DEVELOPMENT.md</code>.</p>
+            """,
+        ),
+    ),
+    "After Repository Tool Instruction",
 )
