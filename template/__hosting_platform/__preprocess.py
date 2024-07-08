@@ -1,9 +1,4 @@
 import sys
-
-{% if hosting_platform == 'None' %}
-sys.exit()
-{% endif %}
-
 import subprocess
 
 from pathlib import Path

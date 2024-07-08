@@ -1,923 +1,126 @@
 # serializer version: 1
-# name: test_Document[GitHub-None]
-  dict({
-    'CODE_OF_CONDUCT.md': '''
-      # <<project_name>> Open Source Code of Conduct
-      
-      ## Principles
-      These principles guide our data, product, and process decisions, architecture, and approach.
-      
-      - Open means transparent and participatory.
-      - We take a modular and modern approach to software development.
-      - We build open-source software and open-source process.
-      - We value ease of implementation.
-      - Fostering community includes building capacity and making our software and processes accessible to participants with diverse backgrounds and skillsets.
-      - Data (and data science) is as important as software and process. We build open data sets where possible.
-      - We strive for transparency for algorithms and places we might be introducing bias.
-      
-      ## Community Guidelines
-      Information on contributing to this repository is available in our [Contributing file](CONTRIBUTING.md).
-      
-      When participating in <<project_name>> open source community conversations and spaces, we ask individuals to follow the following guidelines:
-      
-      - Embrace a culture of learning, and educate each other. We are all entering this conversation from different starting points and with different backgrounds. There are no dumb questions.
-      - Take space and give space. We strive to create an equitable environment in which all are welcome and able to participate. We hope individuals feel comfortable voicing their opinions and providing contributions and will do our best to recognize and make space for individuals who may be struggling to find space here. Likewise, we expect individuals to recognize when they are taking up significant space and take a step back to allow room for others.
-      - Be respectful.
-      - Default to positive. Assume others' contributions are legitimate and valuable and that they are made with good intention.
-      
-      ## Acknowledgements
-      This Community Guidelines was adapted from the [United States Digital Service](https://usds.gov) [Justice40](https://thejustice40.com) open source [repository](https://github.com/usds/justice40-tool).
-  
-    ''',
-    'CONTRIBUTING.md': '''
-      # Contribution Guidelines
-      
-      ## Contributor Code of Conduct
-      As contributors and maintainers of this project, we pledge to respect all people who contribute through reporting issues, posting feature requests, updating documentation, submitting pull requests or patches, and other activities.
-      
-      We are committed to making participation in this project a harassment-free experience for everyone, regardless of the level of experience, gender, gender identity, expression, sexual orientation, disability, personal appearance, body size, race, ethnicity, age, or religion.
-      
-      Examples of unacceptable behavior by participants include the use of sexual language or imagery, derogatory comments or personal attacks, trolling, public or private harassment, insults, or other unprofessional conduct.
-      
-      [Project maintainers](MAINTAINERS.md) have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned with this Code of Conduct.
-      
-      Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by opening an issue or contacting one or more of the [project maintainers](MAINTAINERS.md).
-      
-      ## General information
-      For specific proposals, please provide them as [pull requests](https://github.com/coreinfrastructure/best-practices-badge/pulls) or [issues](https://github.com/coreinfrastructure/best-practices-badge/issues) via our [GitHub site](https://github.com/<<github_username>>/<<github_repo_name>>).
-      
-      The [DEVELOPMENT.md](DEVELOPMENT.md) file explains how to install the program locally (highly recommended if you're going to make code changes). It also provides information useful for making changes and validating them locally before submitting a pull request.
-      
-      ### Pull requests and different branches recommended
-      Pull requests are preferred, since they are specific. For more about how to create a pull request, see https://help.github.com/articles/using-pull-requests/.
-      
-      We recommend creating different branches for different (logical) changes, and creating a pull request into the `main` branch when you're done. See the GitHub documentation on [creating branches](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/) and [using pull requests](https://help.github.com/articles/using-pull-requests/).
-      
-      ### How we handle proposals
-      We use GitHub to track proposed changes via its [issue tracker](https://github.com/coreinfrastructure/best-practices-badge/issues) and [pull requests](https://github.com/coreinfrastructure/best-practices-badge/pulls). Specific changes are proposed using those mechanisms. Issues are assigned to an individual, who works and then marks it complete. If there are questions or objections, the conversation of that issue or pull request is used to resolve it.
-      
-      ### We are proactive
-      In general we try to be proactive to detect and eliminate mistakes and vulnerabilities as soon as possible, and to reduce their impact when they do happen. We use a defensive design and coding style to reduce the likelihood of mistakes, a variety of tools that try to detect mistakes early, and an automatic test suite with significant coverage. We also release the software as open source software so others can review it.
-      
-      Since early detection and impact reduction can never be perfect, we also try to detect and repair problems during deployment as quickly as possible. This is especially true for security issues; see our [security information](#vulnerability-reporting-security-issues) for more information.
-      
-      ## Vulnerability reporting (security issues)
-      Please privately report vulnerabilities you find so we can fix them!
-      
-      See [SECURITY.md](SECURITY.md) for information on how to privately report vulnerabilities.
-      
-      ## Acknowledgements
-      
-      This Code of Conduct is adapted from the [Contributor Covenant](http://contributor-covenant.org), version 1.0.0, available at [http://contributor-covenant.org/version/1/0/0/](http://contributor-covenant.org/version/1/0/0/)
-  
-    ''',
-    'DEVELOPMENT.md': '''
-      # Local Development
-      
-      ## Enlistment
-      TODO: Complete this section
-      
-      ## Development Activities
-      TODO: Complete this section
-  
-    ''',
-    'GOVERNANCE.md': '''
-      # Governance
-      This project is governed by our [Code of Conduct](CODE_OF_CONDUCT.md) and [Contribution Guidelines](CONTRIBUTING.md).
-  
-    ''',
-    'MAINTAINERS.md': '''
-      # Maintainers
-      
-      This page lists all active maintainers of this repository. If you were a maintainer and would like to add your name to the Emeritus list, please send us a pull request.
-      
-      See [Code of Conduct](CODE_OF_CONDUCT.md) and [Contributing](CONTRIBUTING.md) for general contribution guidelines.
-      
-      ## Current Maintainers
-      | Maintainer | GitHub ID | Affiliation |
-      | --- | --- | --- |
-      TODO: Add maintainers
-      
-      ## Emeritus
-      | Maintainer | GitHub ID | Affiliation |
-      | --- | --- | --- |
-  
-    ''',
-    'README.md': '''
-      # <<project_name>>
-      
-      <!-- BEGIN: Exclude Package -->
-      [![License](https://img.shields.io/github/license/<<github_username>>/<<github_repo_name>>?color=dark-green)](https://github.com/<<github_username>>/<<github_repo_name>>/blob/master/LICENSE.txt)
-      [![GitHub commit activity](https://img.shields.io/github/commit-activity/y/<<github_username>>/<<github_repo_name>>?color=dark-green)](https://github.com/<<github_username>>/<<github_repo_name>>/commits/main/)
-      <!-- END: Exclude Package -->
-      
-      <<project_description>>
-      
-      <!-- BEGIN: Exclude Package -->
-      ## Contents
-      - [Overview](#overview)
-      - [Installation](#installation)
-      - [Development](#development)
-      - [Additional Information](#additional-information)
-      - [License](#license)
-      <!-- END: Exclude Package -->
-      
-      ## Overview
-      TODO: Complete this section
-      
-      ### How to use <<project_name>>
-      TODO: Complete this section
-      
-      <!-- BEGIN: Exclude Package -->
-      ## Installation
-      TODO: Complete this section
-      
-      ## Development
-      Please visit [Contributing](https://github.com/<<github_username>>/<<github_repo_name>>/blob/main/CONTRIBUTING.md) and [Development](https://github.com/<<github_username>>/<<github_repo_name>>/blob/main/DEVELOPMENT.md) for information on contributing to this project.
-      <!-- END: Exclude Package -->
-      
-      ## Additional Information
-      Additional information can be found at these locations.
-      
-      | Title | Document | Description |
-      | --- | --- | --- |
-      | Code of Conduct | [CODE_OF_CONDUCT.md](https://github.com/<<github_username>>/<<github_repo_name>>/blob/main/CODE_OF_CONDUCT.md) | Information about the the norms, rules, and responsibilities we adhere to when participating in this open source community. |
-      | Contributing | [CONTRIBUTING.md](https://github.com/<<github_username>>/<<github_repo_name>>/blob/main/CONTRIBUTING.md) | Information about contributing code changes to this project. |
-      | Development | [DEVELOPMENT.md](https://github.com/<<github_username>>/<<github_repo_name>>/blob/main/DEVELOPMENT.md) | Information about development activities involved in making changes to this project. |
-      | Governance | [GOVERNANCE.md](https://github.com/<<github_username>>/<<github_repo_name>>/blob/main/GOVERNANCE.md) | Information about how this project is governed. |
-      | Maintainers | [MAINTAINERS.md](https://github.com/<<github_username>>/<<github_repo_name>>/blob/main/MAINTAINERS.md) | Information about individuals who maintain this project. |
-      | Security | [SECURITY.md](https://github.com/<<github_username>>/<<github_repo_name>>/blob/main/SECURITY.md) | Information about how to privately report security issues associated with this project. |
-      ## License
-      
-      <<project_name>> is licensed under the <a href="https://choosealicense.com/licenses/mit/" target="_blank">MIT</a> license.
-  
-    ''',
-    'SECURITY.md': '''
-      # Security
-      
-      If you find a significant vulnerability, or evidence of one, please report it privately.
-      
-      We prefer that you use the [GitHub mechanism for privately reporting a vulnerability](https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability#privately-reporting-a-security-vulnerability). Under the [main repository's security tab](https://github.com/<<github_username>>/<<github_repo_name>>/security), in the left sidebar, under "Reporting", click "Advisories", click the "New draft security advisory" button to open the advisory form.
-      [issues](https://github.com/coreinfrastructure/best-practices-badge/issues) via our [GitHub site](https://github.com/<<github_username>>/<<github_repo_name>>).We will gladly give credit to anyone who reports a vulnerability so that we can fix it. If you want to remain anonymous or pseudonymous instead, please let us know that; we will gladly respect your wishes.
-      
-      We gladly welcome patches to fix such vulnerabilities! See [CONTRIBUTING.md](CONTRIBUTING.md) for information about contributions.
-  
-    ''',
-  })
-# ---
-# name: test_Document[GitHub-PythonExecutionEnvironment]
-  dict({
-    'CODE_OF_CONDUCT.md': '''
-      # <<project_name>> Open Source Code of Conduct
-      
-      ## Principles
-      These principles guide our data, product, and process decisions, architecture, and approach.
-      
-      - Open means transparent and participatory.
-      - We take a modular and modern approach to software development.
-      - We build open-source software and open-source process.
-      - We value ease of implementation.
-      - Fostering community includes building capacity and making our software and processes accessible to participants with diverse backgrounds and skillsets.
-      - Data (and data science) is as important as software and process. We build open data sets where possible.
-      - We strive for transparency for algorithms and places we might be introducing bias.
-      
-      ## Community Guidelines
-      Information on contributing to this repository is available in our [Contributing file](CONTRIBUTING.md).
-      
-      When participating in <<project_name>> open source community conversations and spaces, we ask individuals to follow the following guidelines:
-      
-      - Embrace a culture of learning, and educate each other. We are all entering this conversation from different starting points and with different backgrounds. There are no dumb questions.
-      - Take space and give space. We strive to create an equitable environment in which all are welcome and able to participate. We hope individuals feel comfortable voicing their opinions and providing contributions and will do our best to recognize and make space for individuals who may be struggling to find space here. Likewise, we expect individuals to recognize when they are taking up significant space and take a step back to allow room for others.
-      - Be respectful.
-      - Default to positive. Assume others' contributions are legitimate and valuable and that they are made with good intention.
-      
-      ## Acknowledgements
-      This Community Guidelines was adapted from the [United States Digital Service](https://usds.gov) [Justice40](https://thejustice40.com) open source [repository](https://github.com/usds/justice40-tool).
-  
-    ''',
-    'CONTRIBUTING.md': '''
-      # Contribution Guidelines
-      
-      ## Contributor Code of Conduct
-      As contributors and maintainers of this project, we pledge to respect all people who contribute through reporting issues, posting feature requests, updating documentation, submitting pull requests or patches, and other activities.
-      
-      We are committed to making participation in this project a harassment-free experience for everyone, regardless of the level of experience, gender, gender identity, expression, sexual orientation, disability, personal appearance, body size, race, ethnicity, age, or religion.
-      
-      Examples of unacceptable behavior by participants include the use of sexual language or imagery, derogatory comments or personal attacks, trolling, public or private harassment, insults, or other unprofessional conduct.
-      
-      [Project maintainers](MAINTAINERS.md) have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned with this Code of Conduct.
-      
-      Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by opening an issue or contacting one or more of the [project maintainers](MAINTAINERS.md).
-      
-      ## General information
-      For specific proposals, please provide them as [pull requests](https://github.com/coreinfrastructure/best-practices-badge/pulls) or [issues](https://github.com/coreinfrastructure/best-practices-badge/issues) via our [GitHub site](https://github.com/<<github_username>>/<<github_repo_name>>).
-      
-      The [DEVELOPMENT.md](DEVELOPMENT.md) file explains how to install the program locally (highly recommended if you're going to make code changes). It also provides information useful for making changes and validating them locally before submitting a pull request.
-      
-      ### Pull requests and different branches recommended
-      Pull requests are preferred, since they are specific. For more about how to create a pull request, see https://help.github.com/articles/using-pull-requests/.
-      
-      We recommend creating different branches for different (logical) changes, and creating a pull request into the `main` branch when you're done. See the GitHub documentation on [creating branches](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/) and [using pull requests](https://help.github.com/articles/using-pull-requests/).
-      
-      ### How we handle proposals
-      We use GitHub to track proposed changes via its [issue tracker](https://github.com/coreinfrastructure/best-practices-badge/issues) and [pull requests](https://github.com/coreinfrastructure/best-practices-badge/pulls). Specific changes are proposed using those mechanisms. Issues are assigned to an individual, who works and then marks it complete. If there are questions or objections, the conversation of that issue or pull request is used to resolve it.
-      
-      ### We are proactive
-      In general we try to be proactive to detect and eliminate mistakes and vulnerabilities as soon as possible, and to reduce their impact when they do happen. We use a defensive design and coding style to reduce the likelihood of mistakes, a variety of tools that try to detect mistakes early, and an automatic test suite with significant coverage. We also release the software as open source software so others can review it.
-      
-      Since early detection and impact reduction can never be perfect, we also try to detect and repair problems during deployment as quickly as possible. This is especially true for security issues; see our [security information](#vulnerability-reporting-security-issues) for more information.
-      
-      ## Vulnerability reporting (security issues)
-      Please privately report vulnerabilities you find so we can fix them!
-      
-      See [SECURITY.md](SECURITY.md) for information on how to privately report vulnerabilities.
-      
-      ## Acknowledgements
-      
-      This Code of Conduct is adapted from the [Contributor Covenant](http://contributor-covenant.org), version 1.0.0, available at [http://contributor-covenant.org/version/1/0/0/](http://contributor-covenant.org/version/1/0/0/)
-  
-    ''',
-    'DEVELOPMENT.md': '''
-      # Local Development
-      
-      ## Enlistment
-      Enlistment in this repository involves these steps.
-      
-      <table>
-      <tr>
-          <th>Step</th>
-          <th>Command Line</th>
-          <th>Description</th>
-      </tr>
-      <tr>
-          <td>1. Clone the repository locally</td>
-          <td><code>git clone https://github.com/<<github_username>>/<<github_repo_name>></code></td>
-          <td><a href="https://git-scm.com/docs/git-clone" target="_blank">https://git-scm.com/docs/git-clone</a></td>
-      </tr>
-      <tr>
-          <td>2. Bootstrap the environment</td>
-          <td>
-              <table>
-                  <tr>
-                      <th>Linux / MacOS</th>
-                      <td><code>./Bootstrap.sh [--python-version &lt;python version&gt;]</code></td>
-                  </tr>
-                  <tr>
-                      <th>Windows</th>
-                      <td><code>Bootstrap.cmd [--python-version &lt;python version&gt;]</code></td>
-                  </tr>
-              </table>
-          </td>
-          <td>Prepares the repository for local development by enlisting in all dependencies.</td>
-      </tr>
-      <tr>
-          <td>3. Activate the environment</td>
-          <td>
-              <table>
-                  <tr>
-                      <th>Linux / MacOS</th>
-                      <td><code>. ./Activate.sh</code></td>
-                  </tr>
-                  <tr>
-                      <th>Windows</th>
-                      <td><code>Activate.cmd</code></td>
-                  </tr>
-              </table>
-          </td>
-          <td>
-              <p>Activates the terminal for development. Each new terminal window must be activated.</p>
-              <p>Activate.sh/.cmd is actually a shortcut to the most recently bootstrapped version of python (e.g. Activate3.11.sh/.cmd). With this functionality, it is possible to support multiple python versions in the same repository and activate each in a terminal using the python-specific activation script.</p>
-          </td>
-      </tr>
-      <tr>
-          <td>4. [Optional] Deactivate the environment</td>
-          <td>
-              <table>
-                  <tr>
-                      <th>Linux / MacOS</th>
-                      <td><code>. ./Deactivate.sh</code></td>
-                  </tr>
-                  <tr>
-                      <th>Windows</th>
-                      <td><code>Deactivate.cmd</code></td>
-                  </tr>
-              </table>
-          </td>
-          <td>
-              Deactivates the terminal environment. Deactivating is optional, as the terminal window itself may be closed when development activities are complete.
-          </td>
-      </tr>
-      </table>
-      
-      ## Development Activities
-      TODO: Complete this section
-  
-    ''',
-    'GOVERNANCE.md': '''
-      # Governance
-      This project is governed by our [Code of Conduct](CODE_OF_CONDUCT.md) and [Contribution Guidelines](CONTRIBUTING.md).
-  
-    ''',
-    'MAINTAINERS.md': '''
-      # Maintainers
-      
-      This page lists all active maintainers of this repository. If you were a maintainer and would like to add your name to the Emeritus list, please send us a pull request.
-      
-      See [Code of Conduct](CODE_OF_CONDUCT.md) and [Contributing](CONTRIBUTING.md) for general contribution guidelines.
-      
-      ## Current Maintainers
-      | Maintainer | GitHub ID | Affiliation |
-      | --- | --- | --- |
-      TODO: Add maintainers
-      
-      ## Emeritus
-      | Maintainer | GitHub ID | Affiliation |
-      | --- | --- | --- |
-  
-    ''',
-    'README.md': '''
-      # <<project_name>>
-      
-      <!-- BEGIN: Exclude Package -->
-      [![License](https://img.shields.io/github/license/<<github_username>>/<<github_repo_name>>?color=dark-green)](https://github.com/<<github_username>>/<<github_repo_name>>/blob/master/LICENSE.txt)
-      [![GitHub commit activity](https://img.shields.io/github/commit-activity/y/<<github_username>>/<<github_repo_name>>?color=dark-green)](https://github.com/<<github_username>>/<<github_repo_name>>/commits/main/)
-      <!-- END: Exclude Package -->
-      
-      <<project_description>>
-      
-      <!-- BEGIN: Exclude Package -->
-      ## Contents
-      - [Overview](#overview)
-      - [Installation](#installation)
-      - [Development](#development)
-      - [Additional Information](#additional-information)
-      - [License](#license)
-      <!-- END: Exclude Package -->
-      
-      ## Overview
-      TODO: Complete this section
-      
-      ### How to use <<project_name>>
-      TODO: Complete this section
-      
-      <!-- BEGIN: Exclude Package -->
-      ## Installation
-      No additional setup is required to use this project.
-      
-      ## Development
-      Please visit [Contributing](https://github.com/<<github_username>>/<<github_repo_name>>/blob/main/CONTRIBUTING.md) and [Development](https://github.com/<<github_username>>/<<github_repo_name>>/blob/main/DEVELOPMENT.md) for information on contributing to this project.
-      <!-- END: Exclude Package -->
-      
-      ## Additional Information
-      Additional information can be found at these locations.
-      
-      | Title | Document | Description |
-      | --- | --- | --- |
-      | Code of Conduct | [CODE_OF_CONDUCT.md](https://github.com/<<github_username>>/<<github_repo_name>>/blob/main/CODE_OF_CONDUCT.md) | Information about the the norms, rules, and responsibilities we adhere to when participating in this open source community. |
-      | Contributing | [CONTRIBUTING.md](https://github.com/<<github_username>>/<<github_repo_name>>/blob/main/CONTRIBUTING.md) | Information about contributing code changes to this project. |
-      | Development | [DEVELOPMENT.md](https://github.com/<<github_username>>/<<github_repo_name>>/blob/main/DEVELOPMENT.md) | Information about development activities involved in making changes to this project. |
-      | Governance | [GOVERNANCE.md](https://github.com/<<github_username>>/<<github_repo_name>>/blob/main/GOVERNANCE.md) | Information about how this project is governed. |
-      | Maintainers | [MAINTAINERS.md](https://github.com/<<github_username>>/<<github_repo_name>>/blob/main/MAINTAINERS.md) | Information about individuals who maintain this project. |
-      | Security | [SECURITY.md](https://github.com/<<github_username>>/<<github_repo_name>>/blob/main/SECURITY.md) | Information about how to privately report security issues associated with this project. |
-      ## License
-      
-      <<project_name>> is licensed under the <a href="https://choosealicense.com/licenses/mit/" target="_blank">MIT</a> license.
-  
-    ''',
-    'SECURITY.md': '''
-      # Security
-      
-      If you find a significant vulnerability, or evidence of one, please report it privately.
-      
-      We prefer that you use the [GitHub mechanism for privately reporting a vulnerability](https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability#privately-reporting-a-security-vulnerability). Under the [main repository's security tab](https://github.com/<<github_username>>/<<github_repo_name>>/security), in the left sidebar, under "Reporting", click "Advisories", click the "New draft security advisory" button to open the advisory form.
-      [issues](https://github.com/coreinfrastructure/best-practices-badge/issues) via our [GitHub site](https://github.com/<<github_username>>/<<github_repo_name>>).We will gladly give credit to anyone who reports a vulnerability so that we can fix it. If you want to remain anonymous or pseudonymous instead, please let us know that; we will gladly respect your wishes.
-      
-      We gladly welcome patches to fix such vulnerabilities! See [CONTRIBUTING.md](CONTRIBUTING.md) for information about contributions.
-  
-    ''',
-  })
-# ---
-# name: test_Document[None-None]
-  dict({
-    'CODE_OF_CONDUCT.md': '''
-      # <<project_name>> Open Source Code of Conduct
-      
-      ## Principles
-      These principles guide our data, product, and process decisions, architecture, and approach.
-      
-      - Open means transparent and participatory.
-      - We take a modular and modern approach to software development.
-      - We build open-source software and open-source process.
-      - We value ease of implementation.
-      - Fostering community includes building capacity and making our software and processes accessible to participants with diverse backgrounds and skillsets.
-      - Data (and data science) is as important as software and process. We build open data sets where possible.
-      - We strive for transparency for algorithms and places we might be introducing bias.
-      
-      ## Community Guidelines
-      Information on contributing to this repository is available in our [Contributing file](CONTRIBUTING.md).
-      
-      When participating in <<project_name>> open source community conversations and spaces, we ask individuals to follow the following guidelines:
-      
-      - Embrace a culture of learning, and educate each other. We are all entering this conversation from different starting points and with different backgrounds. There are no dumb questions.
-      - Take space and give space. We strive to create an equitable environment in which all are welcome and able to participate. We hope individuals feel comfortable voicing their opinions and providing contributions and will do our best to recognize and make space for individuals who may be struggling to find space here. Likewise, we expect individuals to recognize when they are taking up significant space and take a step back to allow room for others.
-      - Be respectful.
-      - Default to positive. Assume others' contributions are legitimate and valuable and that they are made with good intention.
-      
-      ## Acknowledgements
-      This Community Guidelines was adapted from the [United States Digital Service](https://usds.gov) [Justice40](https://thejustice40.com) open source [repository](https://github.com/usds/justice40-tool).
-  
-    ''',
-    'CONTRIBUTING.md': '''
-      # Contribution Guidelines
-      
-      ## Contributor Code of Conduct
-      As contributors and maintainers of this project, we pledge to respect all people who contribute through reporting issues, posting feature requests, updating documentation, submitting pull requests or patches, and other activities.
-      
-      We are committed to making participation in this project a harassment-free experience for everyone, regardless of the level of experience, gender, gender identity, expression, sexual orientation, disability, personal appearance, body size, race, ethnicity, age, or religion.
-      
-      Examples of unacceptable behavior by participants include the use of sexual language or imagery, derogatory comments or personal attacks, trolling, public or private harassment, insults, or other unprofessional conduct.
-      
-      [Project maintainers](MAINTAINERS.md) have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned with this Code of Conduct.
-      
-      Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by opening an issue or contacting one or more of the [project maintainers](MAINTAINERS.md).
-      
-      ## General information
-      TODO: Include information on how to submit pull requests and/or issues.
-      
-      The [DEVELOPMENT.md](DEVELOPMENT.md) file explains how to install the program locally (highly recommended if you're going to make code changes). It also provides information useful for making changes and validating them locally before submitting a pull request.
-      
-      ### Pull requests and different branches recommended
-      TODO: Include information on how to use branches effectively and create a pull request.
-      
-      ### How we handle proposals
-      TODO: Include information on how proposals are handled.
-      
-      ### We are proactive
-      In general we try to be proactive to detect and eliminate mistakes and vulnerabilities as soon as possible, and to reduce their impact when they do happen. We use a defensive design and coding style to reduce the likelihood of mistakes, a variety of tools that try to detect mistakes early, and an automatic test suite with significant coverage. We also release the software as open source software so others can review it.
-      
-      Since early detection and impact reduction can never be perfect, we also try to detect and repair problems during deployment as quickly as possible. This is especially true for security issues; see our [security information](#vulnerability-reporting-security-issues) for more information.
-      
-      ## Vulnerability reporting (security issues)
-      Please privately report vulnerabilities you find so we can fix them!
-      
-      See [SECURITY.md](SECURITY.md) for information on how to privately report vulnerabilities.
-      
-      ## Acknowledgements
-      
-      This Code of Conduct is adapted from the [Contributor Covenant](http://contributor-covenant.org), version 1.0.0, available at [http://contributor-covenant.org/version/1/0/0/](http://contributor-covenant.org/version/1/0/0/)
-  
-    ''',
-    'DEVELOPMENT.md': '''
-      # Local Development
-      
-      ## Enlistment
-      TODO: Complete this section
-      
-      ## Development Activities
-      TODO: Complete this section
-  
-    ''',
-    'GOVERNANCE.md': '''
-      # Governance
-      This project is governed by our [Code of Conduct](CODE_OF_CONDUCT.md) and [Contribution Guidelines](CONTRIBUTING.md).
-  
-    ''',
-    'MAINTAINERS.md': '''
-      # Maintainers
-      
-      This page lists all active maintainers of this repository. If you were a maintainer and would like to add your name to the Emeritus list, please send us a pull request.
-      
-      See [Code of Conduct](CODE_OF_CONDUCT.md) and [Contributing](CONTRIBUTING.md) for general contribution guidelines.
-      
-      ## Current Maintainers
-      | Maintainer | GitHub ID | Affiliation |
-      | --- | --- | --- |
-      TODO: Add maintainers
-      
-      ## Emeritus
-      | Maintainer | GitHub ID | Affiliation |
-      | --- | --- | --- |
-  
-    ''',
-    'README.md': '''
-      # <<project_name>>
-      
-      <!-- BEGIN: Exclude Package -->
-      <!-- END: Exclude Package -->
-      
-      <<project_description>>
-      
-      <!-- BEGIN: Exclude Package -->
-      ## Contents
-      - [Overview](#overview)
-      - [Installation](#installation)
-      - [Development](#development)
-      - [Additional Information](#additional-information)
-      - [License](#license)
-      <!-- END: Exclude Package -->
-      
-      ## Overview
-      TODO: Complete this section
-      
-      ### How to use <<project_name>>
-      TODO: Complete this section
-      
-      <!-- BEGIN: Exclude Package -->
-      ## Installation
-      TODO: Complete this section
-      
-      ## Development
-      Please visit CONTRIBUTING.md and DEVELOPMENT.md for information on contributing to this project.
-      <!-- END: Exclude Package -->
-      
-      ## Additional Information
-      Additional information can be found at these locations.
-      
-      | Title | Document | Description |
-      | --- | --- | --- |
-      | Code of Conduct | CODE_OF_CONDUCT.md | Information about the the norms, rules, and responsibilities we adhere to when participating in this open source community. |
-      | Contributing | CONTRIBUTING.md | Information about contributing code changes to this project. |
-      | Development | DEVELOPMENT.md | Information about development activities involved in making changes to this project. |
-      | Governance | GOVERNANCE.md | Information about how this project is governed. |
-      | Maintainers | MAINTAINERS.md | Information about individuals who maintain this project. |
-      | Security | SECURITY.md | Information about how to privately report security issues associated with this project. |
-      ## License
-      
-      <<project_name>> is licensed under the <a href="https://choosealicense.com/licenses/mit/" target="_blank">MIT</a> license.
-  
-    ''',
-    'SECURITY.md': '''
-      # Security
-      
-      If you find a significant vulnerability, or evidence of one, please report it privately.
-      
-      
-      TODO: Include information on how to securely submit a vulnerability.We will gladly give credit to anyone who reports a vulnerability so that we can fix it. If you want to remain anonymous or pseudonymous instead, please let us know that; we will gladly respect your wishes.
-      
-      We gladly welcome patches to fix such vulnerabilities! See [CONTRIBUTING.md](CONTRIBUTING.md) for information about contributions.
-  
-    ''',
-  })
-# ---
-# name: test_Document[None-PythonExecutionEnvironment]
-  dict({
-    'CODE_OF_CONDUCT.md': '''
-      # <<project_name>> Open Source Code of Conduct
-      
-      ## Principles
-      These principles guide our data, product, and process decisions, architecture, and approach.
-      
-      - Open means transparent and participatory.
-      - We take a modular and modern approach to software development.
-      - We build open-source software and open-source process.
-      - We value ease of implementation.
-      - Fostering community includes building capacity and making our software and processes accessible to participants with diverse backgrounds and skillsets.
-      - Data (and data science) is as important as software and process. We build open data sets where possible.
-      - We strive for transparency for algorithms and places we might be introducing bias.
-      
-      ## Community Guidelines
-      Information on contributing to this repository is available in our [Contributing file](CONTRIBUTING.md).
-      
-      When participating in <<project_name>> open source community conversations and spaces, we ask individuals to follow the following guidelines:
-      
-      - Embrace a culture of learning, and educate each other. We are all entering this conversation from different starting points and with different backgrounds. There are no dumb questions.
-      - Take space and give space. We strive to create an equitable environment in which all are welcome and able to participate. We hope individuals feel comfortable voicing their opinions and providing contributions and will do our best to recognize and make space for individuals who may be struggling to find space here. Likewise, we expect individuals to recognize when they are taking up significant space and take a step back to allow room for others.
-      - Be respectful.
-      - Default to positive. Assume others' contributions are legitimate and valuable and that they are made with good intention.
-      
-      ## Acknowledgements
-      This Community Guidelines was adapted from the [United States Digital Service](https://usds.gov) [Justice40](https://thejustice40.com) open source [repository](https://github.com/usds/justice40-tool).
-  
-    ''',
-    'CONTRIBUTING.md': '''
-      # Contribution Guidelines
-      
-      ## Contributor Code of Conduct
-      As contributors and maintainers of this project, we pledge to respect all people who contribute through reporting issues, posting feature requests, updating documentation, submitting pull requests or patches, and other activities.
-      
-      We are committed to making participation in this project a harassment-free experience for everyone, regardless of the level of experience, gender, gender identity, expression, sexual orientation, disability, personal appearance, body size, race, ethnicity, age, or religion.
-      
-      Examples of unacceptable behavior by participants include the use of sexual language or imagery, derogatory comments or personal attacks, trolling, public or private harassment, insults, or other unprofessional conduct.
-      
-      [Project maintainers](MAINTAINERS.md) have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned with this Code of Conduct.
-      
-      Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by opening an issue or contacting one or more of the [project maintainers](MAINTAINERS.md).
-      
-      ## General information
-      TODO: Include information on how to submit pull requests and/or issues.
-      
-      The [DEVELOPMENT.md](DEVELOPMENT.md) file explains how to install the program locally (highly recommended if you're going to make code changes). It also provides information useful for making changes and validating them locally before submitting a pull request.
-      
-      ### Pull requests and different branches recommended
-      TODO: Include information on how to use branches effectively and create a pull request.
-      
-      ### How we handle proposals
-      TODO: Include information on how proposals are handled.
-      
-      ### We are proactive
-      In general we try to be proactive to detect and eliminate mistakes and vulnerabilities as soon as possible, and to reduce their impact when they do happen. We use a defensive design and coding style to reduce the likelihood of mistakes, a variety of tools that try to detect mistakes early, and an automatic test suite with significant coverage. We also release the software as open source software so others can review it.
-      
-      Since early detection and impact reduction can never be perfect, we also try to detect and repair problems during deployment as quickly as possible. This is especially true for security issues; see our [security information](#vulnerability-reporting-security-issues) for more information.
-      
-      ## Vulnerability reporting (security issues)
-      Please privately report vulnerabilities you find so we can fix them!
-      
-      See [SECURITY.md](SECURITY.md) for information on how to privately report vulnerabilities.
-      
-      ## Acknowledgements
-      
-      This Code of Conduct is adapted from the [Contributor Covenant](http://contributor-covenant.org), version 1.0.0, available at [http://contributor-covenant.org/version/1/0/0/](http://contributor-covenant.org/version/1/0/0/)
-  
-    ''',
-    'DEVELOPMENT.md': '''
-      # Local Development
-      
-      ## Enlistment
-      Enlistment in this repository involves these steps.
-      
-      <table>
-      <tr>
-          <th>Step</th>
-          <th>Command Line</th>
-          <th>Description</th>
-      </tr>
-      <tr>
-          <td>1. Bootstrap the environment</td>
-          <td>
-              <table>
-                  <tr>
-                      <th>Linux / MacOS</th>
-                      <td><code>./Bootstrap.sh [--python-version &lt;python version&gt;]</code></td>
-                  </tr>
-                  <tr>
-                      <th>Windows</th>
-                      <td><code>Bootstrap.cmd [--python-version &lt;python version&gt;]</code></td>
-                  </tr>
-              </table>
-          </td>
-          <td>Prepares the repository for local development by enlisting in all dependencies.</td>
-      </tr>
-      <tr>
-          <td>2. Activate the environment</td>
-          <td>
-              <table>
-                  <tr>
-                      <th>Linux / MacOS</th>
-                      <td><code>. ./Activate.sh</code></td>
-                  </tr>
-                  <tr>
-                      <th>Windows</th>
-                      <td><code>Activate.cmd</code></td>
-                  </tr>
-              </table>
-          </td>
-          <td>
-              <p>Activates the terminal for development. Each new terminal window must be activated.</p>
-              <p>Activate.sh/.cmd is actually a shortcut to the most recently bootstrapped version of python (e.g. Activate3.11.sh/.cmd). With this functionality, it is possible to support multiple python versions in the same repository and activate each in a terminal using the python-specific activation script.</p>
-          </td>
-      </tr>
-      <tr>
-          <td>3. [Optional] Deactivate the environment</td>
-          <td>
-              <table>
-                  <tr>
-                      <th>Linux / MacOS</th>
-                      <td><code>. ./Deactivate.sh</code></td>
-                  </tr>
-                  <tr>
-                      <th>Windows</th>
-                      <td><code>Deactivate.cmd</code></td>
-                  </tr>
-              </table>
-          </td>
-          <td>
-              Deactivates the terminal environment. Deactivating is optional, as the terminal window itself may be closed when development activities are complete.
-          </td>
-      </tr>
-      </table>
-      
-      ## Development Activities
-      TODO: Complete this section
-  
-    ''',
-    'GOVERNANCE.md': '''
-      # Governance
-      This project is governed by our [Code of Conduct](CODE_OF_CONDUCT.md) and [Contribution Guidelines](CONTRIBUTING.md).
-  
-    ''',
-    'MAINTAINERS.md': '''
-      # Maintainers
-      
-      This page lists all active maintainers of this repository. If you were a maintainer and would like to add your name to the Emeritus list, please send us a pull request.
-      
-      See [Code of Conduct](CODE_OF_CONDUCT.md) and [Contributing](CONTRIBUTING.md) for general contribution guidelines.
-      
-      ## Current Maintainers
-      | Maintainer | GitHub ID | Affiliation |
-      | --- | --- | --- |
-      TODO: Add maintainers
-      
-      ## Emeritus
-      | Maintainer | GitHub ID | Affiliation |
-      | --- | --- | --- |
-  
-    ''',
-    'README.md': '''
-      # <<project_name>>
-      
-      <!-- BEGIN: Exclude Package -->
-      <!-- END: Exclude Package -->
-      
-      <<project_description>>
-      
-      <!-- BEGIN: Exclude Package -->
-      ## Contents
-      - [Overview](#overview)
-      - [Installation](#installation)
-      - [Development](#development)
-      - [Additional Information](#additional-information)
-      - [License](#license)
-      <!-- END: Exclude Package -->
-      
-      ## Overview
-      TODO: Complete this section
-      
-      ### How to use <<project_name>>
-      TODO: Complete this section
-      
-      <!-- BEGIN: Exclude Package -->
-      ## Installation
-      No additional setup is required to use this project.
-      
-      ## Development
-      Please visit CONTRIBUTING.md and DEVELOPMENT.md for information on contributing to this project.
-      <!-- END: Exclude Package -->
-      
-      ## Additional Information
-      Additional information can be found at these locations.
-      
-      | Title | Document | Description |
-      | --- | --- | --- |
-      | Code of Conduct | CODE_OF_CONDUCT.md | Information about the the norms, rules, and responsibilities we adhere to when participating in this open source community. |
-      | Contributing | CONTRIBUTING.md | Information about contributing code changes to this project. |
-      | Development | DEVELOPMENT.md | Information about development activities involved in making changes to this project. |
-      | Governance | GOVERNANCE.md | Information about how this project is governed. |
-      | Maintainers | MAINTAINERS.md | Information about individuals who maintain this project. |
-      | Security | SECURITY.md | Information about how to privately report security issues associated with this project. |
-      ## License
-      
-      <<project_name>> is licensed under the <a href="https://choosealicense.com/licenses/mit/" target="_blank">MIT</a> license.
-  
-    ''',
-    'SECURITY.md': '''
-      # Security
-      
-      If you find a significant vulnerability, or evidence of one, please report it privately.
-      
-      
-      TODO: Include information on how to securely submit a vulnerability.We will gladly give credit to anyone who reports a vulnerability so that we can fix it. If you want to remain anonymous or pseudonymous instead, please let us know that; we will gladly respect your wishes.
-      
-      We gladly welcome patches to fix such vulnerabilities! See [CONTRIBUTING.md](CONTRIBUTING.md) for information about contributions.
-  
-    ''',
-  })
-# ---
 # name: test_License[Apache-2.0]
-  dict({
-    'LICENSE.txt': '''
-      Copyright 2024 <<project_name>>
-      
-      Licensed under the Apache License, Version 2.0 (the "License");
-      you may not use this file except in compliance with the License.
-      You may obtain a copy of the License at
-      
-          http://www.apache.org/licenses/LICENSE-2.0
-      
-      Unless required by applicable law or agreed to in writing, software
-      distributed under the License is distributed on an "AS IS" BASIS,
-      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-      See the License for the specific language governing permissions and
-      limitations under the License.
+  '''
+  <Scrubbed copyright>
   
-    ''',
-  })
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+      http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  
+  '''
 # ---
 # name: test_License[BSD-3-Clause-Clear]
-  dict({
-    'LICENSE.txt': '''
-      Copyright 2024 <<project_name>>
-      
-      Redistribution and use in source and binary forms, with or without
-      modification are permitted provided that the following conditions are met:
-      
-      1. Redistributions of source code must retain the above copyright notice,
-         this list of conditions and the following disclaimer.
-      
-      2. Redistributions in binary form must reproduce the above copyright notice,
-         this list of condition and the following disclaimer in the documentation
-         and/or other materials provided with the distribution.
-      
-      3. Neither the name of the copyright holder nor the names of its
-         contributors may be used to endorse or promote products derived from this
-         software without specific prior written permission.
-      
-      THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS”
-      AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-      IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-      ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
-      LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-      CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-      SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-      INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-      CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-      ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-      POSSIBILITY OF SUCH DAMAGE.
+  '''
+  <Scrubbed copyright>
   
-    ''',
-  })
+  Redistribution and use in source and binary forms, with or without
+  modification are permitted provided that the following conditions are met:
+  
+  1. Redistributions of source code must retain the above copyright notice,
+     this list of conditions and the following disclaimer.
+  
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of condition and the following disclaimer in the documentation
+     and/or other materials provided with the distribution.
+  
+  3. Neither the name of the copyright holder nor the names of its
+     contributors may be used to endorse or promote products derived from this
+     software without specific prior written permission.
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS”
+  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  POSSIBILITY OF SUCH DAMAGE.
+  
+  '''
 # ---
 # name: test_License[BSL-1.0]
-  dict({
-    'LICENSE.txt': '''
-      Copyright 2024 <<project_name>>
-      
-      Boost Software License - Version 1.0 - August 17th, 2003
-      
-      Permission is hereby granted, free of charge, to any person or organization
-      obtaining a copy of the software and accompanying documentation covered by
-      this license (the "Software") to use, reproduce, display, distribute,
-      execute, and transmit the Software, and to prepare derivative works of the
-      Software, and to permit third-parties to whom the Software is furnished to
-      do so, all subject to the following:
-      
-      The copyright notices in the Software and this entire statement, including
-      the above license grant, this restriction and the following disclaimer,
-      must be included in all copies of the Software, in whole or in part, and
-      all derivative works of the Software, unless such copies or derivative
-      works are solely in the form of machine-executable object code generated by
-      a source language processor.
-      
-      THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-      IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-      FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT
-      SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE
-      FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE,
-      ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-      DEALINGS IN THE SOFTWARE.
+  '''
+  <Scrubbed copyright>
   
-    ''',
-  })
+  Boost Software License - Version 1.0 - August 17th, 2003
+  
+  Permission is hereby granted, free of charge, to any person or organization
+  obtaining a copy of the software and accompanying documentation covered by
+  this license (the "Software") to use, reproduce, display, distribute,
+  execute, and transmit the Software, and to prepare derivative works of the
+  Software, and to permit third-parties to whom the Software is furnished to
+  do so, all subject to the following:
+  
+  The copyright notices in the Software and this entire statement, including
+  the above license grant, this restriction and the following disclaimer,
+  must be included in all copies of the Software, in whole or in part, and
+  all derivative works of the Software, unless such copies or derivative
+  works are solely in the form of machine-executable object code generated by
+  a source language processor.
+  
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT
+  SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE
+  FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE,
+  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+  DEALINGS IN THE SOFTWARE.
+  
+  '''
 # ---
 # name: test_License[GPL-3.0-or-later]
-  dict({
-    'LICENSE.txt': '''
-      Copyright (C) 2024 <<project_name>>
-      
-      This program is free software: you can redistribute it and/or modify
-      it under the terms of the GNU General Public License as published by
-      the Free Software Foundation, either version 3 of the License, or
-      (at your option) any later version.
-      
-      This program is distributed in the hope that it will be useful,
-      but WITHOUT ANY WARRANTY; without even the implied warranty of
-      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-      GNU General Public License for more details.
-      
-      You should have received a copy of the GNU General Public License
-      along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  '''
+  <Scrubbed copyright>
   
-    ''',
-  })
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  
+  '''
 # ---
 # name: test_License[MIT]
-  dict({
-    'LICENSE.txt': '''
-      MIT LICENSE
-      
-      Copyright (c) 2024 <<project_name>>
-      
-      Permission is hereby granted, free of charge, to any person obtaining a copy
-      of this software and associated documentation files (the "Software"), to deal
-      in the Software without restriction, including without limitation the rights
-      to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-      copies of the Software, and to permit persons to whom the Software is
-      furnished to do so, subject to the following conditions:
-      
-      The above copyright notice and this permission notice shall be included in all
-      copies or substantial portions of the Software.
-      
-      THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-      IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-      FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-      AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-      LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-      OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-      SOFTWARE.
+  '''
+  MIT LICENSE
   
-    ''',
-  })
-# ---
-# name: test_License[None]
-  dict({
-  })
+  <Scrubbed copyright>
+  
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+  
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+  
+  '''
 # ---

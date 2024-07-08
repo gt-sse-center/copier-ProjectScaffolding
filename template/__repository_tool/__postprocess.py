@@ -1,9 +1,4 @@
 import sys
-
-{% if repository_tool == 'None' %}
-sys.exit()
-{% endif %}
-
 import subprocess
 
 from pathlib import Path

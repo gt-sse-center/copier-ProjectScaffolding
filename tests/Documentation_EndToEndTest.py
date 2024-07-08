@@ -1,6 +1,7 @@
 import re
 
 from datetime import datetime
+from typing import Match
 
 import pytest
 
@@ -20,64 +21,50 @@ from TestHelpers import *
         "MIT",
     ],
 )
-def test_License(license, copie, configuration, snapshot):
-    configuration["documentation_license"] = license
-
-    output = RunTest(
-        copie,
-        configuration,
-        snapshot,
-        include_globs={"LICENSE.txt"},
+def test_License(license, copie, snapshot):
+    configuration_info = next(
+        ci for ci in ConfigurationInfo.Generate() if ci.configuration["generate_docs"]
     )
 
-    if license != "None":
-        license_content = output["LICENSE.txt"]
+    configuration_info.configuration["documentation_license"] = license
 
-        assert re.search(
-            rf"""(?#
-            Beginning of line   )^(?#
-            Copyright           )Copyright\s+(?#
-            Mark                )(?:\([cC]\)\s+)?(?#
-            Year                ){datetime.now().year}\s+(?#
-            Project Name        )<<project_name>>(?#
-            End of line         )$(?#
-            )""",
-            license_content,
-            re.MULTILINE,
-        )
+    project_dir = RunTest(copie, configuration_info.configuration)
+    assert project_dir is not None
 
+    license_filename = project_dir / "LICENSE.txt"
 
-# ----------------------------------------------------------------------
-@pytest.mark.filterwarnings("ignore:Dirty template changes included automatically")
-@pytest.mark.parametrize(
-    "project_type",
-    [
-        "None",
-        "PythonExecutionEnvironment",
-    ],
-)
-@pytest.mark.parametrize(
-    "hosting_platform",
-    [
-        "None",
-        "GitHub",
-    ],
-)
-def test_Document(hosting_platform, project_type, copie, configuration, snapshot):
-    configuration["hosting_platform"] = hosting_platform
-    configuration["project_type"] = project_type
+    if license == "None":
+        assert not license_filename.is_file(), license_filename
+        return
 
-    RunTest(
-        copie,
-        configuration,
-        snapshot,
-        include_globs={
-            "CODE_OF_CONDUCT.md",
-            "CONTRIBUTING.md",
-            "DEVELOPMENT.md",
-            "GOVERNANCE.md",
-            "MAINTAINERS.md",
-            "README.md",
-            "SECURITY.md",
-        },
+    license_content = license_filename.read_text(encoding="utf-8")
+
+    copyright_found = False
+
+    # ----------------------------------------------------------------------
+    def Sub(
+        match: Match,
+    ) -> str:
+        nonlocal copyright_found
+        copyright_found = True
+
+        return "<Scrubbed copyright>"
+
+    # ----------------------------------------------------------------------
+
+    license_content = re.sub(
+        rf"""(?#
+        Beginning of line   )^(?#
+        Copyright           )Copyright\s+(?#
+        Mark                )(?:\([cC]\)\s+)?(?#
+        Year                ){datetime.now().year}\s+(?#
+        Project Name        ){configuration_info.configuration['project_name']}(?#
+        End of line         )$(?#
+        )""",
+        Sub,
+        license_content,
+        flags=re.MULTILINE,
     )
+
+    assert copyright_found, license_content
+    assert license_content == snapshot

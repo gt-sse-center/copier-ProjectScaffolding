@@ -1,0 +1,176 @@
+# https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
+
+[build-system]
+requires = ["setuptools >= 63.0"]
+build-backend = "setuptools.build_meta"
+
+# ----------------------------------------------------------------------
+# |
+# |  Project
+# |
+# ----------------------------------------------------------------------
+[project]
+name = "{{ python_package_pypi_name }}"
+description = "{{ project_description }}"
+
+license = { text = "{{ documentation_license }}" }
+
+authors = [
+    { name = "{{ author_name }}", email = "{{ author_email }}" },
+]
+
+keywords = [
+    # TODO: Add keywords specific to your project.
+]
+
+# https://pypi.org/classifiers/
+classifiers = [
+    # TODO: Add additional classifiers specific to your project.
+    "License :: OSI Approved :: {{ documentation_license }} License",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    # TODO: Add additional package dependencies specific to your project.
+    "typer ~= 0.9"
+]
+
+dynamic = [
+    "version",
+]
+
+readme = "README.md"
+
+[project.optional-dependencies]
+dev = [
+    "dbrownell_DevTools",
+]
+
+package = [
+    "build ~= 1.2",
+    "cx_Freeze ~= 6.15",
+    "twine ~= 5.1",
+]
+
+[project.urls]
+{% if hosting_platform == 'None' -%}
+Homepage = "TODO: Enter the homepage link for your project."
+Documentation = "TODO: Enter the documetnation link for your project."
+Repository = "TODO: Enter the repository link for your project."
+{% elif hosting_platform == 'GitHub' -%}
+Homepage = "{{ github_url }}"
+Documentation = "{{ github_url }}"
+Repository = "{{ github_url }}"
+{% else -%}
+{{ "Define this section for your 'hosting_platform'." | raise_exception }}
+{%- endif %}
+
+[project.scripts]
+{{ python_package_pypi_name }} = "{{ python_package_pypi_name }}:EntryPoint.app"
+
+# ----------------------------------------------------------------------
+# |
+# |  black
+# |
+# ----------------------------------------------------------------------
+[tool.black]
+line-length = 100
+
+# ----------------------------------------------------------------------
+# |
+# |  pylint
+# |
+# ----------------------------------------------------------------------
+[tool.pylint.basic]
+class-const-naming-style = "any"
+function-naming-style = "PascalCase"
+good-names = [
+    "i",
+    "j",
+    "k",
+    "ex",
+    "Run",
+    "_",
+    "dm",                                   # added
+    "f",                                    # added
+]
+method-naming-style = "any"
+module-naming-style = "PascalCase"
+
+[tool.pylint.design]
+max-args = 10
+max-parents = 15
+
+[tool.pylint.main]
+ignore-paths = [
+    # Note that the pylint vscode extension has trouble with wrapping these patterns in quotes
+    # (which is required to parse the file correctly). Because of this, each pattern must be
+    # converted to a glob pattern and specified in the pylint vscode settings as well.
+    "^.+?Tests/.*$",
+]
+
+[tool.pylint."messages control"]
+disable = [
+    "raw-checker-failed",
+    "bad-inline-option",
+    "locally-disabled",
+    "file-ignored",
+    "suppressed-message",
+    "useless-suppression",
+    "deprecated-pragma",
+    "use-symbolic-message-instead",
+    "assignment-from-no-return",            # added
+    "broad-except",                         # added
+    "broad-exception-raised",               # added
+    "cell-var-from-loop",                   # added
+    "consider-using-f-string",              # added
+    "import-outside-toplevel",              # added
+    "line-too-long",                        # added
+    "missing-function-docstring",           # added
+    "subprocess-run-check",                 # added
+    "super-with-arguments",                 # added
+    "too-few-public-methods",               # added
+    "unnecessary-lambda-assignment",        # added
+    "unspecified-encoding",                 # added
+]
+
+# ----------------------------------------------------------------------
+# |
+# |  pyright
+# |
+# ----------------------------------------------------------------------
+[tool.pyright]
+exclude = [
+    "**/*Tests/*",
+    "**/Generated/*",
+]
+
+reportMissingImports = true
+reportMissingTypeStubs = false
+
+# ----------------------------------------------------------------------
+# |
+# |  pytest
+# |
+# ----------------------------------------------------------------------
+[tool.pytest.ini_options]
+python_files = [
+    "**/*Test.py",
+]
+
+# ----------------------------------------------------------------------
+# |
+# |  setuptools
+# |
+# ----------------------------------------------------------------------
+[tool.setuptools.dynamic]
+version = { attr = "{{ python_package_pypi_name }}.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]

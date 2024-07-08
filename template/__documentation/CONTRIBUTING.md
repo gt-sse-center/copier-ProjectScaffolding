@@ -12,35 +12,18 @@ Examples of unacceptable behavior by participants include the use of sexual lang
 Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by opening an issue or contacting one or more of the [project maintainers](MAINTAINERS.md).
 
 ## General information
-{%- if hosting_platform == 'None' %}
-TODO: Include information on how to submit pull requests and/or issues.
-{%- elif hosting_platform == 'GitHub' %}
-For specific proposals, please provide them as [pull requests](https://github.com/coreinfrastructure/best-practices-badge/pulls) or [issues](https://github.com/coreinfrastructure/best-practices-badge/issues) via our [GitHub site]({{ github_url }}).
-{%- else %}
-{{ "Define this section for your 'hosting_platform'." | raise_exception }}
-{%- endif %}
+<!-- [BEGIN] General Information -->
+<!-- [END] General Information -->
 
 The [DEVELOPMENT.md](DEVELOPMENT.md) file explains how to install the program locally (highly recommended if you're going to make code changes). It also provides information useful for making changes and validating them locally before submitting a pull request.
 
 ### Pull requests and different branches recommended
-{%- if hosting_platform == 'None' %}
-TODO: Include information on how to use branches effectively and create a pull request.
-{%- elif hosting_platform == 'GitHub' %}
-Pull requests are preferred, since they are specific. For more about how to create a pull request, see https://help.github.com/articles/using-pull-requests/.
-
-We recommend creating different branches for different (logical) changes, and creating a pull request into the `main` branch when you're done. See the GitHub documentation on [creating branches](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/) and [using pull requests](https://help.github.com/articles/using-pull-requests/).
-{%- else %}
-{{ "Define this section for your 'hosting_platform'." | raise_exception }}
-{%- endif %}
+<!-- [BEGIN] Pull Requests and Branches -->
+<!-- [END] Pull Requests and Branches -->
 
 ### How we handle proposals
-{%- if hosting_platform == 'None' %}
-TODO: Include information on how proposals are handled.
-{%- elif hosting_platform == 'GitHub' %}
-We use GitHub to track proposed changes via its [issue tracker](https://github.com/coreinfrastructure/best-practices-badge/issues) and [pull requests](https://github.com/coreinfrastructure/best-practices-badge/pulls). Specific changes are proposed using those mechanisms. Issues are assigned to an individual, who works and then marks it complete. If there are questions or objections, the conversation of that issue or pull request is used to resolve it.
-{%- else %}
-{{ "Define this section for your 'hosting_platform'." | raise_exception }}
-{%- endif %}
+<!-- [BEGIN] Proposals -->
+<!-- [END] Proposals -->
 
 ### We are proactive
 In general we try to be proactive to detect and eliminate mistakes and vulnerabilities as soon as possible, and to reduce their impact when they do happen. We use a defensive design and coding style to reduce the likelihood of mistakes, a variety of tools that try to detect mistakes early, and an automatic test suite with significant coverage. We also release the software as open source software so others can review it.

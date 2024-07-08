@@ -105,19 +105,21 @@
     <script>
       document.querySelectorAll("details summary span input[type=checkbox]").forEach(
         function(checkbox) {
-          if(window.localStorage.getItem(checkbox.id) === "true")
+          var key = `${ location.href }-${ checkbox.id }`;
+
+          if(window.localStorage.getItem(key) === "true")
             checkbox.checked = true;
 
           this.addEventListener(
             "change",
             function() {
-              window.localStorage.setItem(checkbox.id, checkbox.checked ? "true" : "false");
+              window.localStorage.setItem(key, checkbox.checked ? "true" : "false");
             },
           );
         }
       );
     </script>
 
-    <!-- TODO: Decorate code elements with a "copy code" button that copies to the clipboard -->
+    <!-- TODO(copier-ProjectScaffolding): Decorate code elements with a "copy code" button that copies to the clipboard -->
   </body>
 </html>

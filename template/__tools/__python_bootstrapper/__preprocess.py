@@ -45,6 +45,7 @@ AugmentFile(
     EnsureFile(output_dir / ".gitignore"),
     textwrap.dedent(
         """\
+
         Activate*.cmd
         Activate*.sh
         Deactivate*.cmd
@@ -52,7 +53,6 @@ AugmentFile(
 
         **/__pycache__/**
         **/Generated/**
-
         """,
     ),
     None,
@@ -62,6 +62,10 @@ raise Exception("Implement this code for the repository tool being used.")
 {% endif %}
 
 
+# ----------------------------------------------------------------------
+# |
+# |  Documentation
+# |
 # ----------------------------------------------------------------------
 {% if generate_docs %}
 development_filename = EnsureFile(output_dir / "DEVELOPMENT.md")

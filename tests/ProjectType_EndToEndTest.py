@@ -5,41 +5,16 @@ from TestHelpers import *
 
 # ----------------------------------------------------------------------
 @pytest.mark.filterwarnings("ignore:Dirty template changes included automatically")
-@pytest.mark.parametrize(
-    "project_type",
-    [
-        "None",
-        "PythonExecutionEnvironment",
-    ],
-)
-@pytest.mark.parametrize(
-    "hosting_platform",
-    [
-        "None",
-        "GitHub",
-    ],
-)
-@pytest.mark.parametrize(
-    "repository_tool",
-    [
-        "None",
-        "git",
-    ],
-)
-def test_Files(repository_tool, hosting_platform, project_type, copie, configuration, snapshot):
-    configuration["repository_tool"] = repository_tool
-    configuration["hosting_platform"] = hosting_platform
-    configuration["project_type"] = project_type
-    configuration["generate_docs"] = False
-
-    expect_failure = hosting_platform == "GitHub" and repository_tool != "git"
+def test_GitHubWithoutGit(copie):
+    configuration_info = next(
+        ci
+        for ci in ConfigurationInfo.Generate(include_invalid=True)
+        if ci.configuration["repository_tool"] != "git"
+        and ci.configuration["hosting_platform"] == "GitHub"
+    )
 
     RunTest(
         copie,
-        configuration,
-        snapshot,
-        exclude_globs={
-            "post_generation_actions.html",
-        },
-        expect_failure=expect_failure,
+        configuration_info.configuration,
+        expect_failure=True,
     )

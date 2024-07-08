@@ -19,66 +19,75 @@ output_dir = Path.cwd()
 {% if generate_docs %}
 
 # ----------------------------------------------------------------------
-readme_filename = EnsureFile(output_dir / "README.md")
+contributing_filename = EnsureFile(output_dir / "CONTRIBUTING.md")
 
 AugmentFile(
-    readme_filename,
-    "",
-    "Badges",
+    contributing_filename,
+    "TODO: Include information on how to submit pull requests and/or issues.\n",
+    "General Information",
     AugmentFileStyle.Finalize,
 )
 
 AugmentFile(
-    readme_filename,
-    "TODO: Complete this section\n",
-    "Installation",
+    contributing_filename,
+    "TODO: Include information on how to use branches effectively and create a pull request.\n",
+    "Pull Requests and Branches",
+    AugmentFileStyle.Finalize,
+)
+
+AugmentFile(
+    contributing_filename,
+    "TODO: Include information on how proposals are handled.\n",
+    "Proposals",
     AugmentFileStyle.Finalize,
 )
 
 
 # ----------------------------------------------------------------------
-development_filename = EnsureFile(output_dir / "DEVELOPMENT.md")
+security_filename = EnsureFile(output_dir / "SECURITY.md")
 
 AugmentFile(
-    development_filename,
-    "TODO: Complete this section\n",
-    "Enlistment",
-    AugmentFileStyle.Finalize,
-)
-
-AugmentFile(
-    development_filename,
-    "TODO: Complete this section\n",
-    "Development Activities",
+    security_filename,
+    "TODO: Include information on how to securely submit a vulnerability.\n",
+    "Submit Vulnerability",
     AugmentFileStyle.Finalize,
 )
 
 {% endif %}
-
 
 # ----------------------------------------------------------------------
 # |
 # |  post_generation_actions.html
 # |
 # ----------------------------------------------------------------------
+{% if generate_docs %}
+
 post_generation_actions_filename = EnsureFile(output_dir / "post_generation_actions.html")
 
 AugmentFile(
     post_generation_actions_filename,
-    "",
-    "Before Repository Tool Instruction",
-    AugmentFileStyle.Finalize,
-)
-
-AugmentFile(
-    post_generation_actions_filename,
     CreateInstructionContent(
-        "Update DEVELOPMENT.md",
+        "Update CONTRIBUTING.md",
         textwrap.dedent(
             """\
-            <p>Please search for and replace all <code>TODO:</code> comments in <code>DEVELOPMENT.md</code>.</p>
+            <p>Please search for and replace all <code>TODO:</code> comments in <code>CONTRIBUTING.md</code>.</p>
             """,
         ),
     ),
     "After Repository Tool Instruction",
 )
+
+AugmentFile(
+    post_generation_actions_filename,
+    CreateInstructionContent(
+        "Update SECURITY.md",
+        textwrap.dedent(
+            """\
+            <p>Please search for and replace all <code>TODO:</code> comments in <code>SECURITY.md</code>.</p>
+            """,
+        ),
+    ),
+    "After Repository Tool Instruction",
+)
+
+{% endif %}
