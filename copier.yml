@@ -93,11 +93,11 @@ _subdirectory: template
 _templates_suffix: ""
 
 _tasks:
-  - python __repository_tool/__preprocess.py # Note that this command must happen first, as others rely on it
   - python __documentation/__preprocess.py
   - python __hosting_platform/__preprocess.py
   - python __project_type/__preprocess.py
-  - python __repository_tool/__postprocess.py
+  - python __repository_tool/__preprocess.py
+  - python __post_generation_actions/__preprocess.py # This needs to happen after other files have been processed
   - python __tools/Cleanup.py
   - python -c "import shutil; shutil.rmtree('__tools');"
 
