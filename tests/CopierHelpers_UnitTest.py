@@ -1,11 +1,9 @@
+import os
 import re
 import sys
 import textwrap
-import uuid
 
-from contextlib import contextmanager
 from pathlib import Path
-from typing import Iterator
 
 import pytest
 
@@ -105,348 +103,56 @@ def test_MoveFiles(fs):
 
 
 # ----------------------------------------------------------------------
-class TestAugmentFile:
+class TestReplaceContent:
     # ----------------------------------------------------------------------
-    class TestAllContents:
-        # ----------------------------------------------------------------------
-        @staticmethod
-        @contextmanager
-        def YieldFile(fs) -> Iterator[Path]:
-            file = Path("file.txt")
-
-            file.unlink(missing_ok=True)
-            fs.create_file(file, contents="Existing content\n")
-
-            with ExitStack(file.unlink):
-                yield file
-
-        # ----------------------------------------------------------------------
-        def test_Replace(self, fs):
-            with self.__class__.YieldFile(fs) as file:
-                AugmentFile(
-                    file,
-                    "This is the new content.\n",
-                    None,
-                    AugmentFileStyle.Replace,
-                )
-
-                assert file.read_text() == textwrap.dedent(
+    def test_Standard(self):
+        assert (
+            ReplaceContent(
+                ".html",
+                "Region Name",
+                textwrap.dedent(
                     """\
-                    This is the new content.
-                    """,
-                )
+                Before
 
-        # ----------------------------------------------------------------------
-        def test_Finalize(self, fs):
-            with self.__class__.YieldFile(fs) as file:
-                AugmentFile(
-                    file,
-                    "This is the new content.\n",
-                    None,
-                    AugmentFileStyle.Finalize,
-                )
+                <!-- [BEGIN] Region Name -->
+                <!-- [END] Region Name -->
 
-                assert file.read_text() == textwrap.dedent(
+                After
+                """,
+                ),
+                textwrap.dedent(
                     """\
-                    This is the new content.
-                    """,
-                )
-
-        # ----------------------------------------------------------------------
-        def test_Append(self, fs):
-            with self.__class__.YieldFile(fs) as file:
-                AugmentFile(
-                    file,
-                    "This is the new content.\n",
-                    None,
-                    AugmentFileStyle.Append,
-                )
-
-                assert file.read_text() == textwrap.dedent(
-                    """\
-                    Existing content
-                    This is the new content.
-                    """,
-                )
-
-        # ----------------------------------------------------------------------
-        def test_Prepend(self, fs):
-            with self.__class__.YieldFile(fs) as file:
-                AugmentFile(
-                    file,
-                    "This is the new content.\n",
-                    None,
-                    AugmentFileStyle.Prepend,
-                )
-
-                assert file.read_text() == textwrap.dedent(
-                    """\
-                    This is the new content.
-                    Existing content
-                    """,
-                )
-
-    # ----------------------------------------------------------------------
-    class TestTags:
-        # ----------------------------------------------------------------------
-        @staticmethod
-        @contextmanager
-        def YieldFile(fs) -> Iterator[Path]:
-            file = Path("file.html")
-
-            file.unlink(missing_ok=True)
-            fs.create_file(
-                file,
-                contents=textwrap.dedent(
-                    """\
-                    Beginning Line
-
-                    <!-- [BEGIN] Tag1 -->
-                    Tag1 Line
-                    <!-- [END] Tag1 -->
-
-                    <!-- [BEGIN] Tag2 -->
-                    Tag2 Line 1
-                    Tag2 Line 2
-                    <!-- [END] Tag2 -->
-
-                    <!-- [BEGIN] Tag3 -->
-                    Tag3 Line 1
-                    Tag3 Line 2
-                    Tag3 Line 3
-                    <!-- [END] Tag3 -->
-
-                    End Line
-                    """,
+                A
+                B
+                C
+                """,
                 ),
             )
+            == textwrap.dedent(
+                """\
+            Before
 
-            with ExitStack(file.unlink):
-                yield file
+            A
+            B
+            C
 
-        # ----------------------------------------------------------------------
-        def test_Replace(self, fs):
-            with self.__class__.YieldFile(fs) as file:
-                AugmentFile(
-                    file,
-                    textwrap.dedent(
-                        """\
-                        This is
-                        the new
-                        content.
-                        """,
-                    ),
-                    "Tag2",
-                    AugmentFileStyle.Replace,
-                )
-
-                assert file.read_text() == textwrap.dedent(
-                    """\
-                    Beginning Line
-
-                    <!-- [BEGIN] Tag1 -->
-                    Tag1 Line
-                    <!-- [END] Tag1 -->
-
-                    <!-- [BEGIN] Tag2 -->
-                    This is
-                    the new
-                    content.
-                    <!-- [END] Tag2 -->
-
-                    <!-- [BEGIN] Tag3 -->
-                    Tag3 Line 1
-                    Tag3 Line 2
-                    Tag3 Line 3
-                    <!-- [END] Tag3 -->
-
-                    End Line
-                    """,
-                )
-
-        # ----------------------------------------------------------------------
-        def test_Finalize(self, fs):
-            with self.__class__.YieldFile(fs) as file:
-                AugmentFile(
-                    file,
-                    textwrap.dedent(
-                        """\
-                        This is
-                        the new
-                        content.
-                        """,
-                    ),
-                    "Tag2",
-                    AugmentFileStyle.Finalize,
-                )
-
-                assert file.read_text() == textwrap.dedent(
-                    """\
-                    Beginning Line
-
-                    <!-- [BEGIN] Tag1 -->
-                    Tag1 Line
-                    <!-- [END] Tag1 -->
-
-                    This is
-                    the new
-                    content.
-
-                    <!-- [BEGIN] Tag3 -->
-                    Tag3 Line 1
-                    Tag3 Line 2
-                    Tag3 Line 3
-                    <!-- [END] Tag3 -->
-
-                    End Line
-                    """,
-                )
-
-        # ----------------------------------------------------------------------
-        def test_Append(self, fs):
-            with self.__class__.YieldFile(fs) as file:
-                AugmentFile(
-                    file,
-                    textwrap.dedent(
-                        """\
-                        This is
-                        the new
-                        content.
-                        """,
-                    ),
-                    "Tag2",
-                    AugmentFileStyle.Append,
-                )
-
-                assert file.read_text() == textwrap.dedent(
-                    """\
-                    Beginning Line
-
-                    <!-- [BEGIN] Tag1 -->
-                    Tag1 Line
-                    <!-- [END] Tag1 -->
-
-                    <!-- [BEGIN] Tag2 -->
-                    Tag2 Line 1
-                    Tag2 Line 2
-                    This is
-                    the new
-                    content.
-                    <!-- [END] Tag2 -->
-
-                    <!-- [BEGIN] Tag3 -->
-                    Tag3 Line 1
-                    Tag3 Line 2
-                    Tag3 Line 3
-                    <!-- [END] Tag3 -->
-
-                    End Line
-                    """,
-                )
-
-        # ----------------------------------------------------------------------
-        def test_Prepend(self, fs):
-            with self.__class__.YieldFile(fs) as file:
-                AugmentFile(
-                    file,
-                    textwrap.dedent(
-                        """\
-                        This is
-                        the new
-                        content.
-                        """,
-                    ),
-                    "Tag2",
-                    AugmentFileStyle.Prepend,
-                )
-
-                assert file.read_text() == textwrap.dedent(
-                    """\
-                    Beginning Line
-
-                    <!-- [BEGIN] Tag1 -->
-                    Tag1 Line
-                    <!-- [END] Tag1 -->
-
-                    <!-- [BEGIN] Tag2 -->
-                    This is
-                    the new
-                    content.
-                    Tag2 Line 1
-                    Tag2 Line 2
-                    <!-- [END] Tag2 -->
-
-                    <!-- [BEGIN] Tag3 -->
-                    Tag3 Line 1
-                    Tag3 Line 2
-                    Tag3 Line 3
-                    <!-- [END] Tag3 -->
-
-                    End Line
-                    """,
-                )
-
-    # ----------------------------------------------------------------------
-    def test_ExistingFile(self, fs):
-        file = Path("existing_file.txt")
-
-        file.unlink(missing_ok=True)
-        fs.create_file(file, contents="Existing content\n")
-
-        AugmentFile(
-            file,
-            "This is the new content\n",
-            None,
-            AugmentFileStyle.Append,
-        )
-
-        assert file.read_text() == textwrap.dedent(
-            """\
-            Existing content
-            This is the new content
+            After
             """,
+            )
         )
 
     # ----------------------------------------------------------------------
-    def test_NewFile(self, fs):
-        # fs creates a fake file system, which monkey patches the existing file system. Do not
-        # remove the parameter, even though it looks like it isn't being used.
-
-        file = Path("new_file.txt")
-
-        file.unlink(missing_ok=True)
-
-        AugmentFile(
-            file,
-            "This is the new content\n",
-            None,
-            AugmentFileStyle.Append,
-        )
-
-        assert file.read_text() == textwrap.dedent(
-            """\
-            This is the new content
-            """,
-        )
-
-
-# ----------------------------------------------------------------------
-def test_CreateInstructionsContent():
-    title = f"{str(uuid.uuid4())} suffix"
-    steps_html = str(uuid.uuid4())
-
-    assert CreateInstructionContent(title, steps_html) == textwrap.dedent(
-        f"""\
-        <details>
-            <summary>
-                <span role="term"><input type="checkbox" id="{title.replace(' ', '-')}">{title}</span>
-            </summary>
-        </details>
-        <div role="definition" class="details-content">
-{steps_html}
-        </div>
-        """,
-    )
+    def test_ErrorUnsupportedFile(self):
+        with pytest.raises(
+            Exception,
+            match="'.foo' is not a recognized file extension.",
+        ):
+            ReplaceContent(
+                ".foo",
+                "Never used",
+                "Never used",
+                "Never used",
+            )
 
 
 # ----------------------------------------------------------------------

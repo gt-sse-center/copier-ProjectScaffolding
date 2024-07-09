@@ -9,14 +9,15 @@ from CopierHelpers import *
 
 # ----------------------------------------------------------------------
 output_dir = Path.cwd()
-project_type_dir = EnsureDir(output_dir / "__project_type" / "__{{ project_type }}")
-preprocess_filename = project_type_dir / "__preprocess.py"
+project_type_dir = output_dir / "__project_type" / "__{{ project_type }}"
 
-MoveFiles(project_type_dir, output_dir)
+if project_type_dir.is_dir():
+    MoveFiles(project_type_dir, output_dir)
 
-if preprocess_filename.is_file():
-    subprocess.run(
-        f'python "{preprocess_filename}"',
-        check=True,
-        shell=True,
-    )
+    preprocess_filename = project_type_dir / "__preprocess.py"
+    if preprocess_filename.is_file():
+        subprocess.run(
+            f'python "{preprocess_filename}"',
+            check=True,
+            shell=True,
+        )

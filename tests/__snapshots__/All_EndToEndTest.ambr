@@ -87,29 +87,16 @@
           <h1>this_is_the_project_name Post Generation Actions</h1>
           <p>The following steps must be completed in the order listed now that your project has been generated.</p>
       
-          
-          
-          <!-- [BEGIN] After Repository Tool Instruction -->
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-development.md">Update DEVELOPMENT.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>DEVELOPMENT.md</code>.</p>
-      
-              </div>
-      <!-- [END] After Repository Tool Instruction -->
-      
           <details>
-              <summary>
-                  <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
-              </summary>
-          </details>
-          <div role="definition" class="details-content">
-              <p>After you have completed all the steps, you can delete this file.</p>
-              <p>Now your project is ready to go!</p>
-          </div>
+          <summary>
+              <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>After you have completed all the steps, you can delete this file.</p>
+      <p>Now your project is ready to go!</p>
+      
+      </div>
       
           <script>
             document.querySelectorAll("details summary span input[type=checkbox]").forEach(
@@ -460,39 +447,27 @@
           <h1>this_is_the_project_name Post Generation Actions</h1>
           <p>The following steps must be completed in the order listed now that your project has been generated.</p>
       
-          
-          
-          <!-- [BEGIN] After Repository Tool Instruction -->
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-requirements.txt">Update requirements.txt</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Python package dependencies can be added to <code>requirements.txt</code>. These packages will be automatically installed when the environment is <a href="https://github.com/davidbrownell/PythonBootstrapper" target="_blank">bootstrapped</a>.</p>
+          <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-requirements.txt">Update requirements.txt</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Python package dependencies can be added to <code>requirements.txt</code>. These packages will be automatically installed when the environment is <a href="https://github.com/davidbrownell/PythonBootstrapper" target="_blank">bootstrapped</a>.</p>
       <p>Please visit <a href="https://pip.pypa.io/en/stable/reference/requirements-file-format/" target="_blank">this link</a> for more information on requirements files and how they can be used.</p>
       
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-development.md">Update DEVELOPMENT.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>DEVELOPMENT.md</code>.</p>
+      </div>
       
-              </div>
-      <!-- [END] After Repository Tool Instruction -->
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>After you have completed all the steps, you can delete this file.</p>
+      <p>Now your project is ready to go!</p>
       
-          <details>
-              <summary>
-                  <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
-              </summary>
-          </details>
-          <div role="definition" class="details-content">
-              <p>After you have completed all the steps, you can delete this file.</p>
-              <p>Now your project is ready to go!</p>
-          </div>
+      </div>
       
           <script>
             document.querySelectorAll("details summary span input[type=checkbox]").forEach(
@@ -965,32 +940,27 @@
           <h1>this_is_the_project_name Post Generation Actions</h1>
           <p>The following steps must be completed in the order listed now that your project has been generated.</p>
       
-          <!-- [BEGIN] Before Repository Tool Instruction -->
-          <!-- [END] Before Repository Tool Instruction -->
-      
-          
-          <!-- [BEGIN] After Repository Tool Instruction -->
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-pyproject.toml">Update pyproject.toml</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Python development tools, package dependencies, and packaging instructions are configured in <code>pyproject.toml</code>. Please visit <a href="https://packaging.python.org/en/latest/guides/writing-pyproject-toml/" target="_blank">this link</a> for more information on these files.</p>
+          <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-pyproject.toml">Update pyproject.toml</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Python development tools, package dependencies, and packaging instructions are configured in <code>pyproject.toml</code>. Please visit <a href="https://packaging.python.org/en/latest/guides/writing-pyproject-toml/" target="_blank">this link</a> for more information on these files.</p>
       <p>Please search for and replace all <code>TODO:</code> comments in <code>pyproject.toml</code>.</p>
       
-              </div>
-      <!-- [END] After Repository Tool Instruction -->
+      </div>
       
-          <details>
-              <summary>
-                  <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
-              </summary>
-          </details>
-          <div role="definition" class="details-content">
-              <p>After you have completed all the steps, you can delete this file.</p>
-              <p>Now your project is ready to go!</p>
-          </div>
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>After you have completed all the steps, you can delete this file.</p>
+      <p>Now your project is ready to go!</p>
+      
+      </div>
       
           <script>
             document.querySelectorAll("details summary span input[type=checkbox]").forEach(
@@ -1591,14 +1561,13 @@
           <h1>this_is_the_project_name Post Generation Actions</h1>
           <p>The following steps must be completed in the order listed now that your project has been generated.</p>
       
-          
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="initialize-the-git-repository">Initialize the git repository</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>In this step, we will commit the files generated in git and push the changes.</p>
+          <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="initialize-the-git-repository">Initialize the git repository</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>In this step, we will commit the files generated in git and push the changes.</p>
       
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
@@ -1607,29 +1576,18 @@
       3. <code>git push</code><br/>
       </p>
       
-              </div>
+      </div>
       
-          <!-- [BEGIN] After Repository Tool Instruction -->
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-development.md">Update DEVELOPMENT.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>DEVELOPMENT.md</code>.</p>
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>After you have completed all the steps, you can delete this file.</p>
+      <p>Now your project is ready to go!</p>
       
-              </div>
-      <!-- [END] After Repository Tool Instruction -->
-      
-          <details>
-              <summary>
-                  <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
-              </summary>
-          </details>
-          <div role="definition" class="details-content">
-              <p>After you have completed all the steps, you can delete this file.</p>
-              <p>Now your project is ready to go!</p>
-          </div>
+      </div>
       
           <script>
             document.querySelectorAll("details summary span input[type=checkbox]").forEach(
@@ -1992,14 +1950,13 @@
           <h1>this_is_the_project_name Post Generation Actions</h1>
           <p>The following steps must be completed in the order listed now that your project has been generated.</p>
       
-          
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="initialize-the-git-repository">Initialize the git repository</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>In this step, we will commit the files generated in git and push the changes.</p>
+          <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="initialize-the-git-repository">Initialize the git repository</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>In this step, we will commit the files generated in git and push the changes.</p>
       
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
@@ -2008,39 +1965,29 @@
       3. <code>git push</code><br/>
       </p>
       
-              </div>
+      </div>
       
-          <!-- [BEGIN] After Repository Tool Instruction -->
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-requirements.txt">Update requirements.txt</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Python package dependencies can be added to <code>requirements.txt</code>. These packages will be automatically installed when the environment is <a href="https://github.com/davidbrownell/PythonBootstrapper" target="_blank">bootstrapped</a>.</p>
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-requirements.txt">Update requirements.txt</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Python package dependencies can be added to <code>requirements.txt</code>. These packages will be automatically installed when the environment is <a href="https://github.com/davidbrownell/PythonBootstrapper" target="_blank">bootstrapped</a>.</p>
       <p>Please visit <a href="https://pip.pypa.io/en/stable/reference/requirements-file-format/" target="_blank">this link</a> for more information on requirements files and how they can be used.</p>
       
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-development.md">Update DEVELOPMENT.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>DEVELOPMENT.md</code>.</p>
+      </div>
       
-              </div>
-      <!-- [END] After Repository Tool Instruction -->
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>After you have completed all the steps, you can delete this file.</p>
+      <p>Now your project is ready to go!</p>
       
-          <details>
-              <summary>
-                  <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
-              </summary>
-          </details>
-          <div role="definition" class="details-content">
-              <p>After you have completed all the steps, you can delete this file.</p>
-              <p>Now your project is ready to go!</p>
-          </div>
+      </div>
       
           <script>
             document.querySelectorAll("details summary span input[type=checkbox]").forEach(
@@ -2533,16 +2480,13 @@
           <h1>this_is_the_project_name Post Generation Actions</h1>
           <p>The following steps must be completed in the order listed now that your project has been generated.</p>
       
-          <!-- [BEGIN] Before Repository Tool Instruction -->
-          <!-- [END] Before Repository Tool Instruction -->
-      
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="initialize-the-git-repository">Initialize the git repository</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>In this step, we will commit the files generated in git and push the changes.</p>
+          <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="initialize-the-git-repository">Initialize the git repository</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>In this step, we will commit the files generated in git and push the changes.</p>
       
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
@@ -2551,30 +2495,29 @@
       3. <code>git push</code><br/>
       </p>
       
-              </div>
+      </div>
       
-          <!-- [BEGIN] After Repository Tool Instruction -->
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-pyproject.toml">Update pyproject.toml</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Python development tools, package dependencies, and packaging instructions are configured in <code>pyproject.toml</code>. Please visit <a href="https://packaging.python.org/en/latest/guides/writing-pyproject-toml/" target="_blank">this link</a> for more information on these files.</p>
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-pyproject.toml">Update pyproject.toml</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Python development tools, package dependencies, and packaging instructions are configured in <code>pyproject.toml</code>. Please visit <a href="https://packaging.python.org/en/latest/guides/writing-pyproject-toml/" target="_blank">this link</a> for more information on these files.</p>
       <p>Please search for and replace all <code>TODO:</code> comments in <code>pyproject.toml</code>.</p>
       
-              </div>
-      <!-- [END] After Repository Tool Instruction -->
+      </div>
       
-          <details>
-              <summary>
-                  <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
-              </summary>
-          </details>
-          <div role="definition" class="details-content">
-              <p>After you have completed all the steps, you can delete this file.</p>
-              <p>Now your project is ready to go!</p>
-          </div>
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>After you have completed all the steps, you can delete this file.</p>
+      <p>Now your project is ready to go!</p>
+      
+      </div>
       
           <script>
             document.querySelectorAll("details summary span input[type=checkbox]").forEach(
@@ -3263,14 +3206,13 @@
           <h1>this_is_the_project_name Post Generation Actions</h1>
           <p>The following steps must be completed in the order listed now that your project has been generated.</p>
       
-          
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="initialize-the-git-repository">Initialize the git repository</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>In this step, we will commit the files generated in git and push the changes.</p>
+          <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="initialize-the-git-repository">Initialize the git repository</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>In this step, we will commit the files generated in git and push the changes.</p>
       
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
@@ -3279,29 +3221,18 @@
       3. <code>git push</code><br/>
       </p>
       
-              </div>
+      </div>
       
-          <!-- [BEGIN] After Repository Tool Instruction -->
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-development.md">Update DEVELOPMENT.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>DEVELOPMENT.md</code>.</p>
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>After you have completed all the steps, you can delete this file.</p>
+      <p>Now your project is ready to go!</p>
       
-              </div>
-      <!-- [END] After Repository Tool Instruction -->
-      
-          <details>
-              <summary>
-                  <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
-              </summary>
-          </details>
-          <div role="definition" class="details-content">
-              <p>After you have completed all the steps, you can delete this file.</p>
-              <p>Now your project is ready to go!</p>
-          </div>
+      </div>
       
           <script>
             document.querySelectorAll("details summary span input[type=checkbox]").forEach(
@@ -3752,14 +3683,13 @@
           <h1>this_is_the_project_name Post Generation Actions</h1>
           <p>The following steps must be completed in the order listed now that your project has been generated.</p>
       
-          
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="initialize-the-git-repository">Initialize the git repository</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>In this step, we will commit the files generated in git and push the changes.</p>
+          <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="initialize-the-git-repository">Initialize the git repository</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>In this step, we will commit the files generated in git and push the changes.</p>
       
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
@@ -3768,39 +3698,29 @@
       3. <code>git push</code><br/>
       </p>
       
-              </div>
+      </div>
       
-          <!-- [BEGIN] After Repository Tool Instruction -->
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-requirements.txt">Update requirements.txt</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Python package dependencies can be added to <code>requirements.txt</code>. These packages will be automatically installed when the environment is <a href="https://github.com/davidbrownell/PythonBootstrapper" target="_blank">bootstrapped</a>.</p>
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-requirements.txt">Update requirements.txt</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Python package dependencies can be added to <code>requirements.txt</code>. These packages will be automatically installed when the environment is <a href="https://github.com/davidbrownell/PythonBootstrapper" target="_blank">bootstrapped</a>.</p>
       <p>Please visit <a href="https://pip.pypa.io/en/stable/reference/requirements-file-format/" target="_blank">this link</a> for more information on requirements files and how they can be used.</p>
       
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-development.md">Update DEVELOPMENT.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>DEVELOPMENT.md</code>.</p>
+      </div>
       
-              </div>
-      <!-- [END] After Repository Tool Instruction -->
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>After you have completed all the steps, you can delete this file.</p>
+      <p>Now your project is ready to go!</p>
       
-          <details>
-              <summary>
-                  <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
-              </summary>
-          </details>
-          <div role="definition" class="details-content">
-              <p>After you have completed all the steps, you can delete this file.</p>
-              <p>Now your project is ready to go!</p>
-          </div>
+      </div>
       
           <script>
             document.querySelectorAll("details summary span input[type=checkbox]").forEach(
@@ -4381,16 +4301,13 @@
           <h1>this_is_the_project_name Post Generation Actions</h1>
           <p>The following steps must be completed in the order listed now that your project has been generated.</p>
       
-          <!-- [BEGIN] Before Repository Tool Instruction -->
-          <!-- [END] Before Repository Tool Instruction -->
-      
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="initialize-the-git-repository">Initialize the git repository</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>In this step, we will commit the files generated in git and push the changes.</p>
+          <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="initialize-the-git-repository">Initialize the git repository</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>In this step, we will commit the files generated in git and push the changes.</p>
       
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
@@ -4399,30 +4316,29 @@
       3. <code>git push</code><br/>
       </p>
       
-              </div>
+      </div>
       
-          <!-- [BEGIN] After Repository Tool Instruction -->
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-pyproject.toml">Update pyproject.toml</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Python development tools, package dependencies, and packaging instructions are configured in <code>pyproject.toml</code>. Please visit <a href="https://packaging.python.org/en/latest/guides/writing-pyproject-toml/" target="_blank">this link</a> for more information on these files.</p>
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-pyproject.toml">Update pyproject.toml</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Python development tools, package dependencies, and packaging instructions are configured in <code>pyproject.toml</code>. Please visit <a href="https://packaging.python.org/en/latest/guides/writing-pyproject-toml/" target="_blank">this link</a> for more information on these files.</p>
       <p>Please search for and replace all <code>TODO:</code> comments in <code>pyproject.toml</code>.</p>
       
-              </div>
-      <!-- [END] After Repository Tool Instruction -->
+      </div>
       
-          <details>
-              <summary>
-                  <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
-              </summary>
-          </details>
-          <div role="definition" class="details-content">
-              <p>After you have completed all the steps, you can delete this file.</p>
-              <p>Now your project is ready to go!</p>
-          </div>
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>After you have completed all the steps, you can delete this file.</p>
+      <p>Now your project is ready to go!</p>
+      
+      </div>
       
           <script>
             document.querySelectorAll("details summary span input[type=checkbox]").forEach(
@@ -5202,65 +5118,66 @@
           <h1>this_is_the_project_name Post Generation Actions</h1>
           <p>The following steps must be completed in the order listed now that your project has been generated.</p>
       
-          
-          
-          <!-- [BEGIN] After Repository Tool Instruction -->
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-readme.md">Update README.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>README.md</code>.</p>
-      
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-maintainers.md">Update MAINTAINERS.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>MAINTAINERS.md</code>.</p>
-      
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-contributing.md">Update CONTRIBUTING.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>CONTRIBUTING.md</code>.</p>
-      
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-security.md">Update SECURITY.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>SECURITY.md</code>.</p>
-      
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-development.md">Update DEVELOPMENT.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>DEVELOPMENT.md</code>.</p>
-      
-              </div>
-      <!-- [END] After Repository Tool Instruction -->
-      
           <details>
-              <summary>
-                  <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
-              </summary>
-          </details>
-          <div role="definition" class="details-content">
-              <p>After you have completed all the steps, you can delete this file.</p>
-              <p>Now your project is ready to go!</p>
-          </div>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-contributing.md">Update CONTRIBUTING.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>CONTRIBUTING.md</code>.</p>
+      
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-development.md">Update DEVELOPMENT.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>DEVELOPMENT.md</code>.</p>
+      
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-maintainers.md">Update MAINTAINERS.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>MAINTAINERS.md</code>.</p>
+      
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-readme.md">Update README.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>README.md</code>.</p>
+      
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-security.md">Update SECURITY.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>SECURITY.md</code>.</p>
+      
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>After you have completed all the steps, you can delete this file.</p>
+      <p>Now your project is ready to go!</p>
+      
+      </div>
       
           <script>
             document.querySelectorAll("details summary span input[type=checkbox]").forEach(
@@ -5855,75 +5772,77 @@
           <h1>this_is_the_project_name Post Generation Actions</h1>
           <p>The following steps must be completed in the order listed now that your project has been generated.</p>
       
-          
-          
-          <!-- [BEGIN] After Repository Tool Instruction -->
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-readme.md">Update README.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>README.md</code>.</p>
-      
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-maintainers.md">Update MAINTAINERS.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>MAINTAINERS.md</code>.</p>
-      
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-contributing.md">Update CONTRIBUTING.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>CONTRIBUTING.md</code>.</p>
-      
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-security.md">Update SECURITY.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>SECURITY.md</code>.</p>
-      
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-requirements.txt">Update requirements.txt</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Python package dependencies can be added to <code>requirements.txt</code>. These packages will be automatically installed when the environment is <a href="https://github.com/davidbrownell/PythonBootstrapper" target="_blank">bootstrapped</a>.</p>
+          <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-requirements.txt">Update requirements.txt</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Python package dependencies can be added to <code>requirements.txt</code>. These packages will be automatically installed when the environment is <a href="https://github.com/davidbrownell/PythonBootstrapper" target="_blank">bootstrapped</a>.</p>
       <p>Please visit <a href="https://pip.pypa.io/en/stable/reference/requirements-file-format/" target="_blank">this link</a> for more information on requirements files and how they can be used.</p>
       
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-development.md">Update DEVELOPMENT.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>DEVELOPMENT.md</code>.</p>
+      </div>
       
-              </div>
-      <!-- [END] After Repository Tool Instruction -->
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-contributing.md">Update CONTRIBUTING.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>CONTRIBUTING.md</code>.</p>
       
-          <details>
-              <summary>
-                  <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
-              </summary>
-          </details>
-          <div role="definition" class="details-content">
-              <p>After you have completed all the steps, you can delete this file.</p>
-              <p>Now your project is ready to go!</p>
-          </div>
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-development.md">Update DEVELOPMENT.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>DEVELOPMENT.md</code>.</p>
+      
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-maintainers.md">Update MAINTAINERS.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>MAINTAINERS.md</code>.</p>
+      
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-readme.md">Update README.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>README.md</code>.</p>
+      
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-security.md">Update SECURITY.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>SECURITY.md</code>.</p>
+      
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>After you have completed all the steps, you can delete this file.</p>
+      <p>Now your project is ready to go!</p>
+      
+      </div>
       
           <script>
             document.querySelectorAll("details summary span input[type=checkbox]").forEach(
@@ -6510,8 +6429,6 @@
       # this_is_the_project_name
       
       <!-- BEGIN: Exclude Package -->
-      <!-- [BEGIN] Badges -->
-      <!-- [END] Badges -->
       <!-- END: Exclude Package -->
       
       <<project_description>>
@@ -6656,68 +6573,67 @@
           <h1>this_is_the_project_name Post Generation Actions</h1>
           <p>The following steps must be completed in the order listed now that your project has been generated.</p>
       
-          <!-- [BEGIN] Before Repository Tool Instruction -->
-          <!-- [END] Before Repository Tool Instruction -->
-      
-          
-          <!-- [BEGIN] After Repository Tool Instruction -->
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-readme.md">Update README.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>README.md</code>.</p>
-      
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-maintainers.md">Update MAINTAINERS.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>MAINTAINERS.md</code>.</p>
-      
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-contributing.md">Update CONTRIBUTING.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>CONTRIBUTING.md</code>.</p>
-      
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-security.md">Update SECURITY.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>SECURITY.md</code>.</p>
-      
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-pyproject.toml">Update pyproject.toml</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Python development tools, package dependencies, and packaging instructions are configured in <code>pyproject.toml</code>. Please visit <a href="https://packaging.python.org/en/latest/guides/writing-pyproject-toml/" target="_blank">this link</a> for more information on these files.</p>
+          <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-pyproject.toml">Update pyproject.toml</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Python development tools, package dependencies, and packaging instructions are configured in <code>pyproject.toml</code>. Please visit <a href="https://packaging.python.org/en/latest/guides/writing-pyproject-toml/" target="_blank">this link</a> for more information on these files.</p>
       <p>Please search for and replace all <code>TODO:</code> comments in <code>pyproject.toml</code>.</p>
       
-              </div>
-      <!-- [END] After Repository Tool Instruction -->
+      </div>
       
-          <details>
-              <summary>
-                  <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
-              </summary>
-          </details>
-          <div role="definition" class="details-content">
-              <p>After you have completed all the steps, you can delete this file.</p>
-              <p>Now your project is ready to go!</p>
-          </div>
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-contributing.md">Update CONTRIBUTING.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>CONTRIBUTING.md</code>.</p>
+      
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-maintainers.md">Update MAINTAINERS.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>MAINTAINERS.md</code>.</p>
+      
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-readme.md">Update README.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>README.md</code>.</p>
+      
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-security.md">Update SECURITY.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>SECURITY.md</code>.</p>
+      
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>After you have completed all the steps, you can delete this file.</p>
+      <p>Now your project is ready to go!</p>
+      
+      </div>
       
           <script>
             document.querySelectorAll("details summary span input[type=checkbox]").forEach(
@@ -7501,14 +7417,13 @@
           <h1>this_is_the_project_name Post Generation Actions</h1>
           <p>The following steps must be completed in the order listed now that your project has been generated.</p>
       
-          
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="initialize-the-git-repository">Initialize the git repository</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>In this step, we will commit the files generated in git and push the changes.</p>
+          <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="initialize-the-git-repository">Initialize the git repository</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>In this step, we will commit the files generated in git and push the changes.</p>
       
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
@@ -7517,65 +7432,68 @@
       3. <code>git push</code><br/>
       </p>
       
-              </div>
+      </div>
       
-          <!-- [BEGIN] After Repository Tool Instruction -->
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-readme.md">Update README.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>README.md</code>.</p>
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-contributing.md">Update CONTRIBUTING.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>CONTRIBUTING.md</code>.</p>
       
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-maintainers.md">Update MAINTAINERS.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>MAINTAINERS.md</code>.</p>
+      </div>
       
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-contributing.md">Update CONTRIBUTING.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>CONTRIBUTING.md</code>.</p>
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-development.md">Update DEVELOPMENT.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>DEVELOPMENT.md</code>.</p>
       
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-security.md">Update SECURITY.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>SECURITY.md</code>.</p>
+      </div>
       
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-development.md">Update DEVELOPMENT.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>DEVELOPMENT.md</code>.</p>
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-maintainers.md">Update MAINTAINERS.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>MAINTAINERS.md</code>.</p>
       
-              </div>
-      <!-- [END] After Repository Tool Instruction -->
+      </div>
       
-          <details>
-              <summary>
-                  <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
-              </summary>
-          </details>
-          <div role="definition" class="details-content">
-              <p>After you have completed all the steps, you can delete this file.</p>
-              <p>Now your project is ready to go!</p>
-          </div>
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-readme.md">Update README.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>README.md</code>.</p>
+      
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-security.md">Update SECURITY.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>SECURITY.md</code>.</p>
+      
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>After you have completed all the steps, you can delete this file.</p>
+      <p>Now your project is ready to go!</p>
+      
+      </div>
       
           <script>
             document.querySelectorAll("details summary span input[type=checkbox]").forEach(
@@ -8182,14 +8100,13 @@
           <h1>this_is_the_project_name Post Generation Actions</h1>
           <p>The following steps must be completed in the order listed now that your project has been generated.</p>
       
-          
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="initialize-the-git-repository">Initialize the git repository</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>In this step, we will commit the files generated in git and push the changes.</p>
+          <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="initialize-the-git-repository">Initialize the git repository</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>In this step, we will commit the files generated in git and push the changes.</p>
       
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
@@ -8198,75 +8115,79 @@
       3. <code>git push</code><br/>
       </p>
       
-              </div>
+      </div>
       
-          <!-- [BEGIN] After Repository Tool Instruction -->
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-readme.md">Update README.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>README.md</code>.</p>
-      
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-maintainers.md">Update MAINTAINERS.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>MAINTAINERS.md</code>.</p>
-      
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-contributing.md">Update CONTRIBUTING.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>CONTRIBUTING.md</code>.</p>
-      
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-security.md">Update SECURITY.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>SECURITY.md</code>.</p>
-      
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-requirements.txt">Update requirements.txt</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Python package dependencies can be added to <code>requirements.txt</code>. These packages will be automatically installed when the environment is <a href="https://github.com/davidbrownell/PythonBootstrapper" target="_blank">bootstrapped</a>.</p>
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-requirements.txt">Update requirements.txt</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Python package dependencies can be added to <code>requirements.txt</code>. These packages will be automatically installed when the environment is <a href="https://github.com/davidbrownell/PythonBootstrapper" target="_blank">bootstrapped</a>.</p>
       <p>Please visit <a href="https://pip.pypa.io/en/stable/reference/requirements-file-format/" target="_blank">this link</a> for more information on requirements files and how they can be used.</p>
       
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-development.md">Update DEVELOPMENT.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>DEVELOPMENT.md</code>.</p>
+      </div>
       
-              </div>
-      <!-- [END] After Repository Tool Instruction -->
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-contributing.md">Update CONTRIBUTING.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>CONTRIBUTING.md</code>.</p>
       
-          <details>
-              <summary>
-                  <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
-              </summary>
-          </details>
-          <div role="definition" class="details-content">
-              <p>After you have completed all the steps, you can delete this file.</p>
-              <p>Now your project is ready to go!</p>
-          </div>
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-development.md">Update DEVELOPMENT.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>DEVELOPMENT.md</code>.</p>
+      
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-maintainers.md">Update MAINTAINERS.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>MAINTAINERS.md</code>.</p>
+      
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-readme.md">Update README.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>README.md</code>.</p>
+      
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-security.md">Update SECURITY.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>SECURITY.md</code>.</p>
+      
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>After you have completed all the steps, you can delete this file.</p>
+      <p>Now your project is ready to go!</p>
+      
+      </div>
       
           <script>
             document.querySelectorAll("details summary span input[type=checkbox]").forEach(
@@ -8873,8 +8794,6 @@
       # this_is_the_project_name
       
       <!-- BEGIN: Exclude Package -->
-      <!-- [BEGIN] Badges -->
-      <!-- [END] Badges -->
       <!-- END: Exclude Package -->
       
       <<project_description>>
@@ -9019,16 +8938,13 @@
           <h1>this_is_the_project_name Post Generation Actions</h1>
           <p>The following steps must be completed in the order listed now that your project has been generated.</p>
       
-          <!-- [BEGIN] Before Repository Tool Instruction -->
-          <!-- [END] Before Repository Tool Instruction -->
-      
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="initialize-the-git-repository">Initialize the git repository</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>In this step, we will commit the files generated in git and push the changes.</p>
+          <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="initialize-the-git-repository">Initialize the git repository</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>In this step, we will commit the files generated in git and push the changes.</p>
       
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
@@ -9037,66 +8953,69 @@
       3. <code>git push</code><br/>
       </p>
       
-              </div>
+      </div>
       
-          <!-- [BEGIN] After Repository Tool Instruction -->
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-readme.md">Update README.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>README.md</code>.</p>
-      
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-maintainers.md">Update MAINTAINERS.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>MAINTAINERS.md</code>.</p>
-      
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-contributing.md">Update CONTRIBUTING.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>CONTRIBUTING.md</code>.</p>
-      
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-security.md">Update SECURITY.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>SECURITY.md</code>.</p>
-      
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-pyproject.toml">Update pyproject.toml</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Python development tools, package dependencies, and packaging instructions are configured in <code>pyproject.toml</code>. Please visit <a href="https://packaging.python.org/en/latest/guides/writing-pyproject-toml/" target="_blank">this link</a> for more information on these files.</p>
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-pyproject.toml">Update pyproject.toml</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Python development tools, package dependencies, and packaging instructions are configured in <code>pyproject.toml</code>. Please visit <a href="https://packaging.python.org/en/latest/guides/writing-pyproject-toml/" target="_blank">this link</a> for more information on these files.</p>
       <p>Please search for and replace all <code>TODO:</code> comments in <code>pyproject.toml</code>.</p>
       
-              </div>
-      <!-- [END] After Repository Tool Instruction -->
+      </div>
       
-          <details>
-              <summary>
-                  <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
-              </summary>
-          </details>
-          <div role="definition" class="details-content">
-              <p>After you have completed all the steps, you can delete this file.</p>
-              <p>Now your project is ready to go!</p>
-          </div>
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-contributing.md">Update CONTRIBUTING.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>CONTRIBUTING.md</code>.</p>
+      
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-maintainers.md">Update MAINTAINERS.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>MAINTAINERS.md</code>.</p>
+      
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-readme.md">Update README.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>README.md</code>.</p>
+      
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-security.md">Update SECURITY.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>SECURITY.md</code>.</p>
+      
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>After you have completed all the steps, you can delete this file.</p>
+      <p>Now your project is ready to go!</p>
+      
+      </div>
       
           <script>
             document.querySelectorAll("details summary span input[type=checkbox]").forEach(
@@ -9973,14 +9892,13 @@
           <h1>this_is_the_project_name Post Generation Actions</h1>
           <p>The following steps must be completed in the order listed now that your project has been generated.</p>
       
-          
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="initialize-the-git-repository">Initialize the git repository</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>In this step, we will commit the files generated in git and push the changes.</p>
+          <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="initialize-the-git-repository">Initialize the git repository</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>In this step, we will commit the files generated in git and push the changes.</p>
       
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
@@ -9989,47 +9907,48 @@
       3. <code>git push</code><br/>
       </p>
       
-              </div>
+      </div>
       
-          <!-- [BEGIN] After Repository Tool Instruction -->
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-readme.md">Update README.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>README.md</code>.</p>
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-development.md">Update DEVELOPMENT.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>DEVELOPMENT.md</code>.</p>
       
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-maintainers.md">Update MAINTAINERS.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>MAINTAINERS.md</code>.</p>
+      </div>
       
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-development.md">Update DEVELOPMENT.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>DEVELOPMENT.md</code>.</p>
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-maintainers.md">Update MAINTAINERS.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>MAINTAINERS.md</code>.</p>
       
-              </div>
-      <!-- [END] After Repository Tool Instruction -->
+      </div>
       
-          <details>
-              <summary>
-                  <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
-              </summary>
-          </details>
-          <div role="definition" class="details-content">
-              <p>After you have completed all the steps, you can delete this file.</p>
-              <p>Now your project is ready to go!</p>
-          </div>
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-readme.md">Update README.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>README.md</code>.</p>
+      
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>After you have completed all the steps, you can delete this file.</p>
+      <p>Now your project is ready to go!</p>
+      
+      </div>
       
           <script>
             document.querySelectorAll("details summary span input[type=checkbox]").forEach(
@@ -10734,14 +10653,13 @@
           <h1>this_is_the_project_name Post Generation Actions</h1>
           <p>The following steps must be completed in the order listed now that your project has been generated.</p>
       
-          
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="initialize-the-git-repository">Initialize the git repository</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>In this step, we will commit the files generated in git and push the changes.</p>
+          <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="initialize-the-git-repository">Initialize the git repository</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>In this step, we will commit the files generated in git and push the changes.</p>
       
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
@@ -10750,57 +10668,59 @@
       3. <code>git push</code><br/>
       </p>
       
-              </div>
+      </div>
       
-          <!-- [BEGIN] After Repository Tool Instruction -->
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-readme.md">Update README.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>README.md</code>.</p>
-      
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-maintainers.md">Update MAINTAINERS.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>MAINTAINERS.md</code>.</p>
-      
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-requirements.txt">Update requirements.txt</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Python package dependencies can be added to <code>requirements.txt</code>. These packages will be automatically installed when the environment is <a href="https://github.com/davidbrownell/PythonBootstrapper" target="_blank">bootstrapped</a>.</p>
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-requirements.txt">Update requirements.txt</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Python package dependencies can be added to <code>requirements.txt</code>. These packages will be automatically installed when the environment is <a href="https://github.com/davidbrownell/PythonBootstrapper" target="_blank">bootstrapped</a>.</p>
       <p>Please visit <a href="https://pip.pypa.io/en/stable/reference/requirements-file-format/" target="_blank">this link</a> for more information on requirements files and how they can be used.</p>
       
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-development.md">Update DEVELOPMENT.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>DEVELOPMENT.md</code>.</p>
+      </div>
       
-              </div>
-      <!-- [END] After Repository Tool Instruction -->
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-development.md">Update DEVELOPMENT.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>DEVELOPMENT.md</code>.</p>
       
-          <details>
-              <summary>
-                  <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
-              </summary>
-          </details>
-          <div role="definition" class="details-content">
-              <p>After you have completed all the steps, you can delete this file.</p>
-              <p>Now your project is ready to go!</p>
-          </div>
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-maintainers.md">Update MAINTAINERS.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>MAINTAINERS.md</code>.</p>
+      
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-readme.md">Update README.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>README.md</code>.</p>
+      
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>After you have completed all the steps, you can delete this file.</p>
+      <p>Now your project is ready to go!</p>
+      
+      </div>
       
           <script>
             document.querySelectorAll("details summary span input[type=checkbox]").forEach(
@@ -11504,8 +11424,6 @@
       <!-- BEGIN: Exclude Package -->
       [![License](https://img.shields.io/github/license/<<github_username>>/<<github_repo_name>>?color=dark-green)](https://github.com/<<github_username>>/<<github_repo_name>>/blob/master/LICENSE.txt)
       [![GitHub commit activity](https://img.shields.io/github/commit-activity/y/<<github_username>>/<<github_repo_name>>?color=dark-green)](https://github.com/<<github_username>>/<<github_repo_name>>/commits/main/)
-      <!-- [BEGIN] Badges -->
-      <!-- [END] Badges -->
       <!-- END: Exclude Package -->
       
       <<project_description>>
@@ -11663,16 +11581,13 @@
           <h1>this_is_the_project_name Post Generation Actions</h1>
           <p>The following steps must be completed in the order listed now that your project has been generated.</p>
       
-          <!-- [BEGIN] Before Repository Tool Instruction -->
-          <!-- [END] Before Repository Tool Instruction -->
-      
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="initialize-the-git-repository">Initialize the git repository</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>In this step, we will commit the files generated in git and push the changes.</p>
+          <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="initialize-the-git-repository">Initialize the git repository</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>In this step, we will commit the files generated in git and push the changes.</p>
       
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
@@ -11681,48 +11596,49 @@
       3. <code>git push</code><br/>
       </p>
       
-              </div>
+      </div>
       
-          <!-- [BEGIN] After Repository Tool Instruction -->
-                  <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-readme.md">Update README.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>README.md</code>.</p>
-      
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-maintainers.md">Update MAINTAINERS.md</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Please search for and replace all <code>TODO:</code> comments in <code>MAINTAINERS.md</code>.</p>
-      
-              </div>
-              <details>
-                  <summary>
-                      <span role="term"><input type="checkbox" id="update-pyproject.toml">Update pyproject.toml</span>
-                  </summary>
-              </details>
-              <div role="definition" class="details-content">
-      <p>Python development tools, package dependencies, and packaging instructions are configured in <code>pyproject.toml</code>. Please visit <a href="https://packaging.python.org/en/latest/guides/writing-pyproject-toml/" target="_blank">this link</a> for more information on these files.</p>
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-pyproject.toml">Update pyproject.toml</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Python development tools, package dependencies, and packaging instructions are configured in <code>pyproject.toml</code>. Please visit <a href="https://packaging.python.org/en/latest/guides/writing-pyproject-toml/" target="_blank">this link</a> for more information on these files.</p>
       <p>Please search for and replace all <code>TODO:</code> comments in <code>pyproject.toml</code>.</p>
       
-              </div>
-      <!-- [END] After Repository Tool Instruction -->
+      </div>
       
-          <details>
-              <summary>
-                  <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
-              </summary>
-          </details>
-          <div role="definition" class="details-content">
-              <p>After you have completed all the steps, you can delete this file.</p>
-              <p>Now your project is ready to go!</p>
-          </div>
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-maintainers.md">Update MAINTAINERS.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>MAINTAINERS.md</code>.</p>
+      
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="update-readme.md">Update README.md</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>Please search for and replace all <code>TODO:</code> comments in <code>README.md</code>.</p>
+      
+      </div>
+      
+      <details>
+          <summary>
+              <span role="term"><input type="checkbox" id="delete-this-file">Delete this file</span>
+          </summary>
+      </details>
+      <div role="definition" class="details-content">
+          <p>After you have completed all the steps, you can delete this file.</p>
+      <p>Now your project is ready to go!</p>
+      
+      </div>
       
           <script>
             document.querySelectorAll("details summary span input[type=checkbox]").forEach(
