@@ -218,6 +218,23 @@ def UpdateReadmeFile():
         if "{{ hosting_platform }}" == "None":
             installation_instructions = pip_instructions
         elif "{{ hosting_platform }}" == "GitHub":
+            sign_instructions = ""
+
+            if "{{ python_package_generate_ci_sign_artifacts }}".lower() == "true":
+                sign_instructions = textwrap.dedent(
+                    """\
+                    #### Verifying Signed Executables
+                    Executables are signed and validated using [Minisign](https://jedisct1.github.io/minisign/). The public key used to verify the signature of the executable is `<<<MINISIGN_PUBLIC_KEY>>>`.
+
+                    To verify that the executable is valid, download the corresponding `.minisig` file [here]({{ github_url }}/releases/latest) and run this command, replacing `<filename>` with the name of the file to be verified:
+
+                    `docker run -i --rm -v .:/host jedisct1/minisign -V -P <<<MINISIGN_PUBLIC_KEY>>> -m /host/<filename>`
+
+                    Instructions for installing [docker](https://docker.com) are available at https://docs.docker.com/engine/install/.
+
+                    """,
+                )
+
             installation_instructions = textwrap.dedent(
                 """\
                 {{ project_name }} can be installed via one of these methods:
@@ -231,9 +248,12 @@ def UpdateReadmeFile():
                 1. Download the archive for the latest release [here]({{ github_url }}/releases/latest). The filename will begin with `exe.` and contain the name of your operating system.
                 2. Decompress the archive.
 
-                {}
+                {sign_instructions}{pip_instructions}
                 """,
-            ).format(pip_instructions)
+            ).format(
+                sign_instructions=sign_instructions,
+                pip_instructions=pip_instructions,
+            )
         else:
             raise Exception("'{{ hosting_platform }}' is not a recognized hosting platform.")
 
