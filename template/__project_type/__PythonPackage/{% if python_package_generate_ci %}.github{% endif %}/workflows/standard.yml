@@ -1,0 +1,194 @@
+name: "Standard"
+
+run-name: {% raw %}${{ github.run_number }} [${{ github.actor }}] on ${{ github.ref_name }}{% endraw %}
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 * * *' # Once a day at 12am UTC
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  # ----------------------------------------------------------------------
+  action_contexts:
+    name: "Display GitHub Action Contexts"
+    uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+
+  # ----------------------------------------------------------------------
+  validate:
+    strategy:
+      fail-fast: false
+
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+          - windows-latest
+
+        python_version:
+          - "3.12"
+          - "3.11"
+          - "3.10"
+          # - "3.9"  # Not supported
+          # - "3.8"  # Not supported
+
+    name: Validate
+
+    permissions:
+      contents: read
+
+    uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+    with:
+      operating_system: {% raw %}${{ matrix.os }}{% endraw %}
+      python_version: {% raw %}${{ matrix.python_version }}{% endraw %}
+
+  # ----------------------------------------------------------------------
+  package_coverage:
+    needs: validate
+
+    name: Postprocess Coverage Info
+
+    permissions:
+      contents: read
+
+    uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+
+  # ----------------------------------------------------------------------
+  create_package:
+    needs: package_coverage
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+          - windows-latest
+
+        python_version:
+          - "3.12"
+          - "3.11"
+          - "3.10"
+          # - "3.9"  # Not supported
+          # - "3.8"  # Not supported
+
+    name: Create Package
+
+    permissions:
+      contents: read
+
+    uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+    with:
+      operating_system: {% raw %}${{ matrix.os }}{% endraw %}
+      python_version: {% raw %}${{ matrix.python_version }}{% endraw %}
+
+  # ----------------------------------------------------------------------
+  validate_package:
+    needs: create_package
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+          - windows-latest
+
+        python_version:
+          - "3.12"
+          - "3.11"
+          - "3.10"
+          # - "3.9"  # Not supported
+          # - "3.8"  # Not supported
+
+    name: Validate Package
+
+    permissions:
+      contents: read
+
+    uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+    with:
+      operating_system: {% raw %}${{ matrix.os }}{% endraw %}
+      python_version: {% raw %}${{ matrix.python_version }}{% endraw %}
+      validation_command: python -c "from {{ python_package_pypi_name }} import __version__; print(__version__)"
+{% if python_package_generate_ci_binary %}
+  # ----------------------------------------------------------------------
+  create_binary:
+    needs: package_coverage
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+          - windows-latest
+
+        python_version:
+          - "3.11"
+
+    name: Create Binary
+
+    permissions:
+      contents: read
+
+    uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.0
+    with:
+      operating_system: {% raw %}${{ matrix.os }}{% endraw %}
+      python_version: {% raw %}${{ matrix.python_version }}{% endraw %}
+
+  # ----------------------------------------------------------------------
+  validate_binary:
+    needs: create_binary
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+          - windows-latest
+
+        python_version:
+          - "3.11"
+
+    name: Validate Binary
+
+    permissions:
+      contents: read
+
+    uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.0
+    with:
+      operating_system: {% raw %}${{ matrix.os }}{% endraw %}
+      python_version: {% raw %}${{ matrix.python_version }}{% endraw %}
+      validation_command: {{ python_package_pypi_name }} Version
+{% endif %}
+  # ----------------------------------------------------------------------
+  publish:
+    needs:
+      - validate_package
+{%- if python_package_generate_ci_binary %}
+      - validate_binary
+{%- endif %}
+
+    name: Publish
+
+    permissions:
+      contents: write
+
+    uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+    with:
+      release_sources_configuration_filename: .github/release_sources.yaml
+    secrets:
+      PYPI_TOKEN: {% raw %}${{ secrets.PYPI_TOKEN }}{% endraw %}

@@ -4,6 +4,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Generator
 
+from dbrownell_Common.ContextlibEx import ExitStack
+
 
 # ----------------------------------------------------------------------
 freeform_strings: list[str] = [
@@ -45,35 +47,111 @@ class ConfigurationInfo:
         # Ensure that the email address is valid
         configuration["author_email"] = f"{configuration['author_email']}@example.com"
 
+        configuration_name_parts: list[str] = []
         configuration_ctr = 0
+        is_valid = False
 
-        for generate_docs in [False, True]:
-            configuration["generate_docs"] = generate_docs
+        # ----------------------------------------------------------------------
+        def CreateConfigurationInfo(
+            configuration: dict[str, Any],
+        ) -> ConfigurationInfo:
+            nonlocal configuration_ctr
 
-            for repository_tool in ["None", "git"]:
-                configuration["repository_tool"] = repository_tool
+            configuration_ctr += 1
+            configuration_name = f"{configuration_ctr:02}_{'_'.join(configuration_name_parts)}"
 
-                for hosting_platform in ["None", "GitHub"]:
-                    if hosting_platform == "GitHub" and repository_tool != "git":
-                        is_valid = False
-                    else:
-                        is_valid = True
+            return ConfigurationInfo(
+                configuration_name,
+                configuration,
+                is_valid=is_valid,
+            )
 
-                    if not include_invalid and not is_valid:
-                        continue
+        # ----------------------------------------------------------------------
+        def DeleteConfigurationValue(
+            key: str,
+        ) -> None:
+            del configuration[key]
 
-                    configuration["hosting_platform"] = hosting_platform
+        # ----------------------------------------------------------------------
 
-                    for project_type in ["None", "PythonExecutionEnvironment", "PythonPackage"]:
-                        configuration["project_type"] = project_type
+        configuration_name_parts.append("<placeholder>")
+        with ExitStack(configuration_name_parts.pop):
+            for generate_docs in [False, True]:
+                configuration["generate_docs"] = generate_docs
+                configuration_name_parts[-1] = f"Docs{int(generate_docs)}"
 
-                        configuration_ctr += 1
+                configuration_name_parts.append("<placeholder>")
+                with ExitStack(configuration_name_parts.pop):
+                    for repository_tool in ["None", "git"]:
+                        configuration["repository_tool"] = repository_tool
+                        configuration_name_parts[-1] = repository_tool
 
-                        yield cls(
-                            f"{configuration_ctr:02}-{generate_docs}_{repository_tool}_{hosting_platform}_{project_type}",
-                            configuration,
-                            is_valid=is_valid,
-                        )
+                        configuration_name_parts.append("<placeholder>")
+                        with ExitStack(configuration_name_parts.pop):
+                            for hosting_platform in ["None", "GitHub"]:
+                                if hosting_platform == "GitHub" and repository_tool != "git":
+                                    is_valid = False
+                                else:
+                                    is_valid = True
+
+                                if not include_invalid and not is_valid:
+                                    continue
+
+                                configuration["hosting_platform"] = hosting_platform
+                                configuration_name_parts[-1] = hosting_platform
+
+                                configuration_name_parts.append("<placeholder>")
+                                with ExitStack(configuration_name_parts.pop):
+                                    for project_type in [
+                                        "None",
+                                        "PythonExecutionEnvironment",
+                                        "PythonPackage",
+                                    ]:
+                                        configuration["project_type"] = project_type
+                                        configuration_name_parts[-1] = project_type
+
+                                        if (
+                                            project_type != "PythonPackage"
+                                            or hosting_platform != "GitHub"
+                                        ):
+                                            yield CreateConfigurationInfo(configuration)
+                                            continue
+
+                                        configuration_name_parts.append("<placeholder>")
+                                        with ExitStack(
+                                            configuration_name_parts.pop,
+                                            lambda key="python_package_generate_ci": DeleteConfigurationValue(
+                                                key
+                                            ),
+                                        ):
+                                            for generate_ci in [False, True]:
+                                                configuration["python_package_generate_ci"] = (
+                                                    generate_ci
+                                                )
+                                                configuration_name_parts[-1] = (
+                                                    f"CI{int(generate_ci)}"
+                                                )
+
+                                                if not generate_ci:
+                                                    yield CreateConfigurationInfo(configuration)
+                                                    continue
+
+                                                configuration_name_parts.append("<placeholder>")
+                                                with ExitStack(
+                                                    configuration_name_parts.pop,
+                                                    lambda key="python_package_generate_ci_binary_question": DeleteConfigurationValue(
+                                                        key
+                                                    ),
+                                                ):
+                                                    for generate_binary in [False, True]:
+                                                        configuration[
+                                                            "python_package_generate_ci_binary_question"
+                                                        ] = generate_binary
+                                                        configuration_name_parts[-1] = (
+                                                            f"CIBinary{int(generate_binary)}"
+                                                        )
+
+                                                        yield CreateConfigurationInfo(configuration)
 
 
 # ----------------------------------------------------------------------

@@ -21,6 +21,69 @@ def MoveContent():
 def UpdatePostGenerationActionsFile():
     instructions: dict[str, str] = {}
 
+    if "{{ python_package_generate_ci }}".lower() == "true":
+        if "{{ project_type }}" == "PythonPackage":
+            # Create and save the temporary PyPi token
+            instructions["Create a Temporary PyPi Token"] = textwrap.dedent(
+                """\
+                <p>In this step, we will create a temporary <a href="https://pypi.org" target="_blank">PyPi</a> token used to publish the python package for the first time. The token created will be scoped to all of your projects on PyPi (which provides too much access). Once the package has been published for the first time, we will delete this temporary token and create a new one that is scoped to the single project.</p>
+                <ol>
+                  <li>Visit <a href="https://pypi.org/manage/account/token/" target="_blank">https://pypi.org/manage/account/token/</a>.</li>
+                  <li>
+                    <p>Enter the values:</p>
+                    <p>
+                      <table>
+                        <tr>
+                          <th>Token name:</th>
+                          <td><code>Temporary CI Publish Action ({{ python_package_pypi_name }})</code></td>
+                        </tr>
+                        <tr>
+                          <th>Scope:</th>
+                          <td><code>Entire account (all projects)</code></td>
+                        </tr>
+                      </table>
+                    </p>
+                  </li>
+                  <li>Click the "Create token" button.</li>
+                  <li>Click the "Copy token" button for use in the next step.</li>
+                </ol>
+                """,
+            )
+
+            if "{{ hosting_platform }}" == "None":
+                instructions["Save the Temporary PyPi Token"] = textwrap.dedent(
+                    """\
+                    <p>Please save the PyPi token just created.</p>
+                    """,
+                )
+            elif "{{ hosting_platform }}" == "GitHub":
+                instructions["Save the Temporary PyPi Token as a GitHub Secret"] = textwrap.dedent(
+                    """\
+                    <p>In this step, we will save the PyPi token just created as a <a href="https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions" target="_blank">GitHub Action secret</a>.</p>
+                    <ol>
+                      <li>Visit <a href="{{ github_url }}/settings/secrets/actions/new" target="_blank">{{ github_url }}/settings/secrets/actions/new</a>.</li>
+                      <li>
+                        <p>Enter the values:</p>
+                        <p>
+                          <table>
+                            <tr>
+                              <th>Name:</th>
+                              <td><code>PYPI_TOKEN</code></td>
+                            </tr>
+                            <tr>
+                              <th>Secret:</th>
+                              <td>&lt;paste the token generated in the previous step&gt;</td>
+                            </tr>
+                          </table>
+                        </p>
+                      </li>
+                      <li>Click the "Add secret" button.</li>
+                    </ol>
+                    """,
+                )
+            else:
+                raise Exception("'{{ hosting_platform }}' is not a recognized hosting platform.")
+
     # Commit instructions
     shell_scripts: list[Path] = []
 
@@ -76,6 +139,93 @@ def UpdatePostGenerationActionsFile():
         )
     else:
         raise Exception("'{{ repository_tool }}' is not a recognized repository tool.")
+
+    # Add additional CI/CD instructions
+    if "{{ python_package_generate_ci }}".lower() == "true":
+        # Wait for the workflow to complete
+        if "{{ hosting_platform }}" == "None":
+            instructions["Verify the CI/CD Workflow"] = textwrap.dedent(
+                """\
+                <p>Please verify that the CI/CD workflow completed successfully.</p>
+                """,
+            )
+        elif "{{ hosting_platform }}" == "GitHub":
+            instructions["Verify the CI/CD Workflow"] = textwrap.dedent(
+                """\
+                <p>In this step, we will verify that the GitHub Action workflow completed successfully.</p>
+                <ol>
+                  <li>Visit <a href="{{ github_url }}/actions" target="_blank">{{ github_url }}/actions</a>.</li>
+                  <li>Select the most recent workflow.</li>
+                  <li>Wait for the workflow to complete successfully.</li>
+                </ol>
+                """,
+            )
+        else:
+            raise Exception("'{{ hosting_platform }}' is not a recognized hosting platform.")
+
+        # Delete the temporary PyPi token, create an official PyPi token, and update the GitHub secret
+        if "{{ project_type }}" == "PythonPackage":
+            instructions["Delete the temporary PyPi Token"] = textwrap.dedent(
+                """\
+                <p>In an earlier step, we created a temporary <a href="https://pypi.org" target="_blank">PyPi</a> token. In this step, we will delete that token. A new token to replace it will be created in the steps that follow.</p>
+                <ol>
+                  <li>Visit <a href="https://pypi.org/manage/account/" target="_blank">https://pypi.org/manage/account/</a>.</li>
+                  <li>Find the token named <code>Temporary CI Publish Action ({{ python_package_pypi_name }})</code>...</li>
+                  <li>Click the "Options" dropdown button...</li>
+                  <li>Select "Remove token".</li>
+                  <li>In the dialog box that appears...</li>
+                  <li>Enter your password.</li>
+                  <li>Click the "Remove API token" button.</li>
+                </ol>
+                """,
+            )
+
+            instructions["Create an Official PyPi Token"] = textwrap.dedent(
+                """\
+                <p>In this step, we create a new token scoped only to "{{ python_package_pypi_name }}".</p>
+
+                <ol>
+                  <li>Visit <a href="https://pypi.org/manage/account/token/" target="_blank">https://pypi.org/manage/account/token/</a>.</li>
+                  <li>
+                    <p>Enter the values:</p>
+                    <p>
+                      <table>
+                        <tr>
+                          <th>Token name:</th>
+                          <td><code>CI Publish Action ({{ python_package_pypi_name }})</code></td>
+                        </tr>
+                        <tr>
+                          <th>Scope:</th>
+                          <td><code>Project: {{ python_package_pypi_name }}</code></td>
+                        </tr>
+                      </table>
+                    </p>
+                  </li>
+                  <li>Click the "Create token" button.</li>
+                  <li>Click the "Copy token" button for use in the next step.</li>
+                </ol>
+                """,
+            )
+
+            if "{{ hosting_platform }}" == "None":
+                instructions["Save the PyPi Token"] = textwrap.dedent(
+                    """\
+                    <p>Please save the PyPi token just created.</p>
+                    """,
+                )
+            elif "{{ hosting_platform }}" == "GitHub":
+                instructions["Update the GitHub Secret with the Official PyPi Token"] = textwrap.dedent(
+                    """\
+                    <p>In this step, we will save the PyPi token just created as a <a href="https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions" target="_blank">GitHub Action secret</a>.</p>
+                    <ol>
+                      <li>Visit <a href="{{ github_url }}/settings/secrets/actions/PYPI_TOKEN" target="_blank">{{ github_url }}/settings/secrets/actions/PYPI_TOKEN</a>.</li>
+                      <li>In the "Value" text window, paste the token generated in the previous step.</li>
+                      <li>Click "Update secret".</li>
+                    </ol>
+                    """,
+                )
+            else:
+                raise Exception("'{{ hosting_platform }}' is not a recognized hosting platform.")
 
     # Project-specific instructions
     if "{{ project_type }}" == "None":
@@ -148,7 +298,7 @@ def UpdatePostGenerationActionsFile():
                 """\
                 <details>
                     <summary>
-                        <span role="term"><input type="checkbox" id="{title_id}">{title}</span>
+                        <span role="term"><input type="checkbox" id="{title_id}">{index}) {title}</span>
                     </summary>
                 </details>
                 <div role="definition" class="details-content">
@@ -156,11 +306,12 @@ def UpdatePostGenerationActionsFile():
                 </div>
                 """
             ).format(
+                index=index + 1,
                 title_id=title.lower().replace(' ', '-'),
                 title=title,
                 steps_html=instruction,
             )
-            for title, instruction in instructions.items()
+            for index, (title, instruction) in enumerate(instructions.items())
         ),
     )
 
