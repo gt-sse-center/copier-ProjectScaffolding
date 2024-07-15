@@ -12,3 +12,25 @@ python_package_pypi_name:
     Please enter a valid Python package name.
     {% endif %}
   when: "{{ project_type == 'PythonPackage' }}"
+
+python_package_generate_ci_question:
+  type: bool
+  help: Would you like to generate GitHub CI/CD workflows for the project?
+  when: "{{ project_type == 'PythonPackage' and hosting_platform == 'GitHub' }}"
+  default: True
+
+python_package_generate_ci:
+  type: bool
+  default: "{{ project_type == 'PythonPackage' and hosting_platform == 'GitHub' and python_package_generate_ci_question }}"
+  when: False
+
+python_package_generate_ci_binary_question:
+  type: bool
+  help: Would you like to freeze your python script(s) into binaries as part of the GitHub CI/CD workflow?
+  when: "{{ project_type == 'PythonPackage' and hosting_platform == 'GitHub' and python_package_generate_ci }}"
+  default: True
+
+python_package_generate_ci_binary:
+  type: bool
+  default: "{{ project_type == 'PythonPackage' and hosting_platform == 'GitHub' and python_package_generate_ci and python_package_generate_ci_binary_question }}"
+  when: False

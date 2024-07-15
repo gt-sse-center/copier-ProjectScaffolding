@@ -41,7 +41,7 @@ jobs:
 
       - name: Initialize
         id: Initialize
-        uses: davidbrownell/dbrownell_DevTools/.github/actions/initialize@CI-v0.21.0
+        uses: davidbrownell/dbrownell_DevTools/.github/actions/initialize@CI-v0.22.0
         with:
           operating_system: ubuntu-latest
 
