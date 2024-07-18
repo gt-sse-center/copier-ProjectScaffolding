@@ -9,12 +9,12 @@ from CopierHelpers import *
 
 # ----------------------------------------------------------------------
 output_dir = Path.cwd()
-project_type_dir = output_dir / "__project_type" / "__{{ project_type }}"
+repository_tool_dir = output_dir / "__repository_tool" / "__{{ repository_tool }}"
 
-if project_type_dir.is_dir():
-    MoveFiles(project_type_dir, output_dir)
+if repository_tool_dir.is_dir():
+    MoveFiles(repository_tool_dir, output_dir)
 
-    preprocess_filename = project_type_dir / "__preprocess.py"
+    preprocess_filename = repository_tool_dir / "__postprocess.py"
     if preprocess_filename.is_file():
         subprocess.run(
             f'python "{preprocess_filename}"',

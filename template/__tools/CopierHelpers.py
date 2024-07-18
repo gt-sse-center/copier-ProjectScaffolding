@@ -58,7 +58,7 @@ def MoveFiles(
         (dest_dir / relative_path).mkdir(parents=True, exist_ok=True)
 
         for filename in filenames:
-            if filename in ["__preprocess.py", "__postprocess.py"]:
+            if filename == "__postprocess.py":
                 continue
 
             source_filename = root / filename
