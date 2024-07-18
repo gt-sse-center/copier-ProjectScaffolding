@@ -10,7 +10,7 @@ def test_NoGit(copie):
         ci for ci in ConfigurationInfo.Generate() if ci.configuration["repository_tool"] == "git"
     )
 
-    configuration_info.configuration["_git_disable_directory_check"] = False
+    del configuration_info.configuration["_git_disable_directory_check"]
 
     RunTest(
         copie,

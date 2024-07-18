@@ -54,6 +54,17 @@ def UpdateGitIgnore():
                 ),
             )
 
+    if "{{ python_package_generate_ci_sign_artifacts }}".lower() == "true":
+        with gitignore_filename.open("a") as f:
+            f.write(
+                textwrap.dedent(
+                    """\
+
+                    minisign_key.pri
+                    """,
+                ),
+            )
+
 
 # ----------------------------------------------------------------------
 # ----------------------------------------------------------------------

@@ -32,126 +32,7 @@ class ConfigurationInfo:
         *,
         include_invalid: bool = False,
     ) -> Generator["ConfigurationInfo", None, None]:
-        configuration: dict[str, Any] = {
-            "_git_disable_directory_check": True,
-            "_git_suppress_permission_instructions": True,
-        }
-
-        for freeform_string in freeform_strings:
-            configuration[freeform_string] = str(uuid.uuid4()).lower().replace("-", "")
-
-        # Do not make the project name random, as it needs to remain consistent across invocations
-        # for valid comparisons.
-        configuration["project_name"] = "this_is_the_project_name"
-
-        # Ensure that the email address is valid
-        configuration["author_email"] = f"{configuration['author_email']}@example.com"
-
-        configuration_name_parts: list[str] = []
-        configuration_ctr = 0
-        is_valid = False
-
-        # ----------------------------------------------------------------------
-        def CreateConfigurationInfo(
-            configuration: dict[str, Any],
-        ) -> ConfigurationInfo:
-            nonlocal configuration_ctr
-
-            configuration_ctr += 1
-            configuration_name = f"{configuration_ctr:02}_{'_'.join(configuration_name_parts)}"
-
-            return ConfigurationInfo(
-                configuration_name,
-                configuration,
-                is_valid=is_valid,
-            )
-
-        # ----------------------------------------------------------------------
-        def DeleteConfigurationValue(
-            key: str,
-        ) -> None:
-            del configuration[key]
-
-        # ----------------------------------------------------------------------
-
-        configuration_name_parts.append("<placeholder>")
-        with ExitStack(configuration_name_parts.pop):
-            for generate_docs in [False, True]:
-                configuration["generate_docs"] = generate_docs
-                configuration_name_parts[-1] = f"Docs{int(generate_docs)}"
-
-                configuration_name_parts.append("<placeholder>")
-                with ExitStack(configuration_name_parts.pop):
-                    for repository_tool in ["None", "git"]:
-                        configuration["repository_tool"] = repository_tool
-                        configuration_name_parts[-1] = repository_tool
-
-                        configuration_name_parts.append("<placeholder>")
-                        with ExitStack(configuration_name_parts.pop):
-                            for hosting_platform in ["None", "GitHub"]:
-                                if hosting_platform == "GitHub" and repository_tool != "git":
-                                    is_valid = False
-                                else:
-                                    is_valid = True
-
-                                if not include_invalid and not is_valid:
-                                    continue
-
-                                configuration["hosting_platform"] = hosting_platform
-                                configuration_name_parts[-1] = hosting_platform
-
-                                configuration_name_parts.append("<placeholder>")
-                                with ExitStack(configuration_name_parts.pop):
-                                    for project_type in [
-                                        "None",
-                                        "PythonExecutionEnvironment",
-                                        "PythonPackage",
-                                    ]:
-                                        configuration["project_type"] = project_type
-                                        configuration_name_parts[-1] = project_type
-
-                                        if (
-                                            project_type != "PythonPackage"
-                                            or hosting_platform != "GitHub"
-                                        ):
-                                            yield CreateConfigurationInfo(configuration)
-                                            continue
-
-                                        configuration_name_parts.append("<placeholder>")
-                                        with ExitStack(
-                                            configuration_name_parts.pop,
-                                            lambda key="python_package_generate_ci": DeleteConfigurationValue(
-                                                key
-                                            ),
-                                        ):
-                                            for generate_ci in [False, True]:
-                                                configuration["python_package_generate_ci"] = (
-                                                    generate_ci
-                                                )
-                                                configuration_name_parts[-1] = (
-                                                    f"CI{int(generate_ci)}"
-                                                )
-
-                                                if not generate_ci:
-                                                    yield CreateConfigurationInfo(configuration)
-                                                    continue
-
-                                                configuration_name_parts.append("<placeholder>")
-                                                with ExitStack(
-                                                    configuration_name_parts.pop,
-                                                    lambda key="python_package_generate_ci_binary_question": DeleteConfigurationValue(
-                                                        key
-                                                    ),
-                                                ):
-                                                    for generate_binary in [False, True]:
-                                                        configuration[
-                                                            "python_package_generate_ci_binary_question"
-                                                        ] = generate_binary
-                                                        configuration_name_parts[-1] = (
-                                                            f"CIBinary{int(generate_binary)}"
-                                                        )
-
-                                                        yield CreateConfigurationInfo(configuration)
+        yield from _ConfigurationGenerator().Enumerate(include_invalid=include_invalid)
 
 
 # ----------------------------------------------------------------------
@@ -172,3 +53,136 @@ def RunTest(
     assert result.project_dir.is_dir(), result.project_dir
 
     return result.project_dir
+
+
+# ----------------------------------------------------------------------
+# ----------------------------------------------------------------------
+# ----------------------------------------------------------------------
+class _ConfigurationGenerator:
+    # ----------------------------------------------------------------------
+    def __init__(self) -> None:
+        configuration: dict[str, Any] = {
+            "_git_disable_directory_check": True,
+            "_git_suppress_permission_instructions": True,
+            "_python_package_generate_ci_sign_artifacts_simulate_keygen": True,
+        }
+
+        for freeform_string in freeform_strings:
+            configuration[freeform_string] = str(uuid.uuid4()).lower().replace("-", "")
+
+        # Do not make the project name random, as it needs to remain consistent across invocations
+        # for valid comparisons (for example, when the name is used to create directories).
+        configuration["project_name"] = "this_is_the_project_name"
+
+        # Ensure that the email address is valid
+        configuration["author_email"] = f"{configuration['author_email']}@example.com"
+
+        # Commit the values
+        self.configuration_name_parts: list[str] = []
+        self.configuration = configuration
+        self._configuration_ctr = 0
+
+    # ----------------------------------------------------------------------
+    def Enumerate(
+        self,
+        include_invalid: bool = False,
+    ) -> Generator[ConfigurationInfo, None, None]:
+        self._configuration_ctr = 1
+
+        for _ in self._EnumerateValues("generate_docs", "Docs{}", [False, True]):
+            for _ in self._EnumerateValues("repository_tool", "{}", ["None", "git"]):
+                for _ in self._EnumerateValues("hosting_platform", "{}", ["None", "GitHub"]):
+                    if (
+                        self.configuration["hosting_platform"] == "GitHub"
+                        and self.configuration["repository_tool"] != "git"
+                    ):
+                        is_valid = False
+                    else:
+                        is_valid = True
+
+                    if not include_invalid and not is_valid:
+                        continue
+
+                    for _ in self._EnumerateValues(
+                        "project_type",
+                        "{}",
+                        [
+                            "None",
+                            "PythonExecutionEnvironment",
+                            "PythonPackage",
+                        ],
+                    ):
+                        if (
+                            self.configuration["project_type"] != "PythonPackage"
+                            or self.configuration["hosting_platform"] != "GitHub"
+                        ):
+                            yield self._CreateConfigurationInfo(is_valid)
+                            continue
+
+                        for _ in self._EnumerateValues(
+                            "python_package_generate_ci", "CI{}", [False, True]
+                        ):
+                            if not self.configuration["python_package_generate_ci"]:
+                                yield self._CreateConfigurationInfo(is_valid)
+                                continue
+
+                            for _ in self._EnumerateValues(
+                                "python_package_generate_ci_binary_question",
+                                "Binary{}",
+                                [False, True],
+                            ):
+                                for _ in self._EnumerateValues(
+                                    "python_package_generate_ci_sign_artifacts_question",
+                                    "Sign{}",
+                                    [False, True],
+                                ):
+                                    yield self._CreateConfigurationInfo(is_valid)
+
+    # ----------------------------------------------------------------------
+    # ----------------------------------------------------------------------
+    # ----------------------------------------------------------------------
+    def _DeleteConfigurationValue(
+        self,
+        key: str,
+    ) -> None:
+        del self.configuration[key]
+
+    # ----------------------------------------------------------------------
+    def _EnumerateValues(
+        self,
+        configuration_key: str,
+        name_key_template: str,
+        values: list[Any],
+    ) -> Generator[dict[str, Any], None, None]:
+        self.configuration_name_parts.append("<placeholder>")
+        with ExitStack(
+            self.configuration_name_parts.pop,
+            lambda key=configuration_key: self._DeleteConfigurationValue(key),
+        ):
+            for value in values:
+                self.configuration[configuration_key] = value
+
+                name_value = value
+
+                if isinstance(value, bool):
+                    name_value = int(name_value)
+
+                self.configuration_name_parts[-1] = name_key_template.format(name_value)
+
+                yield self.configuration
+
+    # ----------------------------------------------------------------------
+    def _CreateConfigurationInfo(
+        self,
+        is_valid: bool,
+    ) -> ConfigurationInfo:
+        configuration_name = (
+            f"{self._configuration_ctr:02}_{'_'.join(self.configuration_name_parts)}"
+        )
+        self._configuration_ctr += 1
+
+        return ConfigurationInfo(
+            configuration_name,
+            self.configuration,
+            is_valid=is_valid,
+        )
