@@ -12,7 +12,7 @@ output_dir = Path.cwd()
 python_bootstrapper_dir = EnsureDir(output_dir / "__tools" / "__python_bootstrapper")
 
 subprocess.run(
-    f'python "{EnsureFile(python_bootstrapper_dir / "__preprocess.py")}"',
+    f'python "{EnsureFile(python_bootstrapper_dir / "__postprocess.py")}"',
     check=True,
     shell=True,
 )

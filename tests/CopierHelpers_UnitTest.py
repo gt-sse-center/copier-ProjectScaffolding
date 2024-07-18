@@ -84,7 +84,7 @@ class TestMoveFile:
 
 # ----------------------------------------------------------------------
 def test_MoveFiles(fs):
-    fs.create_file("template/__preprocess.py")
+    fs.create_file("template/__postprocess.py")
     fs.create_file("template/File1.txt")
     fs.create_file("template/Dir1/File2.txt")
     fs.create_file("template/Dir1/__postprocess.py")

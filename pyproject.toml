@@ -5,7 +5,7 @@
 # ----------------------------------------------------------------------
 [tool.black]
 line-length = 100
-force-exclude = '''__preprocess.py|__postprocess.py|template'''
+force-exclude = '''__postprocess.py|template'''
 
 # ----------------------------------------------------------------------
 # |
