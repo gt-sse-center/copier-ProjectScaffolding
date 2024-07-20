@@ -64,6 +64,7 @@ class _ConfigurationGenerator:
         configuration: dict[str, Any] = {
             "_git_disable_directory_check": True,
             "_git_suppress_permission_instructions": True,
+            "_python_package_generate_ci_persist_coverage_simulate_gist_id": True,
             "_python_package_generate_ci_sign_artifacts_simulate_keygen": True,
         }
 
@@ -127,16 +128,21 @@ class _ConfigurationGenerator:
                                 continue
 
                             for _ in self._EnumerateValues(
-                                "python_package_generate_ci_binary_question",
-                                "Binary{}",
+                                "python_package_generate_ci_persist_coverage_question",
+                                "Coverage{}",
                                 [False, True],
                             ):
                                 for _ in self._EnumerateValues(
-                                    "python_package_generate_ci_sign_artifacts_question",
-                                    "Sign{}",
+                                    "python_package_generate_ci_binary_question",
+                                    "Binary{}",
                                     [False, True],
                                 ):
-                                    yield self._CreateConfigurationInfo(is_valid)
+                                    for _ in self._EnumerateValues(
+                                        "python_package_generate_ci_sign_artifacts_question",
+                                        "Sign{}",
+                                        [False, True],
+                                    ):
+                                        yield self._CreateConfigurationInfo(is_valid)
 
     # ----------------------------------------------------------------------
     # ----------------------------------------------------------------------
