@@ -26,6 +26,70 @@ python_package_generate_ci:
   when: False
 
 # ----------------------------------------------------------------------
+python_package_generate_ci_persist_coverage_question:
+  type: bool
+  help: |-
+    Would you like to display code coverage percentages on a badge in README.md?
+
+       If you continue, we will provide instructions to create a GitHub gist used to save the information. More information on
+       GitHub gists is available at https://docs.github.com/en/get-started/writing-on-github/editing-and-sharing-content-with-gists.
+  default: True
+  when: "{{ project_type == 'PythonPackage' and hosting_platform == 'GitHub' and python_package_generate_ci_question }}"
+
+python_package_generate_ci_persist_coverage:
+  type: bool
+  default: "{{ project_type == 'PythonPackage' and hosting_platform == 'GitHub' and python_package_generate_ci_question and python_package_generate_ci_persist_coverage_question }}"
+  when: False
+
+python_package_generate_ci_persist_coverage_gist_id:
+  type: str
+  help: |-
+    Please enter the GitHub gist_id for use with this project. Note that you can use the same gist_id for multiple projects.
+
+       To create a GitHub gist_id:
+
+         1) Visit https://gist.github.com.
+         2) Enter the following values in their respective fields:
+
+             Gist description...:                Gist used by GitHub Action workflows to store and retrieve dynamic information (oftentimes used to create and display badges).
+             Filename including extension...:    README.md
+             File contents:                      Gist used by GitHub Action workflows to store and retrieve dynamic information (oftentimes used to create and display badges).
+
+         3) Click the "Create secret gist" button.
+         4) Note the GitHub username and gist id.
+         5) Provide the gist_id as an answer to this question and the GitHub username as the answer to the next question.
+
+
+                                      /    GitHub username    \
+                                     /                         \
+             https://gist.github.com/this_is_the_github_username/4c10281ff1abc26cafcb9a5f9a8a443e
+                                                                 \                              /
+                                                                  \           gist id          /
+
+       :
+  when: "{{ project_type == 'PythonPackage' and hosting_platform == 'GitHub' and python_package_generate_ci_question and python_package_generate_ci_persist_coverage_question }}"
+  default: ""
+  validator: |-
+    {% if not python_package_generate_ci_persist_coverage_gist_id %}
+    Please enter a valid gist_id.
+    {% endif %}
+
+python_package_generate_ci_persist_coverage_gist_username:
+  type: str
+  help: "Please enter the username associated with your gist_id. In most cases, this will be the same as your GitHub username."
+  when: "{{ project_type == 'PythonPackage' and hosting_platform == 'GitHub' and python_package_generate_ci and python_package_generate_ci_persist_coverage_question }}"
+  default: "{{ github_username }}"
+  validator: |-
+    {% if not python_package_generate_ci_persist_coverage_gist_username %}
+    Please enter a valid username.
+    {% endif %}
+
+_python_package_generate_ci_persist_coverage_simulate_gist_id:
+  type: bool
+  default: False
+  when: False
+
+# ----------------------------------------------------------------------
 python_package_generate_ci_binary_question:
   type: bool
   help: "Would you like to freeze your python script(s) into binaries as part of the {{ hosting_platform }} CI/CD workflow?"
@@ -38,6 +102,11 @@ python_package_generate_ci_binary:
   when: False
 
 # ----------------------------------------------------------------------
+_python_package_generate_ci_sign_artifacts_simulate_keygen:
+  type: bool
+  default: False
+  when: False
+
 python_package_generate_ci_sign_artifacts_question:
   type: bool
   help: |-
@@ -53,7 +122,8 @@ python_package_generate_ci_sign_artifacts:
   default: "{{ project_type == 'PythonPackage' and hosting_platform == 'GitHub' and python_package_generate_ci and python_package_generate_ci_sign_artifacts_question }}"
   when: False
 
-_python_package_generate_ci_sign_artifacts_simulate_keygen:
-  type: bool
-  default: False
+# This value will be populated by context.py
+python_package_generate_ci_sign_artifacts_public_key:
+  type: str
+  default: ""
   when: False

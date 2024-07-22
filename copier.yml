@@ -103,6 +103,7 @@ _tasks:
 
 _jinja_extensions:
 - copier_templates_extensions.TemplateExtensionLoader
+- extensions/context.py:ContextUpdater
 - extensions/exception.py:ExceptionExtension
 - extensions/slugify.py:PythonifyExtension
 - extensions/slugify.py:SlugifyExtension

@@ -192,6 +192,53 @@ def _CreatePrePythonPackageCIInstructions(
             </ol>
             """,
         )
+
+        if "{{ python_package_generate_ci_persist_coverage }}".lower() == "true":
+            instructions["Create a GitHub Personal Access Token for gists"] = textwrap.dedent(
+                """\
+                <p>In this step, we will create a GitHub Personal Access Token (PAT) used when persisting code coverage information between Continuous Integration runs.</p>
+                <ol>
+                  <li>Visit <a href="{{ github_host }}/settings/tokens?type=beta" target="_blank">{{ github_host }}/settings/tokens?type=beta</a>.</li>
+                  <li>Click the "Generate new token" button.</li>
+                  <li>Name the token <code>GitHub Workflow Gist ({{ github_repo_name }})</code>.</li>
+                  <li>In the Repository access section...</li>
+                  <li>Select "Only select repositories"...</li>
+                  <li>Select <code>{{ github_repo_name }}</code>.</li>
+                  <li>In the "Permissions" section...</li>
+                  <li>Press the "Account permissions" dropdown...</li>
+                  <li>Select the "Gists" section...</li>
+                  <li>Click the "Access: No access" dropdown button...</li>
+                  <li>Select "Read and write".</li>
+                  <li>Click the "Generate token" button.</li>
+                  <li>Copy the token for use in the next step.</li>
+                </ol>
+                """,
+            )
+
+            instructions["Save the GitHub Personal Access Token for gists"] = textwrap.dedent(
+                """\
+                <p>In this step, we will save the GitHub Personal Access Token just created as a <a href="https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions" target="_blank">GitHub Action secret</a>.</p>
+                <ol>
+                  <li>Visit <a href="{{ github_url }}/settings/secrets/actions/new" target="_blank">{{ github_url }}/settings/secrets/actions/new</a>.</li>
+                  <li>
+                    <p>Enter the values:</p>
+                    <p>
+                      <table>
+                        <tr>
+                          <th>Name:</th>
+                          <td><code>GIST_TOKEN</code></td>
+                        </tr>
+                        <tr>
+                          <th>Secret:</th>
+                          <td>&lt;paste the token generated in the previous step&gt;</td>
+                        </tr>
+                      </table>
+                    </p>
+                  </li>
+                  <li>Click the "Add secret" button.</li>
+                </ol>
+                """,
+            )
     else:
         raise Exception("'{{ hosting_platform }}' is not a recognized hosting platform.")
 
@@ -202,43 +249,6 @@ def _CreatePreMinisignInstructions(
 ) -> None:
     if "{{ python_package_generate_ci_sign_artifacts }}".lower() != "true":
         return
-
-    public_key_filename = Path.cwd() / "minisign_key.pub"
-
-    # Create the keys (if necessary)
-    if not public_key_filename.is_file():
-        if "{{ _python_package_generate_ci_sign_artifacts_simulate_keygen }}".lower() != "true":
-            with DoneManager.Create(
-                sys.stdout,
-                "\n\nCreating the Minisign public and private keys...",
-                suffix="\n\n\n",
-            ) as dm:
-                command_line = 'docker run -i --rm -v ".:/host" jedisct1/minisign -G -p /host/minisign_key.pub -s /host/minisign_key.pri -W'
-
-                dm.WriteInfo(f"Command Line: {command_line}\n\n")
-
-                with dm.YieldStream() as stream:
-                    dm.result = SubprocessEx.Stream(command_line, stream)
-                    if dm.result != 0:
-                        sys.exit(dm.result)
-
-    # Update README.md with the public key
-    if "{{ generate_docs }}".lower() == "true":
-        if "{{ _python_package_generate_ci_sign_artifacts_simulate_keygen }}".lower() == "true":
-            key_contents = "__simulated_minisign_public_key__"
-        else:
-            assert public_key_filename.is_file(), public_key_filename
-
-            key_lines = [line.strip() for line in public_key_filename.read_text(encoding="utf-8").split("\n") if line.strip()]
-            key_contents = key_lines[-1]
-
-        readme_filename = Path.cwd() / "README.md"
-        assert readme_filename.is_file(), readme_filename
-
-        readme_contents = readme_filename.read_text(encoding="utf-8")
-        readme_contents = readme_contents.replace("<<<MINISIGN_PUBLIC_KEY>>>", key_contents)
-
-        readme_filename.write_text(readme_contents, encoding="utf-8")
 
     # Create instructions to create the secret
     if "{{ hosting_platform }}" == "None":
@@ -276,7 +286,7 @@ def _CreatePreMinisignInstructions(
     instructions["Store the Minisign Private Key"] = textwrap.dedent(
         """\
         <p>Store the Minisign private key in a secure location. Once you have stored the key, you can delete it from your local machine.</p>
-        <p>Note that you should NEVER force `minisign_key.pri` into source control.</p>
+        <p>Note that you should NEVER force <code>minisign_key.pri</code> into source control.</p>
         """,
     )
 

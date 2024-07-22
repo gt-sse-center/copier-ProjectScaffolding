@@ -60,6 +60,13 @@ jobs:
 
     uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
 
+    {%- if python_package_generate_ci_persist_coverage %}
+    with:
+      gist_id: {{ python_package_generate_ci_persist_coverage_gist_id }}
+      gist_filename: {{ github_repo_name }}_coverage.json
+    secrets:
+      GIST_TOKEN: {% raw %}${{ secrets.GIST_TOKEN }}{% endraw %}
+    {% endif %}
   # ----------------------------------------------------------------------
   create_package:
     needs: package_coverage

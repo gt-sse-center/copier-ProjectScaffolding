@@ -196,15 +196,52 @@ def UpdateDevelopmentFile():
 # ----------------------------------------------------------------------
 def UpdateReadmeFile():
     replacement_info: dict[str, str] = {}
+    badges: list[str] = []
+
+    if "{{ hosting_platform }}" == "None":
+        replacement_info["Development"] = "Please visit CONTRIBUTING.md and DEVELOPMENT.md for information on contributing to this project."
+        replacement_info["Additional Information"] = textwrap.dedent(
+            """\
+            | Code of Conduct | CODE_OF_CONDUCT.md | Information about the the norms, rules, and responsibilities we adhere to when participating in this open source community. |
+            | Contributing | CONTRIBUTING.md | Information about contributing code changes to this project. |
+            | Development | DEVELOPMENT.md | Information about development activities involved in making changes to this project. |
+            | Governance | GOVERNANCE.md | Information about how this project is governed. |
+            | Maintainers | MAINTAINERS.md | Information about individuals who maintain this project. |
+            | Security | SECURITY.md | Information about how to privately report security issues associated with this project. |
+            """,
+        )
+
+    elif "{{ hosting_platform }}" == "GitHub":
+        replacement_info["Development"] = "Please visit [Contributing]({{ github_url }}/blob/main/CONTRIBUTING.md) and [Development]({{ github_url }}/blob/main/DEVELOPMENT.md) for information on contributing to this project."
+        replacement_info["Additional Information"] = textwrap.dedent(
+            """\
+            | Code of Conduct | [CODE_OF_CONDUCT.md]({{ github_url }}/blob/main/CODE_OF_CONDUCT.md) | Information about the the norms, rules, and responsibilities we adhere to when participating in this open source community. |
+            | Contributing | [CONTRIBUTING.md]({{ github_url }}/blob/main/CONTRIBUTING.md) | Information about contributing code changes to this project. |
+            | Development | [DEVELOPMENT.md]({{ github_url }}/blob/main/DEVELOPMENT.md) | Information about development activities involved in making changes to this project. |
+            | Governance | [GOVERNANCE.md]({{ github_url }}/blob/main/GOVERNANCE.md) | Information about how this project is governed. |
+            | Maintainers | [MAINTAINERS.md]({{ github_url }}/blob/main/MAINTAINERS.md) | Information about individuals who maintain this project. |
+            | Security | [SECURITY.md]({{ github_url }}/blob/main/SECURITY.md) | Information about how to privately report security issues associated with this project. |
+            """,
+        )
+
+        badges += [
+            "[![License](https://img.shields.io/github/license/{{ github_username }}/{{ github_repo_name }}?color=dark-green)]({{ github_url }}/blob/master/LICENSE.txt)",
+            "[![GitHub commit activity](https://img.shields.io/github/commit-activity/y/{{ github_username }}/{{ github_repo_name }}?color=dark-green)]({{ github_url }}/commits/main/)",
+        ]
+
+    else:
+        raise Exception("'{{ hosting_platform }}' is not a recognized hosting platform.")
 
     if "{{ project_type }}" == "None":
-        replacement_info["Badges"] = ""
         replacement_info["Installation"] = "TODO: Complete this section\n"
     elif "{{ project_type }}" == "PythonExecutionEnvironment":
-        replacement_info["Badges"] = ""
         replacement_info["Installation"] = "No additional setup is required to use this project.\n"
     elif "{{ project_type }}" == "PythonPackage":
-        replacement_info["Badges"] = "" # TODO
+        badges += [
+            "[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/{{ python_package_pypi_name }}?color=dark-green)](https://pypi.org/project/{{ python_package_pypi_name }}/)",
+            "[![PyPI - Version](https://img.shields.io/pypi/v/{{ python_package_pypi_name }}?color=dark-green)](https://pypi.org/project/{{ python_package_pypi_name }}/)",
+            "[![PyPI - Downloads](https://img.shields.io/pypi/dm/{{ python_package_pypi_name }})](https://pypistats.org/packages/{{ python_package_pypi_name }})",
+        ]
 
         pip_instructions = textwrap.dedent(
             """\
@@ -218,17 +255,20 @@ def UpdateReadmeFile():
         if "{{ hosting_platform }}" == "None":
             installation_instructions = pip_instructions
         elif "{{ hosting_platform }}" == "GitHub":
+            if "{{ python_package_generate_ci_persist_coverage }}".lower() == "true":
+                badges.append("[![Code Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/{{ python_package_generate_ci_persist_coverage_gist_username }}/{{ python_package_generate_ci_persist_coverage_gist_id }}/raw/{{ github_repo_name }}_coverage.json)]({{ github_url }}/actions)")
+
             sign_instructions = ""
 
-            if "{{ python_package_generate_ci_sign_artifacts }}".lower() == "true":
+            if "{{ python_package_generate_ci_sign_artifacts_public_key }}":
                 sign_instructions = textwrap.dedent(
                     """\
                     #### Verifying Signed Executables
-                    Executables are signed and validated using [Minisign](https://jedisct1.github.io/minisign/). The public key used to verify the signature of the executable is `<<<MINISIGN_PUBLIC_KEY>>>`.
+                    Executables are signed and validated using [Minisign](https://jedisct1.github.io/minisign/). The public key used to verify the signature of the executable is `{{ python_package_generate_ci_sign_artifacts_public_key }}`.
 
                     To verify that the executable is valid, download the corresponding `.minisig` file [here]({{ github_url }}/releases/latest) and run this command, replacing `<filename>` with the name of the file to be verified:
 
-                    `docker run -i --rm -v .:/host jedisct1/minisign -V -P <<<MINISIGN_PUBLIC_KEY>>> -m /host/<filename>`
+                    `docker run -i --rm -v .:/host jedisct1/minisign -V -P {{ python_package_generate_ci_sign_artifacts_public_key }} -m /host/<filename>`
 
                     Instructions for installing [docker](https://docker.com) are available at https://docs.docker.com/engine/install/.
 
@@ -261,6 +301,8 @@ def UpdateReadmeFile():
 
     else:
         raise Exception("'{{ project_type }}' is not a recognized project type.")
+
+    replacement_info["Badges"] = "\n".join(badges) + ("\n" if badges else "")
 
     _UpdateFile(Path.cwd() / "README.md", replacement_info)
 
