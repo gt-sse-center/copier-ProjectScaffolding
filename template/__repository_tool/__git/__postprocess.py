@@ -8,16 +8,6 @@ from CopierHelpers import *
 
 
 # ----------------------------------------------------------------------
-def ValidateGitDirectory():
-    return # BugBug
-    # BugBug git_dir = Path.cwd() / ".git"
-    # BugBug
-    # BugBug if not git_dir.is_dir():
-    # BugBug     sys.stderr.write(f"\nERROR: A '.git' directory does not exist at '{git_dir}'. Please generate the project into a directory that is an existing git repository.\n\n")
-    # BugBug     sys.exit(-1)
-
-
-# ----------------------------------------------------------------------
 def UpdateGitIgnore():
     gitignore_filename = EnsureFile(Path.cwd() / ".gitignore")
 
@@ -71,5 +61,4 @@ def UpdateGitIgnore():
 # ----------------------------------------------------------------------
 # ----------------------------------------------------------------------
 if __name__ == "__main__":
-    {% if not _git_disable_directory_check %}ValidateGitDirectory(){% endif %}
     UpdateGitIgnore()
