@@ -24,6 +24,7 @@ def MoveContent():
 def UpdatePostGenerationActionsFile():
     instructions: dict[str, str] = {}
 
+    _CreateGitHubSettings(instructions)
     _CreatePrePythonPackageCIInstructions(instructions)
     _CreatePreMinisignInstructions(instructions)
 
@@ -125,6 +126,26 @@ def _CreateCommitInstructions(
         )
     else:
         raise Exception("'{{ repository_tool }}' is not a recognized repository tool.")
+
+
+# ----------------------------------------------------------------------
+def _CreateGitHubSettings(
+    instructions: dict[str, str],
+) -> None:
+    if "{{ hosting_platform }}" != "GitHub":
+        return
+
+    instructions["Update GitHub Settings"] = textwrap.dedent(
+        """\
+        <p>In this step, we will update GitHub settings to allow the creation of git tags during a release.</p>
+        <ol>
+          <li>Visit <a href="{{ github_url }}/settings/actions" target="_blank">{{ github_url }}/settings/actions</a>.</li>
+          <li>In the "Workflow permissions" section...</li>
+          <li>Select "Read and write permissions".</li>
+          <li>Click the "Save" button.</li>
+        </ol>
+        """,
+    )
 
 
 # ----------------------------------------------------------------------

@@ -181,12 +181,48 @@ jobs:
       python_version: {% raw %}${{ matrix.python_version }}{% endraw %}
       validation_command: {{ python_package_pypi_name }} Version
 {% endif %}
+{% if python_package_generate_ci_docker_image %}
+  # ----------------------------------------------------------------------
+  create_docker_image:
+    needs: package_coverage
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        python_version:
+          - "3.12"
+          - "3.11"
+          - "3.10"
+          # - "3.9"  # Not supported
+          # - "3.8"  # Not supported
+
+    name: Create Docker Image
+
+    permissions:
+      contents: read
+      packages: write
+
+    uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.0
+    with:
+      operating_system: ubuntu-latest
+      python_version: {% raw %}${{ matrix.python_version }}{% endraw %}
+      name_suffix: {% raw %}-${{ matrix.python_version }}{% endraw %}
+      bootstrap_args: ""
+      docker_description: "{{ python_package_pypi_name }} - {% raw %}${{ matrix.python_version }}{% endraw %}"
+      push_image_as_package: true
+      container_registry_username: {{ github_username }}
+{% endif %}
+
   # ----------------------------------------------------------------------
   publish:
     needs:
       - validate_package
 {%- if python_package_generate_ci_binary %}
       - validate_binary
+{%- endif %}
+{%- if python_package_generate_ci_docker_image %}
+      - create_docker_image
 {%- endif %}
 
     name: Publish
