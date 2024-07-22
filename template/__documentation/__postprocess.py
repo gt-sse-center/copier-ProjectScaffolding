@@ -82,20 +82,24 @@ def UpdateDevelopmentFile():
             if "{{ project_type }}" == "PythonExecutionEnvironment":
                 replacement_info["Development Activities"] = "TODO: Complete this section\n"
             elif "{{ project_type }}" == "PythonPackage":
+                standard_check = ":white_check_mark:" if "{{ python_package_generate_ci }}".lower() == "true" else ""
+                binaries_check = ":white_check_mark:" if "{{ python_package_generate_ci_binary }}".lower() == "true" else ""
+                docker_check = ":white_check_mark:" if "{{ python_package_generate_ci_docker_image }}".lower() == "true" else ""
+
                 replacement_info["Development Activities"] = textwrap.dedent(
-                    """\
+                    f"""\
                     Each of these activities can be invoked from an activated terminal on your local machine.
 
                     | Activity | Command Line | Description | Invoked by Continuous Integration |
-                    | --- | --- | --- | --- |
-                    | Code Formatting | `python Build.py black [--format]` | Format source code using [black](https://github.com/psf/black) based on settings in `pyproject.toml`. | |
-                    | Static Code Analysis | `python Build.py pylint` | Validate source code using [pylint](https://github.com/pylint-dev/pylint) based on settings in `pyproject.toml`. | |
-                    | Automated Testing | `python Build.py pytest [--code-coverage]` | Run automated tests using [pytest](https://docs.pytest.org/) and (optionally) extract code coverage information using [coverage](https://coverage.readthedocs.io/) based on settings in `pyproject.toml`. | |
-                    | Semantic Version Generation | `python Build.py update_version` | Generate a new [Semantic Version](https://semver.org) based on git commits using [AutoGitSemVer](https://github.com/davidbrownell/AutoGitSemVer). Version information is stored in `/src/{{ python_package_pypi_name }}/__init__.py`. | |
-                    | Python Package Creation | <p><code>python Build.py package</code></p><p>Requires that the repository was bootstrapped with the <code>--package</code> flag. | Create a python package using [setuptools](https://github.com/pypa/setuptools) based on settings in `pyproject.toml`. | |
-                    | Python Package Publishing | <p><code>python Build.py publish</code></p><p>Requires that the repository was bootstrapped with the <code>--package</code> flag. | Publish a python package to [PyPi](https://pypi.org). | |
-                    | Build Binaries | `python Build.py build_binaries` |  Create a python binary for your current operating system using [cx_Freeze](https://cx-freeze.readthedocs.io/) based on settings in `src/BuildBinary.py`. | |
-                    | Development Docker Image | `python Build.py create_docker_image` | Create a [docker](https://docker.com) image for a bootstrapped development environment. This functionality is useful when adhering to the [FAIR principles for research software](https://doi.org/10.1038/s41597-022-01710-x) by supporting the creation of a development environment and its dependencies as they existed at the moment when the image was created. | |
+                    | --- | --- | --- | :-: |
+                    | Code Formatting | `python Build.py black [--format]` | Format source code using [black](https://github.com/psf/black) based on settings in `pyproject.toml`. | {standard_check} |
+                    | Static Code Analysis | `python Build.py pylint` | Validate source code using [pylint](https://github.com/pylint-dev/pylint) based on settings in `pyproject.toml`. | {standard_check} |
+                    | Automated Testing | `python Build.py pytest [--code-coverage]` | Run automated tests using [pytest](https://docs.pytest.org/) and (optionally) extract code coverage information using [coverage](https://coverage.readthedocs.io/) based on settings in `pyproject.toml`. | {standard_check} |
+                    | Semantic Version Generation | `python Build.py update_version` | Generate a new [Semantic Version](https://semver.org) based on git commits using [AutoGitSemVer](https://github.com/davidbrownell/AutoGitSemVer). Version information is stored in `/src/{{ python_package_pypi_name }}/__init__.py`. | {standard_check} |
+                    | Python Package Creation | <p><code>python Build.py package</code></p><p>Requires that the repository was bootstrapped with the <code>--package</code> flag. | Create a python package using [setuptools](https://github.com/pypa/setuptools) based on settings in `pyproject.toml`. | {standard_check} |
+                    | Python Package Publishing | <p><code>python Build.py publish</code></p><p>Requires that the repository was bootstrapped with the <code>--package</code> flag. | Publish a python package to [PyPi](https://pypi.org). | {standard_check} |
+                    | Build Binaries | `python Build.py build_binaries` |  Create a python binary for your current operating system using [cx_Freeze](https://cx-freeze.readthedocs.io/) based on settings in `src/BuildBinary.py`. | {binaries_check} |
+                    | Development Docker Image | `python Build.py create_docker_image` | Create a [docker](https://docker.com) image for a bootstrapped development environment. This functionality is useful when adhering to the [FAIR principles for research software](https://doi.org/10.1038/s41597-022-01710-x) by supporting the creation of a development environment and its dependencies as they existed at the moment when the image was created. | {docker_check} |
                     """,
                 )
             else:

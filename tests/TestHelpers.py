@@ -137,11 +137,16 @@ class _ConfigurationGenerator:
                                     [False, True],
                                 ):
                                     for _ in self._EnumerateValues(
-                                        "python_package_generate_ci_sign_artifacts_question",
-                                        "Sign{}",
+                                        "python_package_generate_ci_docker_image_question",
+                                        "DockerImage{}",
                                         [False, True],
                                     ):
-                                        yield self._CreateConfigurationInfo(is_valid)
+                                        for _ in self._EnumerateValues(
+                                            "python_package_generate_ci_sign_artifacts_question",
+                                            "Sign{}",
+                                            [False, True],
+                                        ):
+                                            yield self._CreateConfigurationInfo(is_valid)
 
     # ----------------------------------------------------------------------
     # ----------------------------------------------------------------------
