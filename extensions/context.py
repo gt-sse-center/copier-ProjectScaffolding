@@ -18,6 +18,7 @@ class ContextUpdater(ContextHook):
 
         self._updated_context: dict[str, Any] | None = None
         self._dest_path: Path | None = None
+        self._is_update_temp_dir: bool | None = None
 
     # ----------------------------------------------------------------------
     def hook(self, context):
@@ -26,16 +27,30 @@ class ContextUpdater(ContextHook):
         # those dynamically generated values for all subsequent template files.
         if self._updated_context is None:
             assert self._dest_path is None
+            assert self._is_update_temp_dir is None
 
             self._updated_context = {}
             self._dest_path = Path(context["_copier_conf"]["dst_path"])
             self._dest_path.mkdir(parents=True, exist_ok=True)
+
+            # During update, copier will fully generate different template versions to local
+            # directories and then create a diff for all changes between those generated
+            # directories. These diffs are then applied to the actual directory.
+            #
+            # We don't want the dynamic context steps to be invoked when generating the temporary
+            # directories, as the steps will generate different values in each, which will result
+            # in a diff applied to the actual directory that contains the dynamic values.
+            #
+            # Detect when we are in this scenario and ensure the dynamic values are populated with
+            # the same placeholder values so that they don't result in a diff.
+            self._is_update_temp_dir = context["_folder_name"].startswith("copier.main")
 
             self._GeneratePythonPackageGistId(context)
             self._GeneratePythonPackageMinisignKey(context)
 
         assert self._updated_context is not None
         assert self._dest_path is not None
+        assert self._is_update_temp_dir is not None
 
         return self._updated_context
 
@@ -46,7 +61,9 @@ class ContextUpdater(ContextHook):
         if not context["python_package_generate_ci_persist_coverage"]:
             return
 
-        if context.get("_python_package_generate_ci_persist_coverage_simulate_gist_id", False):
+        if self._is_update_temp_dir or context.get(
+            "_python_package_generate_ci_persist_coverage_simulate_gist_id", False
+        ):
             assert self._updated_context is not None
 
             self._updated_context["python_package_generate_ci_persist_coverage_gist_id"] = (
@@ -61,7 +78,9 @@ class ContextUpdater(ContextHook):
         if not context["python_package_generate_ci_sign_artifacts"]:
             return
 
-        if context.get("_python_package_generate_ci_sign_artifacts_simulate_keygen", False):
+        if self._is_update_temp_dir or context.get(
+            "_python_package_generate_ci_sign_artifacts_simulate_keygen", False
+        ):
             public_key = "__simulated_minisign_public_key__"
         else:
             assert self._dest_path is not None
