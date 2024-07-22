@@ -102,6 +102,22 @@ python_package_generate_ci_binary:
   when: False
 
 # ----------------------------------------------------------------------
+python_package_generate_ci_docker_image_question:
+  type: bool
+  help: |-
+    Would you like to create Docker images of your development environments as part of the {{ hosting_platform }} CI/CD workflow?
+
+       These images can be used to build the same artifacts produced by the CI workflow across different commits made to the repository over time (which
+       is especially valuable when writing scientific software).
+  when: "{{ project_type == 'PythonPackage' and hosting_platform == 'GitHub' and python_package_generate_ci }}"
+  default: False
+
+python_package_generate_ci_docker_image:
+  type: bool
+  default: "{{ project_type == 'PythonPackage' and hosting_platform == 'GitHub' and python_package_generate_ci and python_package_generate_ci_docker_image_question }}"
+  when: False
+
+# ----------------------------------------------------------------------
 _python_package_generate_ci_sign_artifacts_simulate_keygen:
   type: bool
   default: False

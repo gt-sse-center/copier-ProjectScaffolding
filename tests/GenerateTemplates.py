@@ -58,7 +58,7 @@ def EntryPoint(
     ) as dm:
         parent_dir = Path(__file__).parent.parent
 
-        command_line_template = f'copier copy "{parent_dir}" "{{output_dir}}" --trust --overwrite --defaults --data-file "{{data_file}}"'
+        command_line_template = f'copier copy "{parent_dir}" "{{output_dir}}" --trust --overwrite --defaults --data-file "{{data_file}}" --vcs-ref=HEAD'
 
         for configuration_info in TestHelpers.ConfigurationInfo.Generate():
             with dm.Nested(f"Generating '{configuration_info.name}'...", suffix="\n") as this_dm:
