@@ -1,4 +1,4 @@
-"""Build tasks fro this project."""
+"""Build tasks for this project."""
 
 import sys
 
