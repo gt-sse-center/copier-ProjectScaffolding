@@ -1,0 +1,32 @@
+name: "[impl] Publish"
+description: "Publishes changes in this repository."
+
+runs:
+  using: composite
+  steps:
+    - name: Initialize
+      id: Initialize
+      uses: davidbrownell/dbrownell_DevTools/.github/actions/initialize@CI-v0.22.0
+      with:
+        operating_system: ${{ inputs.operating_system }}
+
+    - name: Bootstrap
+      shell: bash
+      run: |
+        ./Bootstrap.sh --python-version ${{ matrix.python_version }}
+
+    - name: Generate Version
+      id: version
+      shell: bash
+      run: |-
+        . ./Activate.sh
+        echo "template_version=$(autogitsemver ./template --quiet --no-branch-name --no-metadata)" >> $GITHUB_OUTPUT
+
+    - name: Create Tag
+      shell: bash
+      run: |
+        git config user.name "GitHub Action Bot"
+        git config user.email "<>"
+
+        git tag --annotate --force -m "Publish Tag" "v${{ steps.version.outputs.template_version }}" "${{ github.sha }}"
+        git push origin "v${{ steps.version.outputs.template_version }}" --force
