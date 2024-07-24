@@ -90,6 +90,52 @@ _python_package_generate_ci_persist_coverage_simulate_gist_id:
   when: False
 
 # ----------------------------------------------------------------------
+python_package_generate_ci_openssf_question:
+  type: bool
+  help: |-
+    Would you like to display an OpenSSF Best Practices Badge in README.md?
+
+       If you continue, we will provide instructions to manually create a OpenSSF Best Practices Badge. More information on
+       OpenSSF Best Practices Badges is available at https://www.bestpractices.dev/en.
+  default: True
+  when: "{{ generate_docs and project_type == 'PythonPackage' and hosting_platform == 'GitHub' and python_package_generate_ci_question }}"
+
+python_package_generate_ci_openssf:
+  type: bool
+  default: "{{ generate_docs and project_type == 'PythonPackage' and hosting_platform == 'GitHub' and python_package_generate_ci_question and python_package_generate_ci_openssf_question }}"
+  when: False
+
+python_package_generate_ci_openssf_id:
+  type: str
+  help: |-
+    Please enter the OpenSSF Best Practices Badge ID for use with this project.
+
+       To create an OpenSSF Best Practices Badge ID:
+
+         1) Visit https://www.bestpractices.dev/en/projects/new.
+         2) Press the "Log in with GitHub" button.
+         3) In the top form, select the corresponding repository.
+         4) Click the "Submit GitHub Repository" button.
+         5) Note the badge id.
+         6) Provide the badge id as an answer to this question.
+
+             https://www.bestpractices.dev/en/projects/12345
+                                                       ^^^^^
+                                                         This is the badge id
+       :
+  when: "{{ project_type == 'PythonPackage' and hosting_platform == 'GitHub' and python_package_generate_ci_question and python_package_generate_ci_openssf_question }}"
+  default: ""
+  validator: |-
+    {% if not python_package_generate_ci_openssf_id %}
+    Please enter a valid badge id.
+    {% endif %}
+
+_python_package_generate_ci_simulate_openssf_id:
+  type: bool
+  default: False
+  when: False
+
+# ----------------------------------------------------------------------
 python_package_generate_ci_binary_question:
   type: bool
   help: "Would you like to freeze your python script(s) into binaries as part of the {{ hosting_platform }} CI/CD workflow?"

@@ -247,6 +247,9 @@ def UpdateReadmeFile():
             "[![PyPI - Downloads](https://img.shields.io/pypi/dm/{{ python_package_pypi_name }})](https://pypistats.org/packages/{{ python_package_pypi_name }})",
         ]
 
+        if "{{ python_package_generate_ci_openssf }}".lower() == "true":
+            badges.append("[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/{{ python_package_generate_ci_openssf_id }}/badge)](https://www.bestpractices.dev/projects/{{ python_package_generate_ci_openssf_id }})")
+
         pip_instructions = textwrap.dedent(
             """\
             ### Installation via pip
