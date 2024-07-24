@@ -16,7 +16,7 @@ for arg in sys.argv[2:]:
     if arg == "--no-cache":
         no_cache = True
     else:
-        raise Exception("'{}' is not a recognized argument.".format(arg))
+        sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
 
 subprocess.run(
     "pip install --disable-pip-version-check {} --requirement requirements.txt".format(

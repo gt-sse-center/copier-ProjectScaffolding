@@ -349,7 +349,7 @@
           if arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           "pip install --disable-pip-version-check {} --requirement requirements.txt".format(
@@ -730,9 +730,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -740,22 +737,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -1852,7 +1840,7 @@
           if arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           "pip install --disable-pip-version-check {} --requirement requirements.txt".format(
@@ -2270,9 +2258,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -2280,22 +2265,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -3601,7 +3577,7 @@
           if arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           "pip install --disable-pip-version-check {} --requirement requirements.txt".format(
@@ -4123,9 +4099,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -4133,22 +4106,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -5105,7 +5069,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -5130,7 +5094,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -5144,7 +5108,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
         # ----------------------------------------------------------------------
         create_package:
           needs: package_coverage
@@ -5170,7 +5134,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -5200,7 +5164,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -5218,7 +5182,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -5475,9 +5439,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -5485,22 +5446,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -6596,7 +6548,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -6621,7 +6573,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -6635,7 +6587,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
         # ----------------------------------------------------------------------
         create_package:
           needs: package_coverage
@@ -6661,7 +6613,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -6691,7 +6643,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -6709,7 +6661,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -6969,9 +6921,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -6979,22 +6928,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -8131,7 +8071,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -8156,7 +8096,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -8170,7 +8110,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
         # ----------------------------------------------------------------------
         create_package:
           needs: package_coverage
@@ -8196,7 +8136,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -8226,7 +8166,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -8254,7 +8194,7 @@
             contents: read
             packages: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.1
           with:
             operating_system: ubuntu-latest
             python_version: ${{ matrix.python_version }}
@@ -8276,7 +8216,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -8533,9 +8473,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -8543,22 +8480,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -9654,7 +9582,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -9679,7 +9607,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -9693,7 +9621,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
         # ----------------------------------------------------------------------
         create_package:
           needs: package_coverage
@@ -9719,7 +9647,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -9749,7 +9677,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -9777,7 +9705,7 @@
             contents: read
             packages: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.1
           with:
             operating_system: ubuntu-latest
             python_version: ${{ matrix.python_version }}
@@ -9799,7 +9727,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -10059,9 +9987,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -10069,22 +9994,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -11221,7 +11137,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -11246,7 +11162,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -11260,7 +11176,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
         # ----------------------------------------------------------------------
         create_package:
           needs: package_coverage
@@ -11286,7 +11202,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -11316,7 +11232,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -11343,7 +11259,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -11369,7 +11285,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -11388,7 +11304,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -11645,9 +11561,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -11655,22 +11568,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -12766,7 +12670,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -12791,7 +12695,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -12805,7 +12709,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
         # ----------------------------------------------------------------------
         create_package:
           needs: package_coverage
@@ -12831,7 +12735,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -12861,7 +12765,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -12888,7 +12792,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -12914,7 +12818,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -12933,7 +12837,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -13193,9 +13097,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -13203,22 +13104,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -14355,7 +14247,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -14380,7 +14272,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -14394,7 +14286,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
         # ----------------------------------------------------------------------
         create_package:
           needs: package_coverage
@@ -14420,7 +14312,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -14450,7 +14342,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -14477,7 +14369,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -14503,7 +14395,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -14531,7 +14423,7 @@
             contents: read
             packages: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.1
           with:
             operating_system: ubuntu-latest
             python_version: ${{ matrix.python_version }}
@@ -14554,7 +14446,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -14811,9 +14703,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -14821,22 +14710,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -15932,7 +15812,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -15957,7 +15837,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -15971,7 +15851,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
         # ----------------------------------------------------------------------
         create_package:
           needs: package_coverage
@@ -15997,7 +15877,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -16027,7 +15907,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -16054,7 +15934,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -16080,7 +15960,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -16108,7 +15988,7 @@
             contents: read
             packages: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.1
           with:
             operating_system: ubuntu-latest
             python_version: ${{ matrix.python_version }}
@@ -16131,7 +16011,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -16391,9 +16271,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -16401,22 +16278,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -17553,7 +17421,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -17578,7 +17446,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -17592,7 +17460,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
           with:
             gist_id: __simulated_gist_id__
             gist_filename: <<github_repo_name>>_coverage.json
@@ -17624,7 +17492,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -17654,7 +17522,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -17672,7 +17540,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -17929,9 +17797,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -17939,22 +17804,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -19104,7 +18960,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -19129,7 +18985,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -19143,7 +18999,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
           with:
             gist_id: __simulated_gist_id__
             gist_filename: <<github_repo_name>>_coverage.json
@@ -19175,7 +19031,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -19205,7 +19061,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -19223,7 +19079,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -19483,9 +19339,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -19493,22 +19346,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -20699,7 +20543,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -20724,7 +20568,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -20738,7 +20582,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
           with:
             gist_id: __simulated_gist_id__
             gist_filename: <<github_repo_name>>_coverage.json
@@ -20770,7 +20614,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -20800,7 +20644,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -20828,7 +20672,7 @@
             contents: read
             packages: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.1
           with:
             operating_system: ubuntu-latest
             python_version: ${{ matrix.python_version }}
@@ -20850,7 +20694,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -21107,9 +20951,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -21117,22 +20958,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -22282,7 +22114,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -22307,7 +22139,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -22321,7 +22153,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
           with:
             gist_id: __simulated_gist_id__
             gist_filename: <<github_repo_name>>_coverage.json
@@ -22353,7 +22185,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -22383,7 +22215,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -22411,7 +22243,7 @@
             contents: read
             packages: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.1
           with:
             operating_system: ubuntu-latest
             python_version: ${{ matrix.python_version }}
@@ -22433,7 +22265,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -22693,9 +22525,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -22703,22 +22532,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -23909,7 +23729,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -23934,7 +23754,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -23948,7 +23768,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
           with:
             gist_id: __simulated_gist_id__
             gist_filename: <<github_repo_name>>_coverage.json
@@ -23980,7 +23800,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -24010,7 +23830,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -24037,7 +23857,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -24063,7 +23883,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -24082,7 +23902,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -24339,9 +24159,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -24349,22 +24166,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -25514,7 +25322,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -25539,7 +25347,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -25553,7 +25361,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
           with:
             gist_id: __simulated_gist_id__
             gist_filename: <<github_repo_name>>_coverage.json
@@ -25585,7 +25393,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -25615,7 +25423,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -25642,7 +25450,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -25668,7 +25476,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -25687,7 +25495,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -25947,9 +25755,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -25957,22 +25762,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -27163,7 +26959,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -27188,7 +26984,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -27202,7 +26998,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
           with:
             gist_id: __simulated_gist_id__
             gist_filename: <<github_repo_name>>_coverage.json
@@ -27234,7 +27030,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -27264,7 +27060,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -27291,7 +27087,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -27317,7 +27113,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -27345,7 +27141,7 @@
             contents: read
             packages: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.1
           with:
             operating_system: ubuntu-latest
             python_version: ${{ matrix.python_version }}
@@ -27368,7 +27164,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -27625,9 +27421,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -27635,22 +27428,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -28800,7 +28584,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -28825,7 +28609,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -28839,7 +28623,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
           with:
             gist_id: __simulated_gist_id__
             gist_filename: <<github_repo_name>>_coverage.json
@@ -28871,7 +28655,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -28901,7 +28685,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -28928,7 +28712,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -28954,7 +28738,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -28982,7 +28766,7 @@
             contents: read
             packages: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.1
           with:
             operating_system: ubuntu-latest
             python_version: ${{ matrix.python_version }}
@@ -29005,7 +28789,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -29265,9 +29049,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -29275,22 +29056,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -30855,7 +30627,7 @@
           if arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           "pip install --disable-pip-version-check {} --requirement requirements.txt".format(
@@ -31531,9 +31303,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -31541,22 +31310,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -33189,7 +32949,7 @@
           if arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           "pip install --disable-pip-version-check {} --requirement requirements.txt".format(
@@ -33902,9 +33662,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -33912,22 +33669,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -35754,7 +35502,7 @@
           if arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           "pip install --disable-pip-version-check {} --requirement requirements.txt".format(
@@ -36561,9 +36309,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -36571,22 +36316,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -37848,7 +37584,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -37873,7 +37609,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -37887,7 +37623,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
         # ----------------------------------------------------------------------
         create_package:
           needs: package_coverage
@@ -37913,7 +37649,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -37943,7 +37679,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -37961,7 +37697,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -38218,9 +37954,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -38228,22 +37961,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -39643,7 +39367,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -39668,7 +39392,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -39682,7 +39406,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
         # ----------------------------------------------------------------------
         create_package:
           needs: package_coverage
@@ -39708,7 +39432,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -39738,7 +39462,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -39756,7 +39480,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -40016,9 +39740,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -40026,22 +39747,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -41491,7 +41203,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -41516,7 +41228,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -41530,7 +41242,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
         # ----------------------------------------------------------------------
         create_package:
           needs: package_coverage
@@ -41556,7 +41268,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -41586,7 +41298,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -41614,7 +41326,7 @@
             contents: read
             packages: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.1
           with:
             operating_system: ubuntu-latest
             python_version: ${{ matrix.python_version }}
@@ -41636,7 +41348,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -41893,9 +41605,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -41903,22 +41612,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -43318,7 +43018,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -43343,7 +43043,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -43357,7 +43057,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
         # ----------------------------------------------------------------------
         create_package:
           needs: package_coverage
@@ -43383,7 +43083,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -43413,7 +43113,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -43441,7 +43141,7 @@
             contents: read
             packages: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.1
           with:
             operating_system: ubuntu-latest
             python_version: ${{ matrix.python_version }}
@@ -43463,7 +43163,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -43723,9 +43423,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -43733,22 +43430,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -45198,7 +44886,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -45223,7 +44911,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -45237,7 +44925,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
         # ----------------------------------------------------------------------
         create_package:
           needs: package_coverage
@@ -45263,7 +44951,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -45293,7 +44981,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -45320,7 +45008,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -45346,7 +45034,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -45365,7 +45053,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -45622,9 +45310,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -45632,22 +45317,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -47047,7 +46723,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -47072,7 +46748,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -47086,7 +46762,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
         # ----------------------------------------------------------------------
         create_package:
           needs: package_coverage
@@ -47112,7 +46788,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -47142,7 +46818,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -47169,7 +46845,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -47195,7 +46871,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -47214,7 +46890,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -47474,9 +47150,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -47484,22 +47157,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -48949,7 +48613,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -48974,7 +48638,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -48988,7 +48652,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
         # ----------------------------------------------------------------------
         create_package:
           needs: package_coverage
@@ -49014,7 +48678,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -49044,7 +48708,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -49071,7 +48735,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -49097,7 +48761,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -49125,7 +48789,7 @@
             contents: read
             packages: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.1
           with:
             operating_system: ubuntu-latest
             python_version: ${{ matrix.python_version }}
@@ -49148,7 +48812,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -49405,9 +49069,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -49415,22 +49076,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -50830,7 +50482,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -50855,7 +50507,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -50869,7 +50521,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
         # ----------------------------------------------------------------------
         create_package:
           needs: package_coverage
@@ -50895,7 +50547,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -50925,7 +50577,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -50952,7 +50604,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -50978,7 +50630,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -51006,7 +50658,7 @@
             contents: read
             packages: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.1
           with:
             operating_system: ubuntu-latest
             python_version: ${{ matrix.python_version }}
@@ -51029,7 +50681,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -51289,9 +50941,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -51299,22 +50948,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -52764,7 +52404,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -52789,7 +52429,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -52803,7 +52443,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
           with:
             gist_id: __simulated_gist_id__
             gist_filename: <<github_repo_name>>_coverage.json
@@ -52835,7 +52475,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -52865,7 +52505,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -52883,7 +52523,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -53140,9 +52780,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -53150,22 +52787,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -54620,7 +54248,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -54645,7 +54273,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -54659,7 +54287,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
           with:
             gist_id: __simulated_gist_id__
             gist_filename: <<github_repo_name>>_coverage.json
@@ -54691,7 +54319,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -54721,7 +54349,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -54739,7 +54367,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -54999,9 +54627,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -55009,22 +54634,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -56529,7 +56145,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -56554,7 +56170,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -56568,7 +56184,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
           with:
             gist_id: __simulated_gist_id__
             gist_filename: <<github_repo_name>>_coverage.json
@@ -56600,7 +56216,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -56630,7 +56246,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -56658,7 +56274,7 @@
             contents: read
             packages: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.1
           with:
             operating_system: ubuntu-latest
             python_version: ${{ matrix.python_version }}
@@ -56680,7 +56296,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -56937,9 +56553,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -56947,22 +56560,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -58417,7 +58021,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -58442,7 +58046,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -58456,7 +58060,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
           with:
             gist_id: __simulated_gist_id__
             gist_filename: <<github_repo_name>>_coverage.json
@@ -58488,7 +58092,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -58518,7 +58122,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -58546,7 +58150,7 @@
             contents: read
             packages: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.1
           with:
             operating_system: ubuntu-latest
             python_version: ${{ matrix.python_version }}
@@ -58568,7 +58172,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -58828,9 +58432,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -58838,22 +58439,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -60358,7 +59950,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -60383,7 +59975,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -60397,7 +59989,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
           with:
             gist_id: __simulated_gist_id__
             gist_filename: <<github_repo_name>>_coverage.json
@@ -60429,7 +60021,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -60459,7 +60051,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -60486,7 +60078,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -60512,7 +60104,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -60531,7 +60123,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -60788,9 +60380,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -60798,22 +60387,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -62268,7 +61848,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -62293,7 +61873,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -62307,7 +61887,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
           with:
             gist_id: __simulated_gist_id__
             gist_filename: <<github_repo_name>>_coverage.json
@@ -62339,7 +61919,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -62369,7 +61949,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -62396,7 +61976,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -62422,7 +62002,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -62441,7 +62021,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -62701,9 +62281,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -62711,22 +62288,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -64231,7 +63799,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -64256,7 +63824,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -64270,7 +63838,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
           with:
             gist_id: __simulated_gist_id__
             gist_filename: <<github_repo_name>>_coverage.json
@@ -64302,7 +63870,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -64332,7 +63900,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -64359,7 +63927,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -64385,7 +63953,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -64413,7 +63981,7 @@
             contents: read
             packages: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.1
           with:
             operating_system: ubuntu-latest
             python_version: ${{ matrix.python_version }}
@@ -64436,7 +64004,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -64693,9 +64261,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -64703,22 +64268,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
@@ -66173,7 +65729,7 @@
         # ----------------------------------------------------------------------
         action_contexts:
           name: "Display GitHub Action Contexts"
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_display_action_contexts.yaml@CI-v0.22.1
       
         # ----------------------------------------------------------------------
         validate:
@@ -66198,7 +65754,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -66212,7 +65768,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_package_python_coverage.yaml@CI-v0.22.1
           with:
             gist_id: __simulated_gist_id__
             gist_filename: <<github_repo_name>>_coverage.json
@@ -66244,7 +65800,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -66274,7 +65830,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_package.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -66301,7 +65857,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -66327,7 +65883,7 @@
           permissions:
             contents: read
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_validate_python_binary.yaml@CI-v0.22.1
           with:
             operating_system: ${{ matrix.os }}
             python_version: ${{ matrix.python_version }}
@@ -66355,7 +65911,7 @@
             contents: read
             packages: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_create_docker_image.yaml@CI-v0.22.1
           with:
             operating_system: ubuntu-latest
             python_version: ${{ matrix.python_version }}
@@ -66378,7 +65934,7 @@
           permissions:
             contents: write
       
-          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.0
+          uses: davidbrownell/dbrownell_DevTools/.github/workflows/callable_publish_python.yaml@CI-v0.22.1
           with:
             release_sources_configuration_filename: .github/release_sources.yaml
           secrets:
@@ -66638,9 +66194,6 @@
       
       
       # Parse the arguments
-      is_debug = False
-      is_force = False
-      is_verbose = False
       is_package = False
       no_cache = False
       
@@ -66648,22 +66201,13 @@
       
       # First arg is the script name, second arg is the name of the shell script to write to
       for arg in sys.argv[2:]:
-          if arg == "--debug":
-              is_debug = True
-          elif arg == "--force":
-              is_force = True
-          elif arg == "--verbose":
-              is_verbose = True
-          elif arg == "--package":
+          if arg == "--package":
               is_package = True
               display_flags.append("package")
           elif arg == "--no-cache":
               no_cache = True
           else:
-              raise Exception("'{}' is not a recognized argument.".format(arg))
-      
-      if is_debug:
-          is_verbose = True
+              sys.stderr.write(f"WARNING: '{arg}' is not a recognized argument.\n")
       
       subprocess.run(
           'pip install --disable-pip-version-check {} --editable ".[dev{}]"'.format(
