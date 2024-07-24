@@ -34,6 +34,7 @@ def UpdatePostGenerationActionsFile():
     _CreatePostPythonPackageCIInstructions(instructions)
     _CreatePostProjectSpecificCIInstructions(instructions)
     _CreatePostDocumentationInstructions(instructions)
+    _CreateOpenSSFBadgeInstructions(instructions)
     _CreatePostFinalInstructions(instructions)
 
     # Update the file
@@ -458,6 +459,339 @@ def _CreatePostDocumentationInstructions(
                 <p>Please search for and replace all <code>TODO:</code> comments in <code>{filename}</code>.</p>
                 """,
             )
+
+
+# ----------------------------------------------------------------------
+def _CreateOpenSSFBadgeInstructions(
+    instructions: dict[str, str],
+) -> None:
+    if "{{ python_package_generate_ci_openssf }}".lower() != "true":
+        return
+
+    instructions["OpenSSF Best Practices Badge [Basics] (1 of 6)"] = textwrap.dedent(
+        """\
+        <p>In this step, we will populate the "Basics" section of the OpenSSF Best Practices Badge.</p>
+        <ol>
+          <li>Visit <a href="https://www.bestpractices.dev/en/projects/{{ python_package_generate_ci_openssf_id }}/edit?criteria_level=0#basics" target="_blank">https://www.bestpractices.dev/en/projects/{{ python_package_generate_ci_openssf_id }}/edit?criteria_level=0#basics</a>.</li>
+          <li>
+            <p>Search for these options and set them to the following values:</p>
+            <p>
+              <table>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                  <th>Additional Info</th>
+                </tr>
+                <tr>
+                  <td>interact</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>contribution</td>
+                  <td>Met</td>
+                  <td><code>Non-trivial contribution file in repository: &lt;{{github_url }}/blob/main/CONTRIBUTING.md&gt;</code></td>
+                </tr>
+                <tr>
+                  <td>contribution_requirements</td>
+                  <td>Met</td>
+                  <td><code>{{ github_url }}/blob/main/CONTRIBUTING.md</code></td>
+                </tr>
+                <tr>
+                  <td>What license(s) is the project released under?</td>
+                  <td>{{ documentation_license }}</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>floss_license</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>floss_license_osi</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>license_location</td>
+                  <td>Met</td>
+                  <td><code>Non-trivial license location file in repository: &lt;{{ github_url }}/blob/main/LICENSE.txt&gt;</code></td>
+                </tr>
+                <tr>
+                  <td>discussion</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>english</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+              </table>
+            </p>
+          </li>
+          <li>Click the "Submit (and exit)" button.</li>
+        </ol>
+        """,
+    )
+
+    instructions["OpenSSF Best Practices Badge [Change Control] (2 of 6)"] = textwrap.dedent(
+        """\
+        <p>In this step, we will populate the "Change Control" section of the OpenSSF Best Practices Badge.</p>
+        <ol>
+          <li>Visit <a href="https://www.bestpractices.dev/en/projects/{{ python_package_generate_ci_openssf_id }}/edit?criteria_level=0#changecontrol" target="_blank">https://www.bestpractices.dev/en/projects/{{ python_package_generate_ci_openssf_id }}/edit?criteria_level=0#changecontrol</a>.</li>
+          <li>
+            <p>Search for these options and set them to the following values:</p>
+            <p>
+              <table>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                  <th>Additional Info</th>
+                </tr>
+                <tr>
+                  <td>repo_public</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>repo_track</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>repo_interim</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>repo_distributed</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>version_unique</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>version_semver</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>version_tags</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>release_notes</td>
+                  <td>Met</td>
+                  <td><code>{{ github_url }}/releases/latest</code></td>
+                </tr>
+              </table>
+            </p>
+          </li>
+          <li>Click the "Submit (and exit)" button.</li>
+        </ol>
+        """,
+    )
+
+    instructions["OpenSSF Best Practices Badge [Reporting] (3 of 6)"] = textwrap.dedent(
+        """\
+        <p>In this step, we will populate the "Reporting" section of the OpenSSF Best Practices Badge.</p>
+        <ol>
+          <li>Visit <a href="https://www.bestpractices.dev/en/projects/{{ python_package_generate_ci_openssf_id }}/edit?criteria_level=0#reporting" target="_blank">https://www.bestpractices.dev/en/projects/{{ python_package_generate_ci_openssf_id }}/edit?criteria_level=0#reporting</a>.</li>
+          <li>
+            <p>Search for these options and set them to the following values:</p>
+            <p>
+              <table>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                  <th>Additional Info</th>
+                </tr>
+                <tr>
+                  <td>report_process</td>
+                  <td>Met</td>
+                  <td><code>{{ github_url }}/blob/main/CONTRIBUTING.md</code></td>
+                </tr>
+                <tr>
+                  <td>report_tracker</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>report_responses</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>report_archive</td>
+                  <td>Met</td>
+                  <td><code>{{ github_url }}/issues</code></td>
+                </tr>
+                <tr>
+                  <td>vulnerability_report_process</td>
+                  <td>Met</td>
+                  <td><code>{{ github_url }}/blob/main/SECURITY.md</code></td>
+                </tr>
+                <tr>
+                  <td>vulnerability_report_private</td>
+                  <td>Met</td>
+                  <td><code>{{ github_url }}/blob/main/SECURITY.md</code></td>
+                </tr>
+              </table>
+            </p>
+          </li>
+          <li>Click the "Submit (and exit)" button.</li>
+        </ol>
+        """,
+    )
+
+    instructions["OpenSSF Best Practices Badge [Quality] (4 of 6)"] = textwrap.dedent(
+        """\
+        <p>In this step, we will populate the "Quality" section of the OpenSSF Best Practices Badge.</p>
+        <ol>
+          <li>Visit <a href="https://www.bestpractices.dev/en/projects/{{ python_package_generate_ci_openssf_id }}/edit?criteria_level=0#quality" target="_blank">https://www.bestpractices.dev/en/projects/{{ python_package_generate_ci_openssf_id }}/edit?criteria_level=0#quality</a>.</li>
+          <li>
+            <p>Search for these options and set them to the following values:</p>
+            <p>
+              <table>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                  <th>Additional Info</th>
+                </tr>
+                <tr>
+                  <td>build</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>build_common_tools</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>build_floss_tools</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>test</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>test_invocation</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>test_most</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>test_continuous_integration</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>test_policy</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>tests_are_added</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>tests_documented_added</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>warnings</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>warnings_fixed</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>warnings_strict</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+              </table>
+            </p>
+          </li>
+          <li>Click the "Submit (and exit)" button.</li>
+        </ol>
+        """,
+    )
+
+    instructions["OpenSSF Best Practices Badge [Analysis] (5 of 6)"] = textwrap.dedent(
+        """\
+        <p>In this step, we will populate the "Analysis" section of the OpenSSF Best Practices Badge.</p>
+        <ol>
+          <li>Visit <a href="https://www.bestpractices.dev/en/projects/{{ python_package_generate_ci_openssf_id }}/edit?criteria_level=0#analysis" target="_blank">https://www.bestpractices.dev/en/projects/{{ python_package_generate_ci_openssf_id }}/edit?criteria_level=0#analysis</a>.</li>
+          <li>
+            <p>Search for these options and set them to the following values:</p>
+            <p>
+              <table>
+                <tr>
+                  <th>Name</th>
+                  <th>Value</th>
+                  <th>Additional Info</th>
+                </tr>
+                <tr>
+                  <td>static_analysis</td>
+                  <td>Met</td>
+                  <td><code>pylint, CodeQL</code></td>
+                </tr>
+                <tr>
+                  <td>static_analysis_common_vulnerabilities</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>static_analysis_often</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>dynamic_analysis</td>
+                  <td>Met</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>dynamic_analysis_unsafe</td>
+                  <td>N/A</td>
+                  <td>&nbsp;</td>
+                </tr>
+              </table>
+            </p>
+          </li>
+          <li>Click the "Submit (and exit)" button.</li>
+        </ol>
+        """,
+    )
+
+    instructions["OpenSSF Best Practices Badge [Manual Changes] (6 of 6)"] = textwrap.dedent(
+        """\
+        <p>In this step, we will manually populate the remaining questions across all sections of the OpenSSF Best Practices Badge.</p>
+        <ol>
+          <li>Visit <a href="https://www.bestpractices.dev/en/projects/{{ python_package_generate_ci_openssf_id }}/edit?criteria_level=0" target="_blank">https://www.bestpractices.dev/en/projects/{{ python_package_generate_ci_openssf_id }}/edit?criteria_level=0</a>.</li>
+          <li>Update the remaining questions in all sections basic on information specific to your project.</li>
+        </ol>
+        """,
+    )
 
 
 # ----------------------------------------------------------------------

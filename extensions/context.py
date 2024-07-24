@@ -46,6 +46,7 @@ class ContextUpdater(ContextHook):
             self._is_update_temp_dir = context["_folder_name"].startswith("copier.main")
 
             self._GeneratePythonPackageGistId(context)
+            self._GeneratePythonPackageOpenSSFId(context)
             self._GeneratePythonPackageMinisignKey(context)
 
         assert self._updated_context is not None
@@ -71,6 +72,19 @@ class ContextUpdater(ContextHook):
             )
             self._updated_context["python_package_generate_ci_persist_coverage_gist_username"] = (
                 "__simulated_gist_username__"
+            )
+
+    # ----------------------------------------------------------------------
+    def _GeneratePythonPackageOpenSSFId(self, context) -> None:
+        if not context["python_package_generate_ci_openssf"]:
+            return
+
+        if self._is_update_temp_dir or context.get(
+            "_python_package_generate_ci_simulate_openssf_id", False
+        ):
+            assert self._updated_context is not None
+            self._updated_context["python_package_generate_ci_openssf_id"] = (
+                "__simulated_openssf_id__"
             )
 
     # ----------------------------------------------------------------------
