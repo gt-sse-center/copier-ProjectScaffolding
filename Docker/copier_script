@@ -1,0 +1,10 @@
+#!/bin/bash
+
+subcommand=$1
+shift
+
+if [[ ${subcommand} == "copy" ]]; then
+    copier copy https://github.com/gt-sse-center/copier-ProjectScaffolding "$@"
+else
+    copier $subcommand "$@"
+fi
