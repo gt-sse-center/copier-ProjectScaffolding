@@ -8,11 +8,18 @@ RUN apt-get update \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
+RUN ln /usr/bin/python3 /usr/bin/python
+
 RUN pip install \
         copier~=9.2 \
         copier-templates-extensions~=0.3 \
         dbrownell_Common
 
-COPY copier_script copier_script
+COPY ImageContent .
+
+ENV PATH="$PATH:/minisign"
+
+RUN git config --global user.email "you@example.com"
+RUN git config --global user.name "Your Name"
 
 ENTRYPOINT ["./copier_script"]
