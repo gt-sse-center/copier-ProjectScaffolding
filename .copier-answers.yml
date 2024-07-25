@@ -6,8 +6,8 @@
 # available at https://github.com/gt-sse-center/copier-ProjectScaffolding.
 #
 
-_commit: 48d11a0
-_src_path: .
+_commit: v0.2.0
+_src_path: https://github.com/gt-sse-center/copier-ProjectScaffolding
 author_email: sse-center@gatech.edu
 author_name: Scientific Software Engineering Center at Georgia Tech
 documentation_license: MIT
@@ -19,3 +19,5 @@ hosting_platform: GitHub
 project_description: Copier (https://copier.readthedocs.io/.) template to create scaffolding
     for different project types (python packages, etc.).
 project_name: copier-ProjectScaffolding
+project_type: PythonExecutionEnvironment
+repository_tool: git

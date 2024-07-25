@@ -33,7 +33,7 @@ python_package_generate_ci_persist_coverage_question:
 
        If you continue, we will provide instructions to create a GitHub gist used to save the information. More information on
        GitHub gists is available at https://docs.github.com/en/get-started/writing-on-github/editing-and-sharing-content-with-gists.
-  default: True
+  default: False
   when: "{{ project_type == 'PythonPackage' and hosting_platform == 'GitHub' and python_package_generate_ci_question }}"
 
 python_package_generate_ci_persist_coverage:
@@ -97,7 +97,7 @@ python_package_generate_ci_openssf_question:
 
        If you continue, we will provide instructions to manually create a OpenSSF Best Practices Badge. More information on
        OpenSSF Best Practices Badges is available at https://www.bestpractices.dev/en.
-  default: True
+  default: False
   when: "{{ generate_docs and project_type == 'PythonPackage' and hosting_platform == 'GitHub' and python_package_generate_ci_question }}"
 
 python_package_generate_ci_openssf:
