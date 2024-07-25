@@ -107,7 +107,13 @@ class ContextUpdater(ContextHook):
                     "\n\nCreating the Minisign public and private keys...",
                     suffix="\n\n\n",
                 ) as dm:
-                    command_line = 'docker run -i --rm -v ".:/host" jedisct1/minisign -G -p /host/minisign_key.pub -s /host/minisign_key.pri -W'
+                    # Check to see if minisign is available locally. If so, use it to generate the keys.
+                    # If not, use the docker image to generate the keys.
+                    result = SubprocessEx.Run(f"minisign -v")
+                    if result.returncode == 0:
+                        command_line = f"minisign -G -p minisign_key.pub -s minisign_key.pri -W"
+                    else:
+                        command_line = 'docker run -i --rm -v ".:/host" jedisct1/minisign -G -p /host/minisign_key.pub -s /host/minisign_key.pri -W'
 
                     dm.WriteInfo(f"Command Line: {command_line}\n\n")
 
