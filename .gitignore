@@ -1,10 +1,11 @@
+post_generation_actions.html
+
 Activate*.cmd
 Activate*.sh
 Deactivate*.cmd
 Deactivate*.sh
 
+**/.coverage
+**/.vscode
 **/__pycache__/**
 **/Generated/**
-**/.coverage
-**/lcov.info
-**/.vscode
