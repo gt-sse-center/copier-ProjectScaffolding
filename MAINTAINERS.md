@@ -7,7 +7,7 @@ See [Code of Conduct](CODE_OF_CONDUCT.md) and [Contributing](CONTRIBUTING.md) fo
 ## Current Maintainers
 | Maintainer | GitHub ID | Affiliation |
 | --- | --- | --- |
-TODO: Add maintainers
+| Dave Brownell | @davidbrownell | |
 
 ## Emeritus
 | Maintainer | GitHub ID | Affiliation |
