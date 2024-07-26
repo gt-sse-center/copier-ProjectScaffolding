@@ -70,7 +70,7 @@ python_package_generate_ci_persist_coverage_gist_id:
   when: "{{ project_type == 'PythonPackage' and hosting_platform == 'GitHub' and python_package_generate_ci_question and python_package_generate_ci_persist_coverage_question }}"
   default: ""
   validator: |-
-    {% if not python_package_generate_ci_persist_coverage_gist_id %}
+    {% if project_type == 'PythonPackage' and hosting_platform == 'GitHub' and python_package_generate_ci_question and python_package_generate_ci_persist_coverage_question and not python_package_generate_ci_persist_coverage_gist_id %}
     Please enter a valid gist_id.
     {% endif %}
 
@@ -80,7 +80,7 @@ python_package_generate_ci_persist_coverage_gist_username:
   when: "{{ project_type == 'PythonPackage' and hosting_platform == 'GitHub' and python_package_generate_ci and python_package_generate_ci_persist_coverage_question }}"
   default: "{{ github_username }}"
   validator: |-
-    {% if not python_package_generate_ci_persist_coverage_gist_username %}
+    {% if project_type == 'PythonPackage' and hosting_platform == 'GitHub' and python_package_generate_ci and python_package_generate_ci_persist_coverage_question and not python_package_generate_ci_persist_coverage_gist_username %}
     Please enter a valid username.
     {% endif %}
 
@@ -126,7 +126,7 @@ python_package_generate_ci_openssf_id:
   when: "{{ project_type == 'PythonPackage' and hosting_platform == 'GitHub' and python_package_generate_ci_question and python_package_generate_ci_openssf_question }}"
   default: ""
   validator: |-
-    {% if not python_package_generate_ci_openssf_id %}
+    {% if project_type == 'PythonPackage' and hosting_platform == 'GitHub' and python_package_generate_ci_question and python_package_generate_ci_openssf_question and not python_package_generate_ci_openssf_id %}
     Please enter a valid badge id.
     {% endif %}
 
