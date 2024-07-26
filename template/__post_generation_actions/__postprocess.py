@@ -5,9 +5,6 @@ import textwrap
 
 from pathlib import Path
 
-from dbrownell_Common.Streams.DoneManager import DoneManager, Flags as DoneManagerFlags
-from dbrownell_Common import SubprocessEx
-
 sys.path.insert(0, str(Path.cwd() / "__tools"))
 from CopierHelpers import *
 
