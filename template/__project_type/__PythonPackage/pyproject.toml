@@ -10,13 +10,13 @@ build-backend = "setuptools.build_meta"
 # |
 # ----------------------------------------------------------------------
 [project]
-name = "{{ python_package_pypi_name }}"
-description = "{{ project_description }}"
+name = "{{ python_package_pypi_name | escape_quotes }}"
+description = "{{ project_description | escape_quotes }}"
 
-license = { text = "{{ documentation_license }}" }
+license = { text = "{{ documentation_license | escape_quotes }}" }
 
 authors = [
-    { name = "{{ author_name }}", email = "{{ author_email }}" },
+    { name = "{{ author_name | escape_quotes }}", email = "{{ author_email | escape_quotes }}" },
 ]
 
 keywords = [
@@ -26,7 +26,7 @@ keywords = [
 # https://pypi.org/classifiers/
 classifiers = [
     # TODO: Add additional classifiers specific to your project.
-    "License :: OSI Approved :: {{ documentation_license }} License",
+    "License :: OSI Approved :: {{ documentation_license | escape_quotes }} License",
     "Operating System :: MacOS",
     "Operating System :: Microsoft :: Windows",
     "Operating System :: POSIX :: Linux",
@@ -64,15 +64,15 @@ Homepage = "TODO: Enter the homepage link for your project."
 Documentation = "TODO: Enter the documetnation link for your project."
 Repository = "TODO: Enter the repository link for your project."
 {% elif hosting_platform == 'GitHub' -%}
-Homepage = "{{ github_url }}"
-Documentation = "{{ github_url }}"
-Repository = "{{ github_url }}"
+Homepage = "{{ github_url | escape_quotes }}"
+Documentation = "{{ github_url | escape_quotes }}"
+Repository = "{{ github_url | escape_quotes }}"
 {% else -%}
 {{ "Define this section for your 'hosting_platform'." | raise_exception }}
 {%- endif %}
 
 [project.scripts]
-{{ python_package_pypi_name }} = "{{ python_package_pypi_name }}:EntryPoint.app"
+{{ python_package_pypi_name }} = "{{ python_package_pypi_name | escape_quotes }}:EntryPoint.app"
 
 # ----------------------------------------------------------------------
 # |
@@ -170,7 +170,7 @@ python_files = [
 # |
 # ----------------------------------------------------------------------
 [tool.setuptools.dynamic]
-version = { attr = "{{ python_package_pypi_name }}.__version__" }
+version = { attr = "{{ python_package_pypi_name | escape_quotes }}.__version__" }
 
 [tool.setuptools.packages.find]
 where = ["src"]
