@@ -94,17 +94,20 @@ def _CreateCommitInstructions(
         push_step_num = 3
 
         if shell_scripts:
-            if os.name == "nt":
-                if "{{ _git_suppress_permission_instructions }}".lower() != "true" and shell_scripts:
-                    precommit_permissions = "{}<br/>\n".format("<br/>\n".join(f'{commit_step_num + index}. <code>git update-index --chmod=+x "{script.relative_to(Path.cwd())}"</code>' for index, script in enumerate(shell_scripts)))
+            for shell_script in shell_scripts:
+                shell_script.chmod(
+                    shell_script.stat().st_mode | stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH,
+                )
 
-                    commit_step_num += len(shell_scripts)
-                    push_step_num += len(shell_scripts)
-            else:
-                for shell_script in shell_scripts:
-                    shell_script.chmod(
-                        shell_script.stat().st_mode | stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH,
-                    )
+            # Note that these precommit permissions are only necessary when running on Windows, but
+            # detecting if we are on Windows turns out to be tricky. For example, we are technically
+            # "running on Windows" when a docker container is run on a Windows host, where the
+            # container generates output to a volume mounted from the host. Always output the
+            # instructions, just to be on the safe side.
+            precommit_permissions = "{}<br/>\n".format("<br/>\n".join(f'{commit_step_num + index}. <code>git update-index --chmod=+x "{script.relative_to(Path.cwd())}"</code>' for index, script in enumerate(shell_scripts)))
+
+            commit_step_num += len(shell_scripts)
+            push_step_num += len(shell_scripts)
 
         instructions["Initialize the git repository"] = textwrap.dedent(
             """\

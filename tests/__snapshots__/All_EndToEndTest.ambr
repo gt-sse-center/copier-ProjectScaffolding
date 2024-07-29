@@ -1949,8 +1949,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -2467,8 +2468,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -3702,8 +3704,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -4324,8 +4327,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -5723,8 +5727,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -7246,8 +7251,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -8757,8 +8763,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -10312,8 +10319,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -11845,8 +11853,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -13422,8 +13431,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -14987,8 +14997,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -16596,8 +16607,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -18135,8 +18147,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -19718,8 +19731,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -21289,8 +21303,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -22904,8 +22919,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -24497,8 +24513,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -26134,8 +26151,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -27759,8 +27777,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -29428,8 +29447,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -33303,8 +33323,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -34133,8 +34154,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -35882,8 +35904,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -36818,8 +36841,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -38521,8 +38545,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -40357,8 +40382,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -42172,8 +42198,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -44040,8 +44067,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -45877,8 +45905,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -47767,8 +47796,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -49636,8 +49666,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -51558,8 +51589,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -53342,8 +53374,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -55528,8 +55561,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -57693,8 +57727,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -59911,8 +59946,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -62098,8 +62134,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -64338,8 +64375,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -66557,8 +66595,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -68829,8 +68868,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -71022,8 +71062,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -72919,8 +72960,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -74795,8 +74837,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -76724,8 +76767,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -78622,8 +78666,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -80573,8 +80618,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -82503,8 +82549,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -84486,8 +84533,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -86331,8 +86379,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -88578,8 +88627,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -90804,8 +90854,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -93083,8 +93134,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -95331,8 +95383,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -97632,8 +97685,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -99912,8 +99966,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>
@@ -102245,8 +102300,9 @@
       <p>Open a terminal window, navigate to your repository, and run the following commands:</p>
       
       1. <code>git add --all</code><br/>
-      2. <code>git commit -m "🎉 Initial commit"</code><br/>
-      3. <code>git push</code><br/>
+      2. <code>git update-index --chmod=+x "Bootstrap.sh"</code><br/>
+      3. <code>git commit -m "🎉 Initial commit"</code><br/>
+      4. <code>git push</code><br/>
       </p>
       
       </div>

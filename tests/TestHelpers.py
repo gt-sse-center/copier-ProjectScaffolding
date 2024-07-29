@@ -62,7 +62,6 @@ class _ConfigurationGenerator:
     # ----------------------------------------------------------------------
     def __init__(self) -> None:
         configuration: dict[str, Any] = {
-            "_git_suppress_permission_instructions": True,
             "_python_package_generate_ci_persist_coverage_simulate_gist_id": True,
             "_python_package_generate_ci_simulate_openssf_id": True,
             "_python_package_generate_ci_sign_artifacts_simulate_keygen": True,
