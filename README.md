@@ -28,7 +28,7 @@ copier-ProjectScaffolding is a [Copier](https://copier.readthedocs.io/) template
 - Generate docker Images: Yes, No
 - Additional Options based on project type (for more information, see [Project Types](#project-types))
 
-Examples of generated output can be found at [gt-sse-center/copier-ProjectScaffolding-PythonExecutionEnvironmentSample](https://github.com/gt-sse-center/copier-ProjectScaffolding-PythonExecutionEnvironmentSample) and [gt-sse-center/copier-ProjectScaffolding-PythonPackageSample](https://github.com/gt-sse-center/copier-ProjectScaffolding-PythonPackageSample).
+Examples of generated output can be found at [gt-sse-center/copier-ProjectScaffolding-Sample-PythonExecutionEnvironment](https://github.com/gt-sse-center/copier-ProjectScaffolding-Sample-PythonExecutionEnvironment) and [gt-sse-center/copier-ProjectScaffolding-Sample-PythonPackage](https://github.com/gt-sse-center/copier-ProjectScaffolding-Sample-PythonPackage).
 
 ![Template Prompts](docs/prompts.png "Template Prompts")
 
@@ -47,7 +47,7 @@ When running copier with the copier-ProjectScaffolding template, you are prompte
 The Python Execution Environment package type creates an environment that contains a stand-alone version of python and installs all required dependencies during the bootstrap process. It produces a small number of files and is best suited for running python scripts. However, it does not contain the tooling required for modern python development (see [Python Package](#python-package) for a project type that does include this type of tooling).
 
 ##### Example Repository
-- [gt-sse-center/copier-ProjectScaffolding-PythonExecutionEnvironmentSample](https://github.com/gt-sse-center/copier-ProjectScaffolding-PythonExecutionEnvironmentSample)
+- [gt-sse-center/copier-ProjectScaffolding-Sample-PythonExecutionEnvironment](https://github.com/gt-sse-center/copier-ProjectScaffolding-Sample-PythonExecutionEnvironment)
 
 ##### Functionality includes:
 - Python bootstrapping via [PythonBootstrapper](https://github.com/davidbrownell/PythonBootstrapper)
@@ -60,7 +60,7 @@ The Python Execution Environment package type creates an environment that contai
 The Python Package project type creates an environment suitable for the development and publishing of [python](https://python.org) packages that adhere to modern best practices.
 
 ##### Example repository
-- [gt-sse-center/copier-ProjectScaffolding-PythonPackageSample](https://github.com/gt-sse-center/copier-ProjectScaffolding-PythonPackageSample)
+- [gt-sse-center/copier-ProjectScaffolding-Sample-PythonPackage](https://github.com/gt-sse-center/copier-ProjectScaffolding-Sample-PythonPackage)
 
 ##### Functionality includes:
 - Python bootstrapping via [PythonBootstrapper](https://github.com/davidbrownell/PythonBootstrapper)
