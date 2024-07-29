@@ -29,7 +29,7 @@ def create_ify_func(
         else:
             value = unicodedata.normalize("NFKD", value).encode("ascii", "ignore").decode("ascii")
         value = re.sub(r"[^\w\s-]", "", value)
-        return re.sub(r"[-\s]+", separator, value).strip("-_")
+        return re.sub(r"[-\s]+", separator, value)
 
     # ----------------------------------------------------------------------
 

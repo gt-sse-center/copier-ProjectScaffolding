@@ -7,8 +7,8 @@ project_name:
   type: str
   help: Enter the name of the project.
   validator: |-
-    {% if not project_name %}
-    Please enter a valid project name.
+    {% if not (project_name | regex_search('^[a-zA-Z][a-zA-Z0-9_-]*$')) %}
+    Project names must 1) Start with a letter 2) Have at least 1 character and 3) Only contain alphanumeric characters, hyphens, and underscores
     {% endif %}
 
 project_description:
@@ -104,6 +104,8 @@ _tasks:
 _jinja_extensions:
 - copier_templates_extensions.TemplateExtensionLoader
 - extensions/context.py:ContextUpdater
+- extensions/escaper.py:QuoteEscaper
+- extensions/escaper.py:TickEscaper
 - extensions/exception.py:ExceptionExtension
 - extensions/slugify.py:PythonifyExtension
 - extensions/slugify.py:SlugifyExtension
