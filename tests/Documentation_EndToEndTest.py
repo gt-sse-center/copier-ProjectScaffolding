@@ -58,7 +58,7 @@ def test_License(license, copie, snapshot):
         Copyright           )Copyright\s+(?#
         Mark                )(?:\([cC]\)\s+)?(?#
         Year                ){datetime.now().year}\s+(?#
-        Project Name        ){configuration_info.configuration['project_name']}(?#
+        Project Name        ){configuration_info.configuration['author_name']}(?#
         End of line         )$(?#
         )""",
         Sub,

@@ -1,4 +1,4 @@
-Copyright {{ '%Y' | strftime }} {{ project_name }}
+Copyright {{ '%Y' | strftime }} {{ author_name }}
 
 Boost Software License - Version 1.0 - August 17th, 2003
 
