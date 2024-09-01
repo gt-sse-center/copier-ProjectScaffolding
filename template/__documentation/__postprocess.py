@@ -324,7 +324,6 @@ def UpdateSecurityFile():
         replacement_info["Submit Vulnerability"] = textwrap.dedent(
             '''\
             We prefer that you use the [GitHub mechanism for privately reporting a vulnerability](https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability#privately-reporting-a-security-vulnerability). Under the [main repository's security tab]({{ github_url }}/security), in the left sidebar, under "Reporting", click "Advisories", click the "New draft security advisory" button to open the advisory form.
-            [issues](https://github.com/coreinfrastructure/best-practices-badge/issues) via our [GitHub site]({{ github_url }}).
             ''',
         )
     else:
