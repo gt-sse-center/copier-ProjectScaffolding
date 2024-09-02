@@ -6,7 +6,7 @@ runs:
   steps:
     - name: Initialize
       id: Initialize
-      uses: davidbrownell/dbrownell_DevTools/.github/actions/initialize@CI-v0.22.1
+      uses: davidbrownell/dbrownell_DevTools/.github/actions/initialize@CI-v0.23.0
       with:
         operating_system: ${{ inputs.operating_system }}
 
