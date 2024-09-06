@@ -244,7 +244,7 @@ def UpdateReadmeFile():
         badges += [
             "[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/{{ python_package_pypi_name }}?color=dark-green)](https://pypi.org/project/{{ python_package_pypi_name }}/)",
             "[![PyPI - Version](https://img.shields.io/pypi/v/{{ python_package_pypi_name }}?color=dark-green)](https://pypi.org/project/{{ python_package_pypi_name }}/)",
-            "[![PyPI - Downloads](https://img.shields.io/pypi/dm/{{ python_package_pypi_name }})](https://pypistats.org/packages/{{ python_package_pypi_name }})",
+            "[![PyPI - Downloads](https://img.shields.io/pypi/dm/{{ python_package_pypi_name.lower() }})](https://pypistats.org/packages/{{ python_package_pypi_name.lower() }})",
         ]
 
         if "{{ python_package_generate_ci_openssf }}".lower() == "true":
