@@ -241,10 +241,17 @@ def UpdateReadmeFile():
     elif "{{ project_type }}" == "PythonExecutionEnvironment":
         replacement_info["Installation"] = "No additional setup is required to use this project.\n"
     elif "{{ project_type }}" == "PythonPackage":
+        # The download package name must be all lowercase with underscores replaced by dashes.
+        # Interestingly, pypistats.org seems to have some logic where it can automatically redirect
+        # to this format for some package names if they are unique (meaning that package names with
+        # uppercase and dashes do resolve to the expected package correctly). However, this method
+        # should work as expected in all cases.
+        download_package_name = "{{ python_package_pypi_name }}".lower().replace("_", "-")
+
         badges += [
             "[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/{{ python_package_pypi_name }}?color=dark-green)](https://pypi.org/project/{{ python_package_pypi_name }}/)",
             "[![PyPI - Version](https://img.shields.io/pypi/v/{{ python_package_pypi_name }}?color=dark-green)](https://pypi.org/project/{{ python_package_pypi_name }}/)",
-            "[![PyPI - Downloads](https://img.shields.io/pypi/dm/{{ python_package_pypi_name.lower() }})](https://pypistats.org/packages/{{ python_package_pypi_name.lower() }})",
+            f"[![PyPI - Downloads](https://img.shields.io/pypi/dm/{download_package_name})](https://pypistats.org/packages/{download_package_name})",
         ]
 
         if "{{ python_package_generate_ci_openssf }}".lower() == "true":
