@@ -82,7 +82,37 @@ def ReplaceContent(
     if regex_factory_func is None:
         raise Exception(f"'{file_extension}' is not a recognized file extension.")
 
-    return regex_factory_func(tag_name).sub(new_content, content)
+    # ----------------------------------------------------------------------
+    def Replace(
+        match: re.Match,
+    ) -> str:
+        return f"{match.group('opening_tag')}{new_content}{match.group('closing_tag')}"
+
+    # ----------------------------------------------------------------------
+
+    return regex_factory_func(tag_name).sub(Replace, content)
+
+
+# ----------------------------------------------------------------------
+def UpdateFile(
+    filename: Path,
+    replacment_info: dict[str, str],
+) -> None:
+    EnsureFile(filename)
+
+    content = filename.read_text(encoding="utf-8")
+
+    for tag_name, new_content in replacment_info.items():
+        content = ReplaceContent(
+            filename.suffix,
+            tag_name,
+            content,
+            new_content,
+        )
+
+    # Ensure that we are always using unix line endings so that diffs work as expected during
+    # updates (this is necessary because Jinja2 is configured to use unix line endings).
+    filename.write_text(content, encoding="utf-8", newline="\n")
 
 
 # ----------------------------------------------------------------------

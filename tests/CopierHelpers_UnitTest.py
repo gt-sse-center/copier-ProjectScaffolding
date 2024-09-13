@@ -122,19 +122,21 @@ class TestReplaceContent:
                 ),
                 textwrap.dedent(
                     """\
-                A
-                B
-                C
-                """,
+                    A
+                    B
+                    C
+                    """,
                 ),
             )
             == textwrap.dedent(
                 """\
             Before
 
+            <!-- [BEGIN] Region Name -->
             A
             B
             C
+            <!-- [END] Region Name -->
 
             After
             """,
@@ -153,6 +155,57 @@ class TestReplaceContent:
                 "Never used",
                 "Never used",
             )
+
+
+# ----------------------------------------------------------------------
+def test_UpdateFile(fs):
+    filename = Path("my_filename.html")
+
+    fs.create_file(
+        filename,
+        contents=textwrap.dedent(
+            """\
+            Before
+
+            <!-- [BEGIN] Region 1 -->
+            <!-- [END] Region 1 -->
+
+            <!-- [BEGIN] Region 2 -->
+            <!-- [END] Region 2 -->
+
+            After
+            """,
+        ),
+    )
+
+    UpdateFile(
+        filename,
+        {
+            "Region 1": "123\n",
+            "Region 2": "abc\n",
+        },
+    )
+
+    assert filename.read_text(encoding="utf-8") == textwrap.dedent(
+        """\
+        Before
+
+        <!-- [BEGIN] Region 1 -->
+        123
+        <!-- [END] Region 1 -->
+
+        <!-- [BEGIN] Region 2 -->
+        abc
+        <!-- [END] Region 2 -->
+
+        After
+        """,
+    )
+
+    filename_bytes = filename.read_bytes()
+
+    assert "\n".encode() in filename_bytes
+    assert "\r\n".encode() not in filename_bytes
 
 
 # ----------------------------------------------------------------------

@@ -47,7 +47,7 @@ def UpdateContributingFile():
     else:
         raise Exception("'{{ hosting_platform }}' is not a recognized hosting platform.")
 
-    _UpdateFile(Path.cwd() / "CONTRIBUTING.md", replacement_info)
+    UpdateFile(Path.cwd() / "CONTRIBUTING.md", replacement_info)
 
 
 # ----------------------------------------------------------------------
@@ -194,7 +194,7 @@ def UpdateDevelopmentFile():
             """,
         ).format(''.join(enlistment_steps).rstrip())
 
-    _UpdateFile(Path.cwd() / "DEVELOPMENT.md", replacement_info)
+    UpdateFile(Path.cwd() / "DEVELOPMENT.md", replacement_info)
 
 
 # ----------------------------------------------------------------------
@@ -318,7 +318,7 @@ def UpdateReadmeFile():
 
     replacement_info["Badges"] = "\n".join(badges) + ("\n" if badges else "")
 
-    _UpdateFile(Path.cwd() / "README.md", replacement_info)
+    UpdateFile(Path.cwd() / "README.md", replacement_info)
 
 
 # ----------------------------------------------------------------------
@@ -336,29 +336,7 @@ def UpdateSecurityFile():
     else:
         raise Exception("'{{ hosting_platform }}' is not a recognized hosting platform.")
 
-    _UpdateFile(Path.cwd() / "SECURITY.md", replacement_info)
-
-
-# ----------------------------------------------------------------------
-# ----------------------------------------------------------------------
-# ----------------------------------------------------------------------
-def _UpdateFile(
-    filename: Path,
-    replacement_info: dict[str, str],
-) -> None:
-    EnsureFile(filename)
-
-    content = filename.read_text(encoding="utf-8")
-
-    for tag_name, new_content in replacement_info.items():
-        content = ReplaceContent(
-            filename.suffix,
-            tag_name,
-            content,
-            new_content,
-        )
-
-    filename.write_text(content, encoding="utf-8")
+    UpdateFile(Path.cwd() / "SECURITY.md", replacement_info)
 
 
 # ----------------------------------------------------------------------

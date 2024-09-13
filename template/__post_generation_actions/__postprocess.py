@@ -34,38 +34,31 @@ def UpdatePostGenerationActionsFile():
     _CreateOpenSSFBadgeInstructions(instructions)
     _CreatePostFinalInstructions(instructions)
 
-    # Update the file
-    post_generation_actions_filename = EnsureFile(Path.cwd() / "post_generation_actions.html")
-
-    content = post_generation_actions_filename.read_text(encoding="utf-8")
-
-    content = ReplaceContent(
-        post_generation_actions_filename.suffix,
-        "Instructions",
-        content,
-        "\n".join(
-            textwrap.dedent(
-                """\
-                <details>
-                    <summary>
-                        <span role="term"><input type="checkbox" id="{title_id}">{index}) {title}</span>
-                    </summary>
-                </details>
-                <div role="definition" class="details-content">
-                    {steps_html}
-                </div>
-                """
-            ).format(
-                index=index + 1,
-                title_id=title.lower().replace(' ', '-'),
-                title=title,
-                steps_html=instruction,
-            )
-            for index, (title, instruction) in enumerate(instructions.items())
-        ),
+    UpdateFile(
+        Path() / "post_generation_actions.html",
+        {
+            "Instructions": "\n".join(
+                textwrap.dedent(
+                    """\
+                    <details>
+                        <summary>
+                            <span role="term"><input type="checkbox" id="{title_id}">{index}) {title}</span>
+                        </summary>
+                    </details>
+                    <div role="definition" class="details-content">
+                        {steps_html}
+                    </div>
+                    """
+                ).format(
+                    index=index + 1,
+                    title_id=title.lower().replace(' ', '-'),
+                    title=title,
+                    steps_html=instruction,
+                )
+                for index, (title, instruction) in enumerate(instructions.items())
+            ),
+        },
     )
-
-    post_generation_actions_filename.write_text(content, encoding="utf-8")
 
 
 # ----------------------------------------------------------------------
