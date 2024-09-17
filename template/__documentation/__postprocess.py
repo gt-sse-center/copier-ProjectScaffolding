@@ -206,6 +206,8 @@ def UpdateReadmeFile():
         replacement_info["Development"] = "Please visit CONTRIBUTING.md and DEVELOPMENT.md for information on contributing to this project."
         replacement_info["Additional Information"] = textwrap.dedent(
             """\
+            | Title | Document | Description |
+            | --- | --- | --- |
             | Code of Conduct | CODE_OF_CONDUCT.md | Information about the the norms, rules, and responsibilities we adhere to when participating in this open source community. |
             | Contributing | CONTRIBUTING.md | Information about contributing code changes to this project. |
             | Development | DEVELOPMENT.md | Information about development activities involved in making changes to this project. |
@@ -219,6 +221,8 @@ def UpdateReadmeFile():
         replacement_info["Development"] = "Please visit [Contributing]({{ github_url }}/blob/main/CONTRIBUTING.md) and [Development]({{ github_url }}/blob/main/DEVELOPMENT.md) for information on contributing to this project."
         replacement_info["Additional Information"] = textwrap.dedent(
             """\
+            | Title | Document | Description |
+            | --- | --- | --- |
             | Code of Conduct | [CODE_OF_CONDUCT.md]({{ github_url }}/blob/main/CODE_OF_CONDUCT.md) | Information about the the norms, rules, and responsibilities we adhere to when participating in this open source community. |
             | Contributing | [CONTRIBUTING.md]({{ github_url }}/blob/main/CONTRIBUTING.md) | Information about contributing code changes to this project. |
             | Development | [DEVELOPMENT.md]({{ github_url }}/blob/main/DEVELOPMENT.md) | Information about development activities involved in making changes to this project. |
