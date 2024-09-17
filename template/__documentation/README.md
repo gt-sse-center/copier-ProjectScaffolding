@@ -38,8 +38,6 @@ TODO: Complete this section
 ## Additional Information
 Additional information can be found at these locations.
 
-| Title | Document | Description |
-| --- | --- | --- |
 <!-- [BEGIN] Additional Information -->
 <!-- [END] Additional Information -->
 
